@@ -1,0 +1,237 @@
+.search__widget,
+.sorting__widget select {
+  padding: 7px 15px;
+  cursor: pointer; background-color:var(--mint-cream);
+  display: flex;
+
+}
+.search__widget input {
+  border: none;
+}
+
+.search__widget input:focus {
+  outline: none;
+}
+
+
+
+.filters {
+    font-family:  'Roboto', sans-serif;
+  background-color: #ffffff;
+  padding: 2rem;
+  
+  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+.filters h4{margin-bottom: 10px;}
+
+
+
+/* The container */
+.containerr {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.containerr input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.containerr:hover input ~ .checkmark {
+  background-color: #05c26a;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerr input:checked ~ .checkmark {
+  background-color: #049a54;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containerr input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerr .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#reset-checkboxes-button {
+  background-color:#05c26a;
+  color: #ffffff;
+  border: none;
+    padding: 12px 18px;
+    font-size: var(--fs, var(--fs-7));
+    font-weight: var(--fw, var(--fw-500));
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#reset-checkboxes-button:hover {
+  background-color: #049a54;
+}
+
+/*  */
+.price_sort{display: flex; padding: 20px 0;}
+.price_sort label{ padding-right: 10px;}
+
+.select{height: 46px;}
+
+
+
+
+
+/*  */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination button {
+ 
+  padding: 8px 16px;font-size: 20px;
+  width: 50px;
+  height: 50px;
+  background-color:#05c26a;
+  border-radius: 50%;
+border: 1px solid #049a54;
+   margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+   transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #049a54;
+  color: #ffffff;
+}
+
+.pagination button.active-page {
+  background-color:#049a54;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+
+.col-container{  font-family:  'Roboto', sans-serif; display: table; 
+    margin-top: 100px;
+  width: 100%;}
+
+.filters-left{  position: -webkit-sticky;
+  position: sticky;
+  top: 120px;
+
+ float: left;
+  font-size: 20px;
+  z-index: 2;
+  width: 265px;
+padding-right: 20px;
+  }
+.filters-left-top{display: flex; justify-content: space-between; padding-bottom: 20px; align-items: center;background-color: var(--mint-cream);padding: 10px;}
+
+
+.search-top{ padding: 5px;margin-bottom: 20px;align-items: center;
+display: flex;justify-content: space-between; background-color: #ffffff;
+}
+
+  .container-right{
+    float:right;
+  margin-top: -544px;
+   width: 855px;
+  }
+
+@media screen and (max-width: 768px) {
+  .filters-left{
+    display: block;position: unset;
+    width: 100%;top: 80px;padding-right: 0px;
+  }
+
+ 
+  .container-right{
+    display: block;
+   width:100%;
+  }
+  .search-top {
+    top: 120px;
+    font-size: 20px;
+  
+    margin-top: 550px;
+    position: revert;
+    display: flex;
+    justify-content: space-between;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .filters-left{
+    display: block;position: unset;
+    width: 100%;
+    
+padding-right: 0px;
+  } 
+  .container-right{
+    display: block;
+   width:100%;
+  }
+.search-top {
+    top: 120px;
+    font-size: 20px;
+  
+    margin-top: 550px;
+    position: revert;
+    display: flex;
+    justify-content: space-between;
+}
+}
+
+
