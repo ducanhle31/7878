@@ -40,6 +40,13 @@ const CartItem = ({ item, onClose }) => {
     dispatch(cartActions.deleteItem(id));
     event.stopPropagation();
   };
+///
+
+
+
+
+
+
 
   const handlePizzaSelection = () =>  {
     navigate(`/pizzas/${id}`);
@@ -95,6 +102,7 @@ const CartItem = ({ item, onClose }) => {
           </span>
         </div>
       </div>
+  
     </ListGroupItem>
   );
 };
