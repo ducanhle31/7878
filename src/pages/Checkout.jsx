@@ -9,7 +9,7 @@ import "../styles/checkout.css";
 import { Container, Row, Col } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
-
+import swal from "sweetalert";
 const Checkout = () => {
   const [enterName, setEnterName] = useState("");
   const [enterEmail, setEnterEmail] = useState("");
@@ -31,6 +31,16 @@ const Checkout = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    swal(
+      "Đặt hàng thành công",
+      "Xin vui lòng kiểm tra email của bạn",
+      "success",
+      {
+        button: false,
+        timer: 3000,
+      }
+    );
+  
     const userShippingAddress = {
       name: enterName,
       email: enterEmail,
@@ -40,9 +50,14 @@ const Checkout = () => {
       postalCode: postalCode,
     };
 
+
     shippingInfo.push(userShippingAddress);
     console.log(shippingInfo);
   };
+
+
+
+  
   return (
     <Helmet title="Thanh toán">
       <div className="breadcumb">
@@ -92,8 +107,7 @@ const Checkout = () => {
                     onChange={(e) => setEnterCountry(e.target.value)}
                   />
                 </div>
-            
-              
+
                 <div className="form__group">
                   <input
                     type="number"
@@ -102,7 +116,11 @@ const Checkout = () => {
                     onChange={(e) => setPostalCode(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="addTOCart__btn">
+                <button
+                  type="submit"
+                
+                  className="addTOCart__btn"
+                >
                   Thanh toán
                 </button>
               </form>

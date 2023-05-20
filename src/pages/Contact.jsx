@@ -2,30 +2,37 @@
 import "../styles/Contact.css" ;import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
+import swal from "sweetalert";
 
-
-  import { ToastContainer, toast } from "react-toastify";
-  import "react-toastify/dist/ReactToastify.css";
 export default function Contact() {
+  
 
-const signupNameRef = useRef();
+  
+  const signupNameRef = useRef();
   const signupPasswordRef = useRef();
   const signupEmailRef = useRef();
+  
+    
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    swal(
+      "Gửi tin thành công",
+      "Xin vui lòng kiểm tra email của bạn",
+      "success",
+      {
+        button: false,
+        timer: 3000,
+      }
+    );
+  
   };
-  const notify = () =>
-    toast.info("Gửi tin thành công", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });;
+
+
+
+
 
   return (
     <Helmet title="Liên hệ">
@@ -73,6 +80,8 @@ const signupNameRef = useRef();
                 </div>
               </div>
               <div className="row">
+              
+
                 <form action="" onSubmit={submitHandler}>
                   <h3>Liên hệ với chúng tôi</h3>
                   <div className="inputBox">
@@ -116,7 +125,6 @@ const signupNameRef = useRef();
 
                   <button
                   
-                    onClick={notify}
                     type="submit"
                     className="addTOCart__btn"
                   >

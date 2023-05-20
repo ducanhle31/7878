@@ -1,7 +1,7 @@
 .text-cente{ margin-top: 80px;
- font-size: 18px;
+ font-size: 24px;
  font-weight:
-700;text-align: center;}
+700;text-align: center; margin-bottom: 30px;}
 
 .mb-5{margin-top: 80px;font-size: 18px;
  font-weight:
@@ -31,12 +31,15 @@ table,.th,.tr, .text-center,.tbody{
 .cart__item-del i {
   cursor: pointer;
 }
-
 .cart__page-btn {
   display: flex;
   flex-wrap: nowrap;
   margin: 2rem 0;
-}
+}.spcard{ display: flex;
+flex-direction: column;
+
+align-content: center;justify-content: center;
+align-items: center; margin-bottom: 80px;}
 
 .cart__page-btn button a:hover {
   color: #ffffff;
@@ -51,7 +54,7 @@ table,.th,.tr, .text-center,.tbody{
 .addTOCart__btn {
 
     background-color: var(--bg-color, var(--emerald));
-    color: var(--color, var(--white));
+    color: var(--color, var(--white))!important;
     display: flex;
     align-items: center;
     gap: 8px;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect} from "react";
+import swal from "sweetalert";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,11 +12,11 @@ import "swiper/css/pagination";
 
 // import required modules
 
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import products from "../assets/fake-data/products";
 import { useParams } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
-  import { ToastContainer, toast } from "react-toastify";
+  import {  toast } from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
 import { Container, Row, Col } from "reactstrap";
 
@@ -58,7 +58,10 @@ const FoodDetails = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+swal("Đánh giá thành công", "Xin vui lòng kiểm tra email của bạn", "success", {
+  button: false,
+  timer: 3000,
+});
     console.log(enteredName, enteredEmail, reviewMsg);
   };
 
@@ -230,7 +233,7 @@ const FoodDetails = () => {
                     </div>
 
                     <button type="submit" className="addTOCart__btn">
-                      Gửi tin
+                    Đánh giá
                     </button>
                   </form>
                 </div>

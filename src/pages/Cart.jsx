@@ -31,7 +31,19 @@ const Cart = () => {
           <Row>
             <Col lg="12">
               {cartItems.length === 0 ? (
-                <h5 className="text-cente">Không có sản phẩm nào trong giỏ</h5>
+                <div className="spcard">
+                  <h1 className="text-cente">
+                    Không có sản phẩm nào trong giỏ!
+                  </h1>
+              
+                    <Link
+                      className="addTOCart__btn me-4 btn-primary"
+                      to="/pizzas"
+                    >
+                      Tiếp tục mua hàng
+                    </Link>
+                
+                </div>
               ) : (
                 <>
                   <h5 className="mb-5">Đơn hàng của bạn</h5>
@@ -51,26 +63,25 @@ const Cart = () => {
                       ))}
                     </tbody>
                   </table>
+                  <div className="mt-4 tong">
+                    <h6>
+                      Tổng phụ :
+                      <span className="cart__subtotal">
+                        {convertMoney(totalAmount)}
+                      </span>
+                    </h6>
+
+                    <div className="cart__page-btn">
+                      <button className="addTOCart__btn me-4">
+                        <Link to="/pizzas">Tiếp tục mua hàng</Link>
+                      </button>
+                      <button className="addTOCart__btn">
+                        <Link to="/checkout">Tiến hành thanh toán</Link>
+                      </button>
+                    </div>
+                  </div>
                 </>
               )}
-
-              <div className="mt-4 tong">
-                <h6>
-                  Tổng phụ :
-                  <span className="cart__subtotal">
-                    {convertMoney(totalAmount)}
-                  </span>
-                </h6>
-
-                <div className="cart__page-btn">
-                  <button className="addTOCart__btn me-4">
-                    <Link to="/pizzas">Tiếp tục mua hàng</Link>
-                  </button>
-                  <button className="addTOCart__btn">
-                    <Link to="/checkout">Tiến hành thanh toán</Link>
-                  </button>
-                </div>
-              </div>
             </Col>
           </Row>
         </Container>
@@ -124,7 +135,7 @@ const Tr = (props) => {
           <span className="decrease__btn" onClick={decreaseItem}>
             <i className="ri-subtract-line"></i>
           </span>
-          <div className="qtyy">{quantity}px</div>
+          <div className="qtyy">{quantity} x</div>
 
           <span className="increase__btn" onClick={incrementItem}>
             <i className="ri-add-line"></i>

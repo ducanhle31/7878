@@ -65,7 +65,7 @@ const CartItem = ({ item, onClose }) => {
           <div className="cardlists">
             <div className="cardlists-1">
               <h6 className="cart__product-title">{title}</h6>
-              <p className=" x  align-items-center gap-5 ">{quantity}x</p>
+              <p className=" x  align-items-center gap-5 ">{quantity} x</p>
             </div>
             <div className="gia">
               <span className="cart__product-price">{convertMoney(price)}</span>

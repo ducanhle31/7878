@@ -1,6 +1,6 @@
 import React from "react";
 
-
+import ScrollToTop from "./ScrollToTop.jsx";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Routes from "../../routes/Routers.jsx";
@@ -13,12 +13,13 @@ const Layout = () => {
 
   return (
     <div>
+      <ScrollToTop />
       <Header />
       {showCart && <Carts />}
       <div>
         <Routes />
       </div>
-    
+
       <Footer />
 
       <Top />
