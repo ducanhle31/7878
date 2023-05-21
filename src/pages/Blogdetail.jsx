@@ -23,7 +23,7 @@ export default function Blogdetails() {
                 Nhập khẩu rau quả vượt mốc 1 tỷ USD, Thái Lan chiếm 60% thị phần
               </h3>
               <img
-                src="/public/images/Thư mục mới/blog-3.jpg"
+                src="/images/Thư mục mới/blog-3.jpg"
                 width={200}
                 height={200}
                 loading="lazy"
