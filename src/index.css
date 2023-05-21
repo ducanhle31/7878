@@ -497,3 +497,35 @@ line-height:
     --bs-btn-disabled-border-color: #05c26a;
 }
 
+/* login */
+.login{
+      height: 35px;
+    width: 82%;
+    background-color: #05c26a;
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;margin-left: 9%;
+}
+.form-control {
+    display: block;
+    width: 81%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .btnlogout{align-items: center; text-align: center;display: flex;margin-left: 36.5%;margin-top: 20px; margin-bottom: 20px;}
+.h1 a:hover{color: black;}
+.user:hover{color: black;}

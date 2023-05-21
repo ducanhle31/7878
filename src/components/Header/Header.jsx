@@ -1,6 +1,6 @@
-import React, { useRef} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Button from "react-bootstrap/Button";
 import { Container } from "reactstrap";
 
 import { NavLink, Link } from "react-router-dom";
@@ -69,7 +69,52 @@ const loginEmailRef = useRef();
 
   console.log(menuRef?.current?.classList.value);
 
- 
+ ///================
+
+    const [logindata, setLoginData] = useState([]);
+
+    const history = useNavigate();
+
+    const [show, setShow] = useState(false);
+
+    var todayDate = new Date().toISOString().slice(0, 10);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const Birthday = () => {
+      const getuser = localStorage.getItem("user_login");
+      if (getuser && getuser.length) {
+        const user = JSON.parse(getuser);
+
+        setLoginData(user);
+
+        const userbirth = logindata.map((el, k) => {
+          return el.date === todayDate;
+        });
+
+        if (userbirth) {
+          setTimeout(() => {
+            console.log("ok");
+            handleShow();
+          }, 3000);
+        }
+      }
+    };
+
+    const userlogout = () => {
+      localStorage.removeItem("user_login");
+      history("/");
+    };
+
+    useEffect(() => {
+      Birthday();
+    }, []);
+
+function refreshPage() {
+  window.location.reload(false);
+  userlogout(true);
+}
   return (
     <div>
       <header className="header" ref={headerRef}>
@@ -115,10 +160,8 @@ const loginEmailRef = useRef();
                 ))}
               </div>
             </div>
-   
 
-
-{/*  */}
+            {/*  */}
 
             {/* ======== nav right icons ========= */}
             <div className="nav__right d-flex align-items-center gap-4">
@@ -129,82 +172,44 @@ const loginEmailRef = useRef();
                 <i className="ri-shopping-basket-line"></i>
                 <span className="cart__badge">{totalQuantity}</span>
               </span>
-                
-              <span className="user  header-action-btn">
-                <label
-                  htmlFor="show1"
-                  className="show-btn1 "
-                >
-                  <i class="ri-user-line"></i>
-                </label>
-              </span>
-             
- 
-              <div className="center1">
-                <input type="checkbox" id="show1" />
-                <div className="container1">
-                 
 
+              <>
+                {logindata.length === 0 ? (
+                  <NavLink to="/inout" className="user  header-action-btn">
+                    <i class="ri-user-line"></i>
+                  </NavLink>
+                ) : (
+                  <>
+                    <div className="imglogin">
+                      <label htmlFor="show1" className="show-btn1 ">
+                        <img src="/images/R.jpg" alt="" />
+                      </label>
+                    </div>
 
-                 
-                   <Components.Container>
-                    <label htmlFor="show1" className="close-btn1" title="close">
-                    <i class="ri-close-line"></i>
-                  </label>
-              <Components.SignUpContainer signinIn={signIn}>
-                  <Components.Form onSubmit={submitHandler}>
-                      <Components.Title>Tạo tài khoản</Components.Title>
-                      <Components.Input type='text' placeholder='Họ và tên' required
-                    ref={signupNameRef} />
-                      <Components.Input type='email' placeholder='Email'  required
-                    ref={signupEmailRef} />
-                      <Components.Input type='password' placeholder='Mật khẩu'  required
-                    ref={signupPasswordRef} />
-                      <Components.Button>Đăng ký</Components.Button>
-                  </Components.Form>
-              </Components.SignUpContainer>
+                    <div className="center1">
+                      <input type="checkbox" id="show1" />
+                      <div className="container1">
+                        <label
+                          htmlFor="show1"
+                          className="close-btn1"
+                          title="close"
+                        >
+                          <i class="ri-close-fill"></i>
+                        </label>
+                        <div className="imgperson">
+                          <img src="/images/R.jpg" alt="" />
+                        </div>
+                        <h1 className="adress">{logindata[0].name}</h1>
+                        <h5 className="adress"> {logindata[0].email}</h5>
+                        <Button className="btnlogout" onClick={refreshPage}>
+                          Đăng xuất
+                        </Button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </>
 
-              <Components.SignInContainer signinIn={signIn}>
-                   <Components.Form onSubmit={submitHandler}>
-                       <Components.Title>Đăng nhập</Components.Title>
-                       <Components.Input type='email' placeholder='Email'  required
-                    ref={loginEmailRef} />
-                       <Components.Input type='password' placeholder='Mật khẩu'   required
-                    ref={loginPasswordRef} />
-                       <Components.Anchor href='#'>Quên mật khẩu?</Components.Anchor>
-                       <Components.Button>Đăng nhập</Components.Button>
-                   </Components.Form>
-              </Components.SignInContainer>
-
-              <Components.OverlayContainer signinIn={signIn}>
-                  <Components.Overlay signinIn={signIn}>
-
-                  <Components.LeftOverlayPanel signinIn={signIn}>
-                      <Components.Title>Chào mừng trở lại!</Components.Title>
-                      <Components.Paragraph>
-                          Để giữ kết nối với chúng tôi, vui lòng đăng nhập bằng thông tin cá nhân của bạn.
-                      </Components.Paragraph>
-                      <Components.GhostButton onClick={() => toggle(true)}>
-                         Đăng nhập
-                      </Components.GhostButton>
-                      </Components.LeftOverlayPanel>
-
-                      <Components.RightOverlayPanel signinIn={signIn}>
-                        <Components.Title>Chào bạn!</Components.Title>
-                        <Components.Paragraph>
-                          Nhập thông tin cá nhân của bạn và bắt đầu hành trình với chúng tôi
-                        </Components.Paragraph>
-                            <Components.GhostButton onClick={() => toggle(false)}>
-                                Đăng ký
-                            </Components.GhostButton> 
-                      </Components.RightOverlayPanel>
-  
-                  </Components.Overlay>
-              </Components.OverlayContainer>
-
-          </Components.Container>
-                </div>
-              </div>
               <div className="nav-open-btn">
                 <span className="mobile__menu  " onClick={toggleMenu}>
                   <i className="ri-menu-line"></i>
@@ -214,8 +219,6 @@ const loginEmailRef = useRef();
           </div>
         </Container>
       </header>
-
-   
     </div>
   );
 };

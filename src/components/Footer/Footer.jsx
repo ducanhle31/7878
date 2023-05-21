@@ -121,17 +121,17 @@ const Footer = () => {
                 <div className="contact-icon">
                   <i class="ri-phone-line"></i>
                 </div>
-                <Link to="/" className="contact-link">
+                <address  className="contact-link">
                   034 444 9999
-                </Link>
+                </address>
               </li>
               <li className="footer-item">
                 <div className="contact-icon">
                   <i class="ri-mail-fill"></i>
                 </div>
-                <Link to="/" className="contact-link">
+                <address className="contact-link">
                   organic.com
-                </Link>
+                </address>
               </li>
             </ul>
             <div className="footer-list">

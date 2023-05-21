@@ -373,10 +373,12 @@
 .container1 {
   position: fixed;
   z-index: 10;
-  top: 50%;
-  left: 50%;
+  top: 42%;
+  left: 85%;
   transform: translate(-50%, -50%);
-  /*  font-family: var(--ff-roboto); */
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+border: 1px solid black;
+
 }
 
 input[type="checkbox"]{
@@ -384,7 +386,7 @@ input[type="checkbox"]{
 } 
 .container1 {
   display: none;
-  background: #fdfdfd; box-shadow: var(--shadow-2);
+  background: #fdfdfd; 
 
   border-radius: 10px;
 }
@@ -598,12 +600,14 @@ display: none;
   .logo h5 {
     margin-top: -55px;
   }
+  .container1{left: 70%; top:50%}
 }
 
 @media only screen and (max-width: 480px) {
   .menu {
     width: 60%;
   }
+    .container1{left: 50%; top:50%}
 }
 
 .header__closeButton {

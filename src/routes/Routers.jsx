@@ -10,12 +10,14 @@ import Blog from "../pages/Blog";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Blogdetails from "../pages/Blogdetail";
-
+ // 
+ import Inout from "../components/Header/Inout";
 const Routers = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/inout" element={<Inout />} />
       <Route path="/pizzas" element={<Pizzas />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
@@ -24,7 +26,6 @@ const Routers = () => {
       <Route path="/blogdetails" element={<Blogdetails />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
- 
     </Routes>
   );
 };
