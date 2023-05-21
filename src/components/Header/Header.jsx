@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
 import "../../styles/LOginOut.css"
- import * as Components from "../../pages/Components";
+
 
 const nav__links = [
   {
@@ -45,11 +45,7 @@ const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 const dispatch = useDispatch();
 
-   const signupNameRef = useRef();
-  const signupPasswordRef = useRef();
-  const signupEmailRef = useRef();
-const loginEmailRef = useRef();
-  const loginPasswordRef = useRef();
+
 
   const submitHandler = (e) => {
     e.preventDefault();

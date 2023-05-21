@@ -554,6 +554,15 @@ form .signup-link1 a:hover {
 
 }
 
+.header__closeButton {
+  width: fit-content;
+  height: 60px;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0.5rem;
+  right: 0rem;
+}
+
 .header__closeButton span i {
   font-size: 18px;
   background: #212245;
@@ -608,15 +617,6 @@ display: none;
     width: 60%;
   }
     .container1{left: 50%; top:50%}
-}
-
-.header__closeButton {
-  width: fit-content;
-  height: 60px;
-  padding: 10px 20px;
-  position: absolute;
-  top: 0.5rem;
-  right: 0rem;
 }
 
 .header__closeButton span i {
