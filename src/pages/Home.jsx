@@ -95,7 +95,7 @@ useEffect(() => {
           </div>
           <figure className="hero-banner">
             <img
-              src="../images/—Pngtree—healthy eating fruit and vegetable_6783161.png"
+              src="/images/—Pngtree—healthy eating fruit and vegetable_6783161.png"
               width={603}
               height={634}
               loading="lazy"
@@ -131,7 +131,7 @@ useEffect(() => {
                 },
               }}
               navigation={true}
-              modules={[Autoplay, Navigation, ]}
+              modules={[Autoplay, Navigation]}
               className="mySwiper"
             >
               <SwiperSlide>
@@ -789,7 +789,7 @@ useEffect(() => {
             <div className="box-container">
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-1.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-1.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">
@@ -814,7 +814,7 @@ useEffect(() => {
               </div>
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-2.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-2.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">
@@ -839,7 +839,7 @@ useEffect(() => {
               </div>
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-3.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-3.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">
@@ -864,7 +864,7 @@ useEffect(() => {
               </div>
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-4.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-4.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">
@@ -889,7 +889,7 @@ useEffect(() => {
               </div>
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-5.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-5.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">
@@ -914,7 +914,7 @@ useEffect(() => {
               </div>
               <div className="box">
                 <div className="image">
-                  <img src="/images/Thư mục mới/blog-6.jpg" alt="" />
+                  <img src="/images/Thư mục mới/blog-6.jpg" alt="" />
                 </div>
                 <div className="content">
                   <div className="icons">

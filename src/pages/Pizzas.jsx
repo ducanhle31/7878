@@ -22,14 +22,17 @@ const searchedProduct = products.filter((item) => {
     return console.log("not found");
   }
 });
+//==============
+
+//======
   const productPerPage = 6;
   const visitedPage = pageNumber * productPerPage;
-  const displayPage = searchedProduct.slice(
-    visitedPage,
-    visitedPage + productPerPage
-  );
+  const displayPage =
+    searchedProduct.slice (visitedPage, visitedPage + productPerPage);
 
-  const pageCount = Math.ceil(searchedProduct.length / productPerPage);
+  const pageCount = Math.ceil(
+    searchedProduct.length / productPerPage
+  );
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -67,6 +70,8 @@ const searchedProduct = products.filter((item) => {
             </div>
             <div className="filters">
               <h4>Danh mục</h4>
+
+
               <label className="containerr">
                 Mới về
                 <input
@@ -117,7 +122,6 @@ const searchedProduct = products.filter((item) => {
                 />
                 <span className="checkmark" />
               </label>
-          
             </div>
             <div className="filters">
               <h4>Trạng thái</h4>
