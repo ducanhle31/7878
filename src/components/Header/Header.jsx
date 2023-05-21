@@ -101,16 +101,14 @@ const dispatch = useDispatch();
     const userlogout = () => {
       localStorage.removeItem("user_login");
       history("/");
+        window.location.reload(false);
     };
 
     useEffect(() => {
       Birthday();
     }, []);
 
-function refreshPage() {
-  window.location.reload(false);
-  userlogout(true);
-}
+
   return (
     <div>
       <header className="header" ref={headerRef}>
@@ -197,7 +195,7 @@ function refreshPage() {
                         </div>
                         <h1 className="adress">{logindata[0].name}</h1>
                         <h5 className="adress"> {logindata[0].email}</h5>
-                        <Button className="btnlogout" onClick={refreshPage}>
+                        <Button className="btnlogout" onClick={userlogout}>
                           Đăng xuất
                         </Button>
                       </div>

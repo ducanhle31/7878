@@ -4,7 +4,7 @@ import {  useState } from "react";
 
 
 import "../styles/checkout.css";
-
+import { useNavigate } from "react-router-dom";
 
 import { Container, Row, Col } from "reactstrap";
 import { NavLink } from "react-router-dom";
@@ -28,7 +28,7 @@ const Checkout = () => {
   const shippingCost = 30000;
 
   const totalAmount = cartTotalAmount + Number(shippingCost);
-
+  const history = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
     swal(
@@ -53,6 +53,10 @@ const Checkout = () => {
 
     shippingInfo.push(userShippingAddress);
     console.log(shippingInfo);
+       history("/home"); 
+      
+      
+
   };
 
 
