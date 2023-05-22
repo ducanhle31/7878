@@ -542,35 +542,6 @@ form .signup-link1 a:hover {
   }
 }
 
-.header__closeButton {
-  width: fit-content;
-  height: 60px;
-  padding: 10px 20px;
-  position: absolute;
-  top: 0.5rem;
-  right: 0rem;
-  margin: 0.5rem 0;
-  display: none;
-
-}
-
-.header__closeButton {
-  width: fit-content;
-  height: 60px;
-  padding: 10px 20px;
-  position: absolute;
-  top: 0.5rem;
-  right: 0rem;
-}
-
-.header__closeButton span i {
-  font-size: 18px;
-  background: #212245;
-  padding: 5px;
-  border-radius: 50%;
-  color: #fff;
-  cursor: pointer;
-}
 .header-logobutton{ display: flex;
  flex-direction: row-reverse; margin-top: -100px; 
 }
@@ -589,9 +560,7 @@ display: none;
 }
 .header-logobutton .h1 .logo{font-size: 30px;}
 @media only screen and (max-width: 992px) {
- .header__closeButton {
-    display: flex;
-  }
+
   .header-logobutton .h1{display: flex;}
 }
 
@@ -610,6 +579,26 @@ display: none;
     margin-top: -55px;
   }
   .container1{left: 70%; top:50%}
+  
+.header__closeButton {
+
+    height: 60px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0.5rem;
+    right: 0rem;
+    margin: 0.5rem 0;
+
+
+}
+.header__closeButton span i {
+  font-size: 18px;
+  background: #05c26a;
+  padding: 5px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -617,16 +606,28 @@ display: none;
     width: 60%;
   }
     .container1{left: 50%; top:50%}
-}
+    
+.header__closeButton {
 
+    height: 60px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0.5rem;
+    right: 0rem;
+    margin: 0.5rem 0;
+  
+
+}
 .header__closeButton span i {
-  font-size: 1.1rem;
-  background: #212245;
+  font-size: 18px;
+  background: #05c26a;
   padding: 5px;
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
 }
+}
+
 
 .header-action-btn {
   position: relative;

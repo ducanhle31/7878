@@ -77,15 +77,20 @@ align-items: center; margin-bottom: 80px;}
 
 .price{color: red;}
 .subquanci{display: flex;justify-content: center;}
-.subquanci .increase__btn{margin-left: 10px; background-color: #fde4e4;color: black; 
+.subquanci .increase__btn{margin-left: 5px; background-color: #fde4e4;color: black; 
   padding: 5px;
 align-items: center;
 border-radius: 10px;
 
 }
- .subquanci .decrease__btn{margin-right: 10px; background-color: #fde4e4;color: black;  padding: 5px;
+ .subquanci .decrease__btn{margin-right: 5px; background-color: #fde4e4;color: black;  padding: 5px;
 align-items: center;border-radius: 10px;}
  .subquanci .qtyy{padding: 5px;
 align-items: center;}
 .increase__bt{background-color: #fde4e4;color: black;  padding: 5px;
 align-items: center;border-radius: 10px;}
+@media screen and (max-width: 480px) {
+  .cart__img-box {
+  width: 85px;
+}
+}
