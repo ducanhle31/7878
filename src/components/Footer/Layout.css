@@ -563,7 +563,9 @@ display: none;
 
   .header-logobutton .h1{display: flex;}
 }
-
+.header__closeButton {
+visibility:hidden;
+}
 @media only screen and (max-width: 768px) {
   .header {
     padding-top: 10px;
@@ -581,7 +583,7 @@ display: none;
   .container1{left: 70%; top:50%}
   
 .header__closeButton {
-
+visibility: inherit;
     height: 60px;
     padding: 10px 20px;
     position: absolute;
@@ -592,12 +594,14 @@ display: none;
 
 }
 .header__closeButton span i {
+visibility: inherit;
   font-size: 18px;
   background: #05c26a;
   padding: 5px;
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
+  
 }
 }
 
@@ -608,7 +612,7 @@ display: none;
     .container1{left: 50%; top:50%}
     
 .header__closeButton {
-
+visibility: inherit;
     height: 60px;
     padding: 10px 20px;
     position: absolute;
@@ -619,6 +623,7 @@ display: none;
 
 }
 .header__closeButton span i {
+visibility: inherit;
   font-size: 18px;
   background: #05c26a;
   padding: 5px;

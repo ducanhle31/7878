@@ -26,13 +26,10 @@ width: 40%;
     background-color: #05c26a;
     color: white;margin:0 1px 0 0;
 }
-.login{
-    height: 35px;
-    width: 82%;
-    background-color:#05c26a;
-    color: white;margin-bottom: 10px;
-    align-items: center; display: flex;
-}
+
+
+
+
 .field_container{
     margin-bottom: 15px;    align-items: center;
     display: flex;

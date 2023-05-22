@@ -24,7 +24,7 @@ export default function Contact() {
       "success",
       {
         button: false,
-        timer: 3000,
+        timer: 2000,
       }
     );
   

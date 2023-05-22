@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@400;500;700&display=swap');
 
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
@@ -496,18 +496,19 @@ line-height:
     --bs-btn-disabled-bg: #05c26a;
     --bs-btn-disabled-border-color: #05c26a;
 }
-
-/* login */
+/*  */
 .login{
       height: 35px;
-    width: 82%;
+width: 30%;
     background-color: #05c26a;
     color: white;
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;margin-left: 9%;
+    align-items: center;
+margin-left: 35%;
 }
+
 .form-control {
     display: block;
     width: 81%;

@@ -37,7 +37,7 @@ const Checkout = () => {
       "success",
       {
         button: false,
-        timer: 3000,
+        timer: 2000,
       }
     );
   
@@ -99,6 +99,7 @@ const Checkout = () => {
                     type="number"
                     placeholder="Số điện thoại"
                     required
+                    className="box"
                     onChange={(e) => setEnterNumber(e.target.value)}
                   />
                 </div>
@@ -120,11 +121,7 @@ const Checkout = () => {
                     onChange={(e) => setPostalCode(e.target.value)}
                   />
                 </div>
-                <button
-                  type="submit"
-                
-                  className="addTOCart__btn"
-                >
+                <button type="submit" className="addTOCart__btn">
                   Thanh toán
                 </button>
               </form>

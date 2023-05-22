@@ -1,7 +1,4 @@
-.checkoutMessage {
-  width: fit-content;
-  margin: 1rem auto;
-}
+
 .mb-4 {
   font-family: Roboto;
   font-size: 18px;
@@ -32,7 +29,6 @@ margin: 80px 0; padding-top: 80px;
   justify-content: space-between;
   line-height: 21.6px;
 }
-
 
 }
 .checkout__bill {
