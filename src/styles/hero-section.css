@@ -9,7 +9,7 @@
 .hero-banner { display: none; }
 
 .hero {
-  background-image: url("../images/hero-left-bg.png");
+  background-image: url("/images/hero-left-bg.png");
   background-color: var(--mint-cream);
   background-repeat: no-repeat;
   background-position: bottom left;
@@ -55,7 +55,7 @@
 \*-----------------------------------*/
 
 .service {
-  background-image: url("../images/partner-left-bg.png");
+  background-image: url("/images/partner-left-bg.png");
   background-color: var(--shamrock-green);
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -197,7 +197,7 @@ transform: translateX(-50%);
 \*-----------------------------------*/
 
 .cta {
-  background-image: url("../images/cta-bg.png");
+  background-image: url("/images/cta-bg.png");
   background-color: var(--mint-cream);
   background-repeat: no-repeat;
   background-size: cover;
@@ -612,7 +612,7 @@ transform: translateX(-50%);
    */
 
   .hero {
-    background-image: url("../images/hero-left-bg.png"), url("../images/hero-right-bg.png");
+    background-image: url("/images/hero-left-bg.png"), url("/images/hero-right-bg.png");
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
   }
@@ -777,7 +777,7 @@ transform: translateX(-50%);
 
   .newsletter-card {
     padding-inline: 20px;
-    background-image: url("../images/partner-left-bg.png"), url("../images/partner-right-bg.png");
+    background-image: url("/images/partner-left-bg.png"), url("/images/partner-right-bg.png");
     background-repeat: no-repeat, no-repeat;
     background-position: left bottom, right top;
   }
@@ -940,7 +940,7 @@ transform: translateX(-50%);
 
   .partner {
     padding-block: 80px;
-    background-image: url("../images/partner-left-bg.png"), url("../images/partner-right-bg.png");
+    background-image: url("/images/partner-left-bg.png"), url("/images/partner-right-bg.png");
     background-repeat: no-repeat, no-repeat;
     background-position: bottom left, top right;
   }

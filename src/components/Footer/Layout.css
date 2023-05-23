@@ -663,8 +663,8 @@ visibility: inherit;
 \*-----------------------------------*/
 
 .footer {
-  background-image: url("../images/hero-left-bg.png"),
-    url("../images/hero-right-bg.png");
+  background-image: url("/images/hero-left-bg.png"),
+    url("/images/hero-right-bg.png");
   background-color: var(--charleston-green);
   background-repeat: no-repeat, no-repeat;
   background-position: bottom left, top right;
@@ -795,7 +795,7 @@ visibility: inherit;
 
 .breadcumb {
   margin-top: 50px;
-  background: url(../images/heading-bg.jpg) ;
+  background: url(/images/heading-bg.jpg) ;
   background-repeat: no-repeat;
 background-size: cover;  background-blend-mode: darken;
   background-position: center;
