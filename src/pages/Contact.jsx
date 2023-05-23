@@ -24,7 +24,7 @@ export default function Contact() {
       "success",
       {
         button: false,
-        timer: 2000,
+        timer: 1000,
       }
     );
   
@@ -82,7 +82,7 @@ export default function Contact() {
               <div className="row">
               
 
-                <form action="" onSubmit={submitHandler}>
+                <form className="formm" action="" onSubmit={submitHandler}>
                   <h3>Liên hệ với chúng tôi</h3>
                   <div className="inputBox">
                     <input

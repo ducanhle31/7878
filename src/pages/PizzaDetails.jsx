@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
-import swal from "sweetalert";
 
+import { View } from "./ViewDetails";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -26,22 +26,30 @@ import { cartActions } from "../store/shopping-cart/cartSlice";
 import "../styles/product-details.css";
 import TopProductCard from "../components/UI/product-card/TopProductCard.jsx";
 import { NavLink } from "react-router-dom";
+// getting the values of local storage
+const getDatafromLS=()=>{
+  const data = localStorage.getItem('books');
+  if(data){
+    return JSON.parse(data);
+  }
+  else{
+    return []
+  }
+}
 const FoodDetails = () => {
   const [tab, setTab] = useState("desc");
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [reviewMsg, setReviewMsg] = useState("");
+  
   const { id } = useParams();
   const dispatch = useDispatch();
- function convertMoney(num) {
-   return num.toLocaleString("it-IT", {
-     style: "currency",
-     currency: "VND",
-   });
- }
+  function convertMoney(num) {
+    return num.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+    });
+  }
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product.image01);
-  const { title, price,del, category, desc, image01 } = product;
+  const { title, price, del, category, desc, image01 } = product;
 
   const relatedProduct = products.filter((item) => category === item.category);
 
@@ -50,20 +58,14 @@ const FoodDetails = () => {
       cartActions.addItem({
         id,
         title,
-        price,del,
+        price,
+        del,
         image01,
       })
     );
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-swal("Đánh giá thành công", "Xin vui lòng kiểm tra email của bạn", "success", {
-  button: false,
-  timer: 3000,
-});
-    console.log(enteredName, enteredEmail, reviewMsg);
-  };
+
 
   useEffect(() => {
     setPreviewImg(product.image01);
@@ -73,17 +75,65 @@ swal("Đánh giá thành công", "Xin vui lòng kiểm tra email của bạn", "
     window.scrollTo(0, 0);
   }, [product]);
 
-   const notify = () =>
-     toast.success("Sản phẩm đã được thêm vào giỏ", {
-       position: "top-right",
-       autoClose: 1000,
-       hideProgressBar: true,
-       closeOnClick: false,
-       pauseOnHover: true,
-       draggable: true,
-       progress: undefined,
-       theme: "colored",
-     });
+  const notify = () =>
+    toast.success("Sản phẩm đã được thêm vào giỏ", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  // main array of objects state || books state || books array of objects
+  const [books, setbooks] = useState(getDatafromLS());
+
+  // input field states
+  const [name, setName] = useState("");
+    const [enteredEmail, setEnteredEmail] = useState("");
+
+  const [isbn, setIsbn] = useState("");
+
+  // form submit event
+  const handleAddBookSubmit = (e) => {
+    e.preventDefault();
+      toast.success("Đánh giá thành công", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    // creating an object
+    let book = {
+      name,
+      enteredEmail,
+      isbn,
+    };
+    setbooks([...books, book]);
+    setName("");
+    setEnteredEmail("");
+    setIsbn("");
+  };
+
+  // delete book from LS
+  const deleteBook = (isbn) => {
+    const filteredBooks = books.filter((element, index) => {
+      return element.isbn !== isbn;
+    });
+    setbooks(filteredBooks);
+  };
+
+  // saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("books", JSON.stringify(books));
+  }, [books]);
+
   return (
     <Helmet title={title}>
       <div className="breadcumb">
@@ -180,60 +230,69 @@ swal("Đánh giá thành công", "Xin vui lòng kiểm tra email của bạn", "
                 </div>
               ) : (
                 <div className="tab__form mb-3">
-                  <div className="review pt-5">
-                    <p className="user__name mb-0">Minh Đức</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">
-                      Chất lượng sản phẩm tuyệt vời.
-                    </p>
-                  </div>
+                  {books.length > 0 && (
+                    <>
+                      <View books={books} deleteBook={deleteBook} />
 
-                  <div className="review">
-                    <p className="user__name mb-0">Thúy</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">
-                      Chất lượng sản phẩm tuyệt vời.
-                    </p>
-                  </div>
+                      <button
+                        className="btn btn-danger btn-md"
+                        onClick={() => setbooks([])}
+                      >
+                      Xóa toàn bộ đánh giá
+                      </button>
+                    </>
+                  )}
+                  {books.length < 1 && (
+                    <div className="review">
+                      <div className="reviewleft">
+                        
+                        <p className="user__name mb-0">Thu Trang</p>
+                        <p className="user__email">jhon1@gmail.com</p>
+                        <p className="feedback__text">
+                          Chất lượng sản phẩm tuyệt vời.
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
-                  <div className="review">
-                    <p className="user__name mb-0">Thu Trang</p>
-                    <p className="user__email">jhon1@gmail.com</p>
-                    <p className="feedback__text">
-                      Chất lượng sản phẩm tuyệt vời.
-                    </p>
-                  </div>
-                  <form className="form" onSubmit={submitHandler}>
+                  <form
+                    autoComplete="off"
+                    className="form"
+                    onSubmit={handleAddBookSubmit}
+                  >
                     <div className="form__group">
                       <input
                         type="text"
                         placeholder="Họ và tên"
-                        onChange={(e) => setEnteredName(e.target.value)}
                         required
-                      />
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                      ></input>
                     </div>
 
                     <div className="form__group">
                       <input
                         type="text"
                         placeholder="Email"
-                        onChange={(e) => setEnteredEmail(e.target.value)}
                         required
-                      />
+                        onChange={(e) => setEnteredEmail(e.target.value)}
+                        value={enteredEmail}
+                      ></input>
                     </div>
 
                     <div className="form__group">
+                      {" "}
                       <textarea
-                        rows={5}
                         type="text"
                         placeholder="Đánh giá"
-                        onChange={(e) => setReviewMsg(e.target.value)}
                         required
-                      />
+                        onChange={(e) => setIsbn(e.target.value)}
+                        value={isbn}
+                      ></textarea>
                     </div>
 
                     <button type="submit" className="addTOCart__btn">
-                    Đánh giá
+                      Đánh giá
                     </button>
                   </form>
                 </div>

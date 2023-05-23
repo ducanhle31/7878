@@ -18,7 +18,7 @@ th {
 .cart__img-box {
   width: 100px;
 }
-
+.align-middle{background-color: #fcfcfc;}
 .th{text-align: center;}
 table,.th,.tr, .text-center,.tbody{
     border:1px solid rgb(0, 0, 0);font-size: 16px;

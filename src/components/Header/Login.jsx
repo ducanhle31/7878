@@ -16,7 +16,6 @@ const Login = () => {
         password: ""
     })
 
-    const [data, setData] = useState([]);
     console.log(inpval);
 
     const getdata = (e) => {
@@ -43,6 +42,7 @@ const Login = () => {
         console.log(getuserArr);
 
         const { email, password } = inpval;
+
         if (email === "") {
             toast.error("Nhập Email", {
               position: "top-center",
@@ -77,7 +77,7 @@ const Login = () => {
               theme: "colored",
             });
         } else if (password.length < 5) {
-          toast.error("ĐỌ dài mật khẩu lớn hơn 5 ký tự!", {
+          toast.error("Độ dài mật khẩu lớn hơn 5 ký tự!", {
             position: "top-center",
             autoClose: 1200,
             hideProgressBar: false,
@@ -96,7 +96,16 @@ const Login = () => {
                 });
 
                 if (userlogin.length === 0) {
-                    alert("Chi tiết không hợp lệ");
+                  toast.error("Tài khoản không hợp lệ. Vui lòng đăng ký.", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                  });
                 } else {
                       toast.success("Đăng nhập thành công!", {
                         position: "top-center",

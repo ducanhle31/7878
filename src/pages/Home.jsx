@@ -264,7 +264,7 @@ useEffect(() => {
 
           <div className=" grid-list  products ">
             {allProducts.map((item) => (
-              <ProductCard item={item} />
+              <ProductCard item={item} key={item.id} />
             ))}
           </div>
         </div>
@@ -291,8 +291,9 @@ useEffect(() => {
           </center>
 
           {/* Swiper */}
-          <>
+        
             <Swiper
+            
               slidesPerView={3}
               spaceBetween={30}
               loop={true}
@@ -328,7 +329,7 @@ useEffect(() => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </>
+      
         </div>
       </section>
 
@@ -496,7 +497,6 @@ useEffect(() => {
                       src="/images/brand/profile1.jpg"
                       width={90}
                       height={90}
-                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -544,7 +544,6 @@ useEffect(() => {
                       src="/images/brand/profile2.jpg"
                       width={90}
                       height={90}
-                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -592,7 +591,6 @@ useEffect(() => {
                       src="/images/brand/profile3.jpg"
                       width={90}
                       height={90}
-                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -641,7 +639,6 @@ useEffect(() => {
                         src="/images/brand/profile4.jpg"
                         width={90}
                         height={90}
-                      
                         alt="Pamelia Hamrick"
                         className="card-avatar"
                       />
@@ -690,7 +687,6 @@ useEffect(() => {
                       src="/images/brand/profile7.jpg"
                       width={90}
                       height={90}
-                  
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -739,7 +735,6 @@ useEffect(() => {
                       src="/images/brand/profile3.jpg"
                       width={90}
                       height={90}
-                  
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -952,7 +947,6 @@ useEffect(() => {
                   src="/images/service-icon-1.png"
                   width={40}
                   height={40}
-                
                   alt="Truck icon"
                 />
               </div>
@@ -964,7 +958,6 @@ useEffect(() => {
                   src="/images/service-icon-2.png"
                   width={40}
                   height={40}
-                
                   alt="Payment card icon"
                 />
               </div>
@@ -976,7 +969,6 @@ useEffect(() => {
                   src="/images/service-icon-3.png"
                   width={40}
                   height={40}
-                  
                   alt="Helpline icon"
                 />
               </div>

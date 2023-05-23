@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import {  Pagination } from "swiper";
 export default function About() {
   return (
  <Helmet title="Giới thiệu">

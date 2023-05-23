@@ -32,7 +32,7 @@ const Carts = () => {
             <i className="ri-close-fill"></i>
           </span>
         </div>
-
+      
         <div className="cart__item-list">
           {cartProducts.length === 0 ? (
             <h6 className="text-cente">Không có sản phẩm nào trong giỏ</h6>
@@ -41,8 +41,6 @@ const Carts = () => {
               <CartItem item={item} key={index} onClose={toggleCart} />
             ))
           )}
-
-    
         </div>
 
         <div className="cart__bottom ">

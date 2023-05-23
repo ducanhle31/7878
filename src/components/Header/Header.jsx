@@ -46,22 +46,12 @@ const Header = () => {
 const dispatch = useDispatch();
 
 
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
-
-    const [signIn, toggle] = React.useState(true);
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
   let navigate = useNavigate();
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
   };
-
-
-
-
 
   console.log(menuRef?.current?.classList.value);
 
@@ -73,7 +63,7 @@ const dispatch = useDispatch();
 
     const [show, setShow] = useState(false);
 
-    var todayDate = new Date().toISOString().slice(0, 10);
+    var todayDate = new Date().toLocaleString("en-GB").slice(0,10);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -93,7 +83,7 @@ const dispatch = useDispatch();
           setTimeout(() => {
             console.log("ok");
             handleShow();
-          }, 3000);
+          }, 1000);
         }
       }
     };
@@ -193,7 +183,9 @@ const dispatch = useDispatch();
                         <div className="imgperson">
                           <img src="/images/R.jpg" alt="" />
                         </div>
+
                         <h1 className="adress">{logindata[0].name}</h1>
+                        <h5 className="adress">{todayDate}</h5>
                         <h5 className="adress"> {logindata[0].email}</h5>
                         <Button className="btnlogout" onClick={userlogout}>
                           Đăng xuất

@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shopping-cart/cartSlice";
-  import { ToastContainer, toast } from "react-toastify";
+  import {  toast } from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
   
 import { Link } from "react-router-dom";

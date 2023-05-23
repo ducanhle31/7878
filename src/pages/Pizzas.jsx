@@ -33,7 +33,7 @@ const Pizzas = () => {
     }
     if (category === "SEARCH") {
       setAllProducts(searchedProduct);
-    }
+    } 
 
     if (category === "RAUCU") {
       const filteredProducts = products.filter(

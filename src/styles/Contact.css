@@ -8,12 +8,13 @@
   gap: 1.5rem;
   margin-top: 50px;
 }
-
+.formm{background-color: #fde4e4;}
 .contact .icons-container .icons {
   text-align: center;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   padding: 2rem;
   align-items: center;
+  background-color: #fcfcfc;
 }
 
 .contact .icons-container .icons i {
@@ -50,7 +51,7 @@ margin-left: 40%;
 }
 
 .contact .row form {
-  padding: 2rem;
+  padding: 2rem; margin-left: 8px;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   -webkit-box-flex: 1;
       -ms-flex: 1 1 40rem;
@@ -85,7 +86,7 @@ margin-left: 40%;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   color: #222;
   text-transform: none;
-  margin: .7rem 0;
+  margin: .7rem 0;background-color: #fde4e4;
 }
 
 .contact .row form textarea {
@@ -102,4 +103,6 @@ margin-left: 40%;
 }
 @media (max-width: 480px){
   .contact .icons-container .icons i {margin-left: 42.5%;}
+  .contact .row form {margin-right: 7px;}
 }
+@media (max-width: 769px){.contact .row form {margin-right: 7px;}}

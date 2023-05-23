@@ -44,6 +44,14 @@
   border-radius: 5px;
 }
 
+.review{display: flex; margin-top: 30px; margin-bottom: 20px;}
+.reviewleft{margin-right: 50px; width: 200px;}
+.delete-btn{
+    background-color: #fde4e4;
+    color: black;
+    padding: 5px;
+    align-items: center;
+    border-radius: 10px;}
 .tabs {
   border-bottom: 1px solid #fde4e4;
 }
@@ -88,7 +96,7 @@ line-height:
 .img__item {
   cursor: pointer;
 }
-
+.product__main-img{width: 360px; height: 360px;}
 
 .form {
   width: 60%;
@@ -115,16 +123,16 @@ line-height:
   outline: none;
 }
 
-.user__name {
+.user__name {font-size: 20px;
   font-weight: 600;
   color: #212245;
 }
 
 .user__email {
-  font-size: 0.8rem;
+  font-size: 14px;
 }
 
-.feedback__text {
+.feedback__text { font-size: 18px;
   color: #212245b6;
 }
 
