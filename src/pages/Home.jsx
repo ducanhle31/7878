@@ -496,7 +496,7 @@ useEffect(() => {
                       src="/images/brand/profile1.jpg"
                       width={90}
                       height={90}
-                      loading="lazy"
+                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -544,7 +544,7 @@ useEffect(() => {
                       src="/images/brand/profile2.jpg"
                       width={90}
                       height={90}
-                      loading="lazy"
+                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -592,7 +592,7 @@ useEffect(() => {
                       src="/images/brand/profile3.jpg"
                       width={90}
                       height={90}
-                      loading="lazy"
+                    
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -641,7 +641,7 @@ useEffect(() => {
                         src="/images/brand/profile4.jpg"
                         width={90}
                         height={90}
-                        loading="lazy"
+                      
                         alt="Pamelia Hamrick"
                         className="card-avatar"
                       />
@@ -690,7 +690,7 @@ useEffect(() => {
                       src="/images/brand/profile7.jpg"
                       width={90}
                       height={90}
-                      loading="lazy"
+                  
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -739,7 +739,7 @@ useEffect(() => {
                       src="/images/brand/profile3.jpg"
                       width={90}
                       height={90}
-                      loading="lazy"
+                  
                       alt="Pamelia Hamrick"
                       className="card-avatar"
                     />
@@ -952,7 +952,7 @@ useEffect(() => {
                   src="/images/service-icon-1.png"
                   width={40}
                   height={40}
-                  loading="lazy"
+                
                   alt="Truck icon"
                 />
               </div>
@@ -964,7 +964,7 @@ useEffect(() => {
                   src="/images/service-icon-2.png"
                   width={40}
                   height={40}
-                  loading="lazy"
+                
                   alt="Payment card icon"
                 />
               </div>
@@ -976,7 +976,7 @@ useEffect(() => {
                   src="/images/service-icon-3.png"
                   width={40}
                   height={40}
-                  loading="lazy"
+                  
                   alt="Helpline icon"
                 />
               </div>
