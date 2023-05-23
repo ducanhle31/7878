@@ -8,7 +8,7 @@
   gap: 1.5rem;
   margin-top: 50px;
 }
-.formm{background-color: #fde4e4;}
+.formm{background-color:#fcfcfc;}
 .contact .icons-container .icons {
   text-align: center;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
@@ -86,7 +86,7 @@ margin-left: 40%;
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
   color: #222;
   text-transform: none;
-  margin: .7rem 0;background-color: #fde4e4;
+  margin: .7rem 0;background-color: #fcfcfc;
 }
 
 .contact .row form textarea {

@@ -101,9 +101,10 @@ line-height:
 .form {
   width: 60%;
   margin: auto;
-  background: #fde4e4;
+  background:#f1f7ee;
   padding: 20px;
   border-radius: 5px;
+      border: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
 
 .form__group {
