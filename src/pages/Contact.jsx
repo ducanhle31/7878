@@ -2,8 +2,9 @@
 import "../styles/Contact.css" ;import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
-import swal from "sweetalert";
 
+  import {  toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 export default function Contact() {
   
 
@@ -18,15 +19,16 @@ export default function Contact() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    swal(
-      "Gửi tin thành công",
-      "Xin vui lòng kiểm tra email của bạn",
-      "success",
-      {
-        button: false,
-        timer: 1000,
-      }
-    );
+  toast.success("Gửi tin thành công", {
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
   
   };
 

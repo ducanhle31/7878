@@ -11,16 +11,7 @@ const Pizzas = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const searchedProduct = products.filter((item) => {
-    if (searchTerm.value === "") {
-      return item;
-    }
-    if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return item;
-    } else {
-      return console.log("không có sản phẩm nào");
-    }
-  });
+  
 
   ///
 
@@ -32,6 +23,16 @@ const Pizzas = () => {
       setAllProducts(products);
     }
     if (category === "SEARCH") {
+      const searchedProduct = products.filter((item) => {
+      if (searchTerm.value === "") {
+        return item;
+      }
+      if (item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return item;
+      } else {
+        return console.log("không có sản phẩm nào");
+      }
+    });
       setAllProducts(searchedProduct);
     } 
 
@@ -216,6 +217,7 @@ const Pizzas = () => {
                 >
                   Giá cao đến thấp
                 </button>
+            
               </div>
             </div>
             <div className="container-right">

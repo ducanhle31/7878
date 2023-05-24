@@ -65,7 +65,7 @@ const dispatch = useDispatch();
 
     var todayDate = new Date().toLocaleString("en-GB").slice(0,10);
 
-    const handleClose = () => setShow(false);
+  
     const handleShow = () => setShow(true);
 
     const Birthday = () => {

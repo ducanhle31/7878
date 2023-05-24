@@ -3,6 +3,7 @@
 @import "typeface-roboto";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -530,3 +531,4 @@ margin-left: 35%;
     .btnlogout{align-items: center; text-align: center;display: flex;margin-left: 36.5%;margin-top: 20px; margin-bottom: 20px;}
 .h1 a:hover{color: black;}
 .user:hover{color: black;}
+
