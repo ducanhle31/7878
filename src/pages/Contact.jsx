@@ -1,5 +1,6 @@
 
-import "../styles/Contact.css" ;import React, { useRef } from "react";
+import "../styles/Contact.css" ;
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
 

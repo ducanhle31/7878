@@ -3,7 +3,7 @@
 }
 .containerrr{ 
     height: 500px;
-    width: 70%;
+    width: 40%;
     background-color: #f1f7ee;
     margin: 20% auto;
 padding-top: 40px;
@@ -76,3 +76,23 @@ padding-top: 40px;
     .btnlogout{align-items: center; text-align: center;display: flex;}
 
 .adress{align-items: center; text-align: center;}    
+@media screen and (max-width: 480px) {
+.containerrr{ 
+    height: 500px;
+    width: 70%;
+    background-color: #f1f7ee;
+    margin: 20% auto;
+padding-top: 40px;
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+}
+@media screen and (max-width: 768px) {
+.containerrr{ 
+    height: 500px;
+    width: 70%;
+    background-color: #f1f7ee;
+    margin: 20% auto;
+padding-top: 40px;
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+}

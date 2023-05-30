@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { View } from "./ViewDetails";
 // Import Swiper React components
@@ -134,6 +134,9 @@ const FoodDetails = () => {
     localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
 
+
+
+  
   return (
     <Helmet title={title}>
       <div className="breadcumb">
@@ -234,23 +237,23 @@ const FoodDetails = () => {
                     <>
                       <View books={books} deleteBook={deleteBook} />
 
-                      <button
+                      {/*   <button
                         className="btn btn-danger btn-md"
                         onClick={() => setbooks([])}
                       >
                       Xóa toàn bộ đánh giá
-                      </button>
+                      </button> */}
                     </>
                   )}
                   {books.length < 1 && (
                     <div className="review">
                       <div className="reviewleft">
-                        
-                        <p className="user__name mb-0">Thu Trang</p>
+                        Chưa có đánh giá.
+                        {/*     <p className="user__name mb-0">Thu Trang</p>
                         <p className="user__email">jhon1@gmail.com</p>
                         <p className="feedback__text">
                           Chất lượng sản phẩm tuyệt vời.
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   )}
@@ -276,6 +279,7 @@ const FoodDetails = () => {
                         placeholder="Email"
                         required
                         onChange={(e) => setEnteredEmail(e.target.value)}
+                      
                         value={enteredEmail}
                       ></input>
                     </div>
