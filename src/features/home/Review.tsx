@@ -1,164 +1,190 @@
-"use client";
+import { useSize } from "@/hooks/useSizeWindow";
+import { Box, Button, Container, Text } from "@chakra-ui/react";
+import styled from "@emotion/styled";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import {
-  Box,
-  Container,
-  Divider,
-  Heading,
-  Image,
-  SimpleGrid,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+export const Item = ({
+  name,
+  label,
+  content,
+  title,
+  image,
+  height,
+}: {
+  name: string;
+  label: string;
+  content: string;
+  title: string;
+  image: string;
+  height: string;
+}) => {
+  const HoverContainer = styled.div`
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    &:hover .Caption {
+      opacity: 1;
+      top: 80%;
+    }
 
-interface Props {
-  children: React.ReactNode;
-}
+    &:hover .Image {
+      transform: scale(1.2);
+    }
+  `;
 
-const Testimonial = (props: Props) => {
-  const { children } = props;
+  const Image = styled.img`
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  `;
 
-  return <Box>{children}</Box>;
-};
-
-const TestimonialContent = (props: Props) => {
-  const { children } = props;
+  const Caption = styled.div`
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+  `;
 
   return (
-    <Stack pl={"30px"} pr={"30px"} align={"center"}>
-      {children}
-    </Stack>
+    <HoverContainer style={{ height: `${height}` }}>
+      <Image
+        className="Image"
+        src={image}
+        alt={name}
+        width={400}
+        height={400}
+      />
+      <Caption className="Caption">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          width="100%"
+          bgPosition="center"
+        >
+          <Button
+            color={"white"}
+            size={"2xl"}
+            rounded={"sm"}
+            fontSize={"15px"}
+            lineHeight={"63px"}
+            p={"0 40px"}
+            bg={"linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)"}
+            transition={"all ease .4s"}
+            _hover={{
+              background:
+                "linear-gradient(135deg,rgb(40,116,252) 0%,rgb(2,3,129) 100%)",
+            }}
+          >
+            <Text>{name}</Text>
+          </Button>
+        </Box>
+      </Caption>
+    </HoverContainer>
   );
 };
+const reviews = [
+  {
+    name: "Nguyễn Văn A",
+    label: "Học sinh khóa X",
+    image: `/student.jpg`,
+    title:
+      "Học Viên Ms Hoa Junior cơ sở Phan Văn Trị, TPHCM xuất sắc đạt 13 - 15 khiên Cambridge",
+    content:
+      "Các em học viên tại Ms Hoa Junior cơ sở 672A47 Đường Phan Văn Trị, Phường 10, Quận Gò Vấp, TPHCM chinh phục chứng chỉ Cambridge một cách xuất sắc. Các con đã luôn cố gắng học tập, rèn luyện tiếng Anh chăm chỉ để có được kết quả này, cô xin chúc mừng các con nhé!",
+    height: "500px",
+  },
+  {
+    name: "Nguyễn Văn A",
+    label: "Học sinh khóa X",
+    image: `/student.jpg`,
+    title:
+      "Học Viên Ms Hoa Junior cơ sở Phan Văn Trị, TPHCM xuất sắc đạt 13 - 15 khiên Cambridge",
+    content:
+      "Các em học viên tại Ms Hoa Junior cơ sở 672A47 Đường Phan Văn Trị, Phường 10, Quận Gò Vấp, TPHCM chinh phục chứng chỉ Cambridge một cách xuất sắc. Các con đã luôn cố gắng học tập, rèn luyện tiếng Anh chăm chỉ để có được kết quả này, cô xin chúc mừng các con nhé!",
+    height: "400px",
+  },
+  {
+    name: "Nguyễn Văn A",
+    label: "Học sinh khóa X",
+    image: `/student.jpg`,
+    title:
+      "Học Viên Ms Hoa Junior cơ sở Phan Văn Trị, TPHCM xuất sắc đạt 13 - 15 khiên Cambridge",
+    content:
+      "Các em học viên tại Ms Hoa Junior cơ sở 672A47 Đường Phan Văn Trị, Phường 10, Quận Gò Vấp, TPHCM chinh phục chứng chỉ Cambridge một cách xuất sắc. Các con đã luôn cố gắng học tập, rèn luyện tiếng Anh chăm chỉ để có được kết quả này, cô xin chúc mừng các con nhé!",
+    height: "500px",
+  },
+  {
+    name: "Nguyễn Văn A",
+    label: "Học sinh khóa X",
+    image: `/student.jpg`,
+    title:
+      "Học Viên Ms Hoa Junior cơ sở Phan Văn Trị, TPHCM xuất sắc đạt 13 - 15 khiên Cambridge",
+    content:
+      "Các em học viên tại Ms Hoa Junior cơ sở 672A47 Đường Phan Văn Trị, Phường 10, Quận Gò Vấp, TPHCM chinh phục chứng chỉ Cambridge một cách xuất sắc. Các con đã luôn cố gắng học tập, rèn luyện tiếng Anh chăm chỉ để có được kết quả này, cô xin chúc mừng các con nhé!",
+    height: "400px",
+  },
+  {
+    name: "Nguyễn Văn A",
+    label: "Học sinh khóa X",
+    image: `/student.jpg`,
+    title:
+      "Học Viên Ms Hoa Junior cơ sở Phan Văn Trị, TPHCM xuất sắc đạt 13 - 15 khiên Cambridge",
+    content:
+      "Các em học viên tại Ms Hoa Junior cơ sở 672A47 Đường Phan Văn Trị, Phường 10, Quận Gò Vấp, TPHCM chinh phục chứng chỉ Cambridge một cách xuất sắc. Các con đã luôn cố gắng học tập, rèn luyện tiếng Anh chăm chỉ để có được kết quả này, cô xin chúc mừng các con nhé!",
+    height: "500px",
+  },
+];
 
-const TestimonialHeading = (props: Props) => {
-  const { children } = props;
-
-  return (
-    <Heading
-      mt={"18px"}
-      fontFamily={"Roboto Condensed"}
-      as={"h3"}
-      fontSize={"16px"}
-      fontWeight={700}
-      textAlign={"center"}
-    >
-      {children}
-    </Heading>
-  );
-};
-
-const TestimonialText = (props: Props) => {
-  const { children } = props;
-
-  return (
-    <Text
-      mt={"8px"}
-      textAlign={"center"}
-      color={"#282828"}
-      fontSize={"sm"}
-      fontFamily={"Montserrat"}
-    >
-      {children}
-    </Text>
-  );
-};
+export const StyledSwiper = styled(Swiper)`
+  width: min(80%, 800px);
+  background-color: transparent;
+`;
 
 export const Review = () => {
+  const { size } = useSize();
+
   return (
-    <Box
-      style={{
-        clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 95%)",
-      }}
-    >
-      <Container pb={"90px"} maxW={"6xl"} pt={"36px"} as={Stack} spacing={12}>
-        <Box
-          display={"flex"}
-          justifyContent={"center"}
-          flexDirection={"column"}
-          alignItems={"center"}
+    <Box py={"62px"}>
+      <Container maxW="9xl" overflow={"hidden"}>
+        <Swiper
+          slidesPerView={
+            size.width < 768
+              ? 1
+              : size.width < 992
+              ? 2
+              : size.width < 1280
+              ? 3
+              : size.width < 1536
+              ? 4
+              : 4
+          }
+          spaceBetween={30}
+          className="mySwiper"
         >
-          <Text
-            textAlign={"center"}
-            fontWeight={700}
-            fontSize={"32px"}
-            color={"#111111"}
-            fontFamily={"Roboto Condensed"}
-          >
-            CAM KẾT
-          </Text>
-          <Divider
-            mt={"10px"}
-            borderColor={useColorModeValue("#777", "#FFF")}
-            w={"80px"}
-            borderWidth={3}
-            borderRadius={"50px"}
-          />
-          <Text
-            fontFamily={"Montserrat"}
-            color={"#282828"}
-            mt={"16px"}
-            textAlign={"center"}
-            maxWidth={"420px"}
-          >
-            Kết thúc khóa học, học viên sẽ nắm được quy trình xây dựng thương
-            hiệu và phát triển bền vững cho doanh nghiệp của mình.
-          </Text>
-        </Box>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={"60px"}>
-          <Testimonial>
-            <TestimonialContent>
-              <Image
-                alt={"feature image"}
-                src={"/ck-1.png"}
-                width={"102px"}
-                height={"106px"}
+          {reviews?.map((review, index) => (
+            <SwiperSlide key={index}>
+              <Item
+                name={review.name}
+                label={review.label}
+                content={review.content}
+                title={review.title}
+                image={review.image}
+                height={review.height}
               />
-              <TestimonialHeading>
-                HỆ THỐNG BÀI GIẢNG TỐI ƯU HÓA
-              </TestimonialHeading>
-              <TestimonialText>
-                Hệ thống bài giảng ngắn gọn, dễ hiểu, tối ưu hóa qua các bài
-                giảng.
-              </TestimonialText>
-            </TestimonialContent>
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <Image
-                alt={"feature image"}
-                src={"/ck-2.png"}
-                width={"102px"}
-                height={"106px"}
-              />
-              <TestimonialHeading>
-                PHƯƠNG PHÁP GIẢNG DẠY ĐỔI MỚI
-              </TestimonialHeading>
-              <TestimonialText>
-                Học viên được giải đáp mọi thắc mắc một cách nhanh nhất ngay
-                trong khóa học.
-              </TestimonialText>
-            </TestimonialContent>
-          </Testimonial>
-          <Testimonial>
-            <TestimonialContent>
-              <Image
-                alt={"feature image"}
-                src={"/ck-3.png"}
-                width={"102px"}
-                height={"106px"}
-              />
-              <TestimonialHeading>CAM KẾT CHẤT LƯỢNG</TestimonialHeading>
-              <TestimonialText>
-                100% Các học viên được hỗ trợ trực tiếp từ diễn giả. Cam kết
-                100% học viên hiểu rõ hành vi khách hàng trực tuyến. 100% học
-                viên biết cách phối hợp các công cụ Digital Marketing, đo lường
-                hiệu quả.
-              </TestimonialText>
-            </TestimonialContent>
-          </Testimonial>
-        </SimpleGrid>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Container>
     </Box>
   );

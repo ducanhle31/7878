@@ -1,40 +1,41 @@
 export const data_themes = {
   //toàn bộ cấu hình router của web được viết ở đây khi thay đổi file này hãy thay đổi cả cấu trúc file trong thư mục pages tương ứng
   routers: [
-  
     {
-      path: "#section0", // the url
+      path: "/", // the url
+      title: "Trang chủ",
+    },
+    {
+      path: "/gioi-thieu", // the url
       title: "Giới thiệu",
     },
+
     {
-      path: "#section1", // the url
-      title: "Đối tượng",
-    },
-  
-    {
-      path: "#section2", // the url
-      title: "Lợi ích",
-    
-    },
-    {
-      path: "#section3", // the url
-      title: "Nội dung khóa học ",
-    },
-    {
-      path: "#section4", // the url
-      title: "Giảng viên",
+      path: "#", // the url
+      title: "Ngành học",
+      childs: [
+        {
+          path: "/nganh-quan-tri-kinh-doanh",
+          title: "Quản trị kinh doanh",
+        },
+
+        {
+          path: "/nganh-ke-toan",
+          title: "Kế toán",
+        },
+      ],
     },
     {
-      path: "#section5", // the url
-      title: "Đối tác ", // view rendered
+      path: "/lich-khai-giang", // the url
+      title: "Khai giảng",
     },
     {
-      path: "#section7", // the url
-      title: "Cam kết ", // view rendered
+      path: "/dang-ky", // the url
+      title: "Đăng ký",
     },
     {
-      path: "#section8", // the url
-      title: "Đăng ký ngay ", // view rendered
+      path: "/tin-tuc", // the url
+      title: "Tin tức", // view rendered
     },
   ],
 

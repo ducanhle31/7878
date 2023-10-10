@@ -19,9 +19,9 @@ interface INavItem {
 }
 
 export const DesktopNav = () => {
-  const linkColor = "rgba(255,255,255,0.8)";
-  const linkHoverColor = "#ffffff";
-
+  const linkColor = "#054659";
+  const linkHoverColor = "#FA692E";
+  const popoverContentBgColor = "white";
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -30,13 +30,11 @@ export const DesktopNav = () => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Box
-                as={"a"}
-              
+                as={Link}
+                p={2}
                 href={navItem.path ?? "#"}
-                fontSize={"12.6"}
+                fontSize={"md"}
                 fontWeight={600}
-              display={"flex"}
-                textTransform={"uppercase"}
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
@@ -47,7 +45,22 @@ export const DesktopNav = () => {
               </Box>
             </PopoverTrigger>
 
-        
+            {navItem.childs && (
+              <PopoverContent
+                border={0}
+                boxShadow={"xl"}
+                bg={popoverContentBgColor}
+                p={4}
+                rounded={"xl"}
+                minW={"sm"}
+              >
+                <Stack>
+                  {navItem.childs.map((child) => (
+                    <DesktopSubNav key={child.title} {...child} />
+                  ))}
+                </Stack>
+              </PopoverContent>
+            )}
           </Popover>
         </Box>
       ))}

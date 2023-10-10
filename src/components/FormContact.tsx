@@ -11,18 +11,677 @@ import {
   SelectProps,
   Text,
   VStack,
-  Textarea,
+  Button,
+  Stack,
+  useColorModeValue,
+  Container,
+  Flex,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { BtnTheme } from "./BtnTheme";
-
+import { FormEvent, ChangeEvent, useEffect, useState } from "react";
+import { BtnThemeContacts, BtnTheme, BtnThemeContactsfooter } from "./BtnTheme";
+import { Loading } from "./Loading";
+import { useRouter } from "next/router";
 interface IForm {
   title?: string;
+  onClose?: () => void;
 }
 
 export const FormContact = (props: IForm) => {
+  const { title, onClose } = props;
+  const [sucess, setSucess] = useState(false);
+  const router = useRouter();
+
+  const validateName = (value: string) => {
+    let error;
+    if (!value) {
+      error = "Họ tên là bắt buộc";
+    } else if (value?.trim().length < 2) {
+      error = "Tên phải lớn hơn 2 ký tự😱";
+    }
+    return error;
+  };
+
+  const validatePhone = (value: string) => {
+    const regex = /^(0[3-9]{1}\d{8})|(02[0-9]{1}\d{7,8})$/;
+    let error;
+    if (!value) {
+      error = "Số điện thoại là bắt buộc";
+    } else if (!regex.test(value.trim())) {
+      error = "Số điện thoại không hợp lệ😱";
+    }
+    return error;
+  };
+
+  const handleSubmit = async (formData: any, actions: any) => {
+    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
+    try {
+      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      actions.setSubmitting(false);
+      if (onClose) {
+        onClose();
+      }
+      router?.push("/dang-ky-thanh-cong");
+    } catch (error) {
+      alert("Đăng ký không thành công, vui lòng thử lại!");
+      actions.setSubmitting(false);
+      setSucess(false);
+    }
+  };
+
+  return (
+    <>
+      <Box rounded={"sm"} px={"20px"} py={"24px"} h={"max-content"}>
+        <Heading
+          fontSize={"36px"}
+          lineHeight={"48px"}
+          textAlign={"left"}
+          fontWeight={"700"}
+          mb={"24px"}
+          color={"#021d6c"}
+        >
+          {!sucess && (title || "Đăng ký ")}
+        </Heading>
+
+        {!sucess && (
+          <Formik
+            initialValues={{
+              name: "",
+              phone: "",
+              "name-child": "",
+              class: "",
+              course: "",
+              email: "",
+              place: "",
+            }}
+            onSubmit={(values, actions) => {
+              handleSubmit(values, actions);
+            }}
+          >
+            {(props) => (
+              <Form>
+                <VStack spacing={"34px"}>
+                  <Field name="name" validate={validateName}>
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl
+                        isRequired
+                        isInvalid={form.errors.name && form.touched.name}
+                      >
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="text"
+                          name="name"
+                          placeholder="Nhập họ tên bạn..."
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                        />
+                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Field name="email">
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl flex={1}>
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="email"
+                          name="email"
+                          placeholder="Nhập email..."
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                        />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Field name="phone" validate={validatePhone}>
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl
+                        isRequired
+                        flex={1}
+                        isInvalid={form.errors.phone && form.touched.phone}
+                      >
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="tel"
+                          name="phone"
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                          placeholder="Nhập số điện thoại..."
+                        />
+                        <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+
+                  <Field name="course">
+                    {({ field, form }: { field: SelectProps; form: any }) => (
+                      <FormControl>
+                        <Select
+                          {...field}
+                          bg={"white"}
+                          placeholder="Chọn ngành học"
+                          name="course"
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                        >
+                          <option>Ngành kế toán</option>
+                          <option>Ngành quản trị kinh doanh</option>
+                        </Select>
+                        <FormErrorMessage>
+                          {form.errors?.course}
+                        </FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+
+                  <BtnThemeContacts
+                    isLoading={props.isSubmitting}
+                    type="submit"
+                    colorScheme="red"
+                    w={"full"}
+                    mt={"24px"}
+                    mb="25px"
+                  >
+                    Đăng ký tư vấn
+                  </BtnThemeContacts>
+                </VStack>
+              </Form>
+            )}
+          </Formik>
+        )}
+      </Box>
+    </>
+  );
+};
+export const FormContactFooter = (props: IForm) => {
+  const { title } = props;
+
+  const [sucess, setSucess] = useState(false);
+
+  const handleSubmit = async (formData: any, actions: any) => {
+    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
+    try {
+      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      actions.setSubmitting(false);
+      setSucess(true);
+    } catch (error) {
+      alert("Đăng ký không thành công, vui lòng thử lại!");
+      actions.setSubmitting(false);
+      setSucess(false);
+    }
+  };
+
+  return (
+    <Box
+      rounded={"sm"}
+      px={{ base: "0px", lg: "60px" }}
+      py={"24px"}
+      h={"max-content"}
+    >
+      <Heading
+        fontSize={"16px"}
+        lineHeight={"24px"}
+        textAlign={"center"}
+        fontWeight={"600"}
+        mb={"24px"}
+        color={sucess ? "white" : "#ffffff"}
+      >
+        {!sucess &&
+          (title || "Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất")}
+        {sucess && "Thành công"}
+      </Heading>
+
+      {!sucess && (
+        <Formik
+          initialValues={{
+            name: "",
+            phone: "",
+            "name-child": "",
+            class: "",
+            course: "",
+            email: "",
+            place: "",
+          }}
+          onSubmit={(values, actions) => {
+            handleSubmit(values, actions);
+          }}
+        >
+          {(props) => (
+            <Form>
+              <VStack>
+                <HStack
+                  justify={"space-between"}
+                  w={{ base: "full", lg: "550px" }}
+                  align={"flex-start"}
+                >
+                  <Field name="email">
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl flex={1}>
+                        <Input
+                          {...field}
+                          bg={"#484848"}
+                          type="email"
+                          name="email"
+                          placeholder="Nhập email..."
+                          _placeholder={{ color: "#fff" }}
+                          color="#fff"
+                          h="50px"
+                        />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+
+                  <BtnThemeContactsfooter
+                    isLoading={props.isSubmitting}
+                    type="submit"
+                    colorScheme="red"
+                  >
+                    Đăng ký tư vấn
+                  </BtnThemeContactsfooter>
+                </HStack>
+              </VStack>
+            </Form>
+          )}
+        </Formik>
+      )}
+
+      {sucess && (
+        <Center flexDir={"column"}>
+          <Image
+            priority
+            src={"/success-icon.png"}
+            width={100}
+            height={100}
+            alt="Thành công"
+          />
+          <Text fontWeight={600} color={"white"} pt={"16px"}>
+            Chúng tôi sẽ liên hệ lại với bạn!
+          </Text>
+        </Center>
+      )}
+    </Box>
+  );
+};
+export const FormContactBanner = (props: IForm) => {
+  const { title, onClose } = props;
+  const router = useRouter();
+  const [sucess, setSucess] = useState(false);
+
+  const validateName = (value: string) => {
+    let error;
+    if (!value) {
+      error = "Họ tên là bắt buộc";
+    } else if (value?.trim().length < 2) {
+      error = "Tên phải lớn hơn 2 ký tự😱";
+    }
+    return error;
+  };
+
+  const validatePhone = (value: string) => {
+    const regex = /^(0[3-9]{1}\d{8})|(02[0-9]{1}\d{7,8})$/;
+    let error;
+    if (!value) {
+      error = "Số điện thoại là bắt buộc";
+    } else if (!regex.test(value.trim())) {
+      error = "Số điện thoại không hợp lệ😱";
+    }
+    return error;
+  };
+
+  const handleSubmit = async (formData: any, actions: any) => {
+    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
+    try {
+      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      actions.setSubmitting(false);
+      if (onClose) {
+        onClose();
+      }
+      router?.push("/dang-ky-thanh-cong");
+    } catch (error) {
+      alert("Đăng ký không thành công, vui lòng thử lại!");
+      actions.setSubmitting(false);
+      setSucess(false);
+    }
+  };
+
+  return (
+    <Box
+      rounded={"sm"}
+      px={{ base: "0", md: "60px", lg: "60px" }}
+      py={"24px"}
+      h={"max-content"}
+    >
+      <Heading
+        fontSize={"36px"}
+        lineHeight={"48px"}
+        textAlign={"left"}
+        fontWeight={"700"}
+        mb={"24px"}
+        color={"#021d6c"}
+      >
+        {!sucess && (title || "Đăng Ký")}
+      </Heading>
+
+      {!sucess && (
+        <Formik
+          initialValues={{
+            name: "",
+            phone: "",
+            "name-child": "",
+            class: "",
+            course: "",
+            email: "",
+            place: "",
+          }}
+          onSubmit={(values, actions) => {
+            handleSubmit(values, actions);
+          }}
+        >
+          {(props) => (
+            <Form>
+              <VStack spacing={"20px"}>
+                <Field name="name" validate={validateName}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="text"
+                        name="name"
+                        placeholder="Nhập họ tên bạn..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl flex={1}>
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="email"
+                        name="email"
+                        placeholder="Nhập email..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="phone" validate={validatePhone}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      flex={1}
+                      isInvalid={form.errors.phone && form.touched.phone}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="tel"
+                        name="phone"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                        placeholder="Nhập số điện thoại..."
+                      />
+                      <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+
+                <Field name="course">
+                  {({ field, form }: { field: SelectProps; form: any }) => (
+                    <FormControl>
+                      <Select
+                        {...field}
+                        bg={"white"}
+                        placeholder="Chọn ngành học"
+                        name="course"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      >
+                        <option>Ngành kế toán</option>
+                        <option>Ngành quản trị kinh doanh</option>
+                      </Select>
+                      <FormErrorMessage>{form.errors?.course}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+
+                <BtnTheme
+                  isLoading={props.isSubmitting}
+                  type="submit"
+                  colorScheme="red"
+                  w={"full"}
+                  mt={"24px"}
+                >
+                  Đăng ký ngay
+                </BtnTheme>
+              </VStack>
+            </Form>
+          )}
+        </Formik>
+      )}
+    </Box>
+  );
+};
+export const FormContactLienhe = (props: IForm) => {
+  const { title } = props;
+  const [sucess, setSucess] = useState(false);
+  const router = useRouter();
+  const validateName = (value: string) => {
+    let error;
+    if (!value) {
+      error = "Họ tên là bắt buộc";
+    } else if (value?.trim().length < 2) {
+      error = "Tên phải lớn hơn 2 ký tự😱";
+    }
+    return error;
+  };
+
+  const validatePhone = (value: string) => {
+    const regex = /^(0[3-9]{1}\d{8})|(02[0-9]{1}\d{7,8})$/;
+    let error;
+    if (!value) {
+      error = "Số điện thoại là bắt buộc";
+    } else if (!regex.test(value.trim())) {
+      error = "Số điện thoại không hợp lệ😱";
+    }
+    return error;
+  };
+
+  const handleSubmit = async (formData: any, actions: any) => {
+    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
+    try {
+      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      actions.setSubmitting(false);
+      setSucess(true);
+  
+      router?.push("/dang-ky-thanh-cong");
+    } catch (error) {
+      alert("Đăng ký không thành công, vui lòng thử lại!");
+      actions.setSubmitting(false);
+      setSucess(false);
+    }
+  };
+
+  return (
+    <Box
+      rounded={"sm"}
+      pl={{ base: "0", md: "60px", lg: "120px" }}
+      py={"24px"}
+      h={"max-content"}
+    >
+      <Heading
+        fontSize={"36px"}
+        lineHeight={"48px"}
+        textAlign={"left"}
+        fontWeight={"700"}
+        mb={"24px"}
+        color={sucess ? "green.700" : "#ffffff"}
+      >
+        {!sucess && (title || "Đăng Ký")}
+    
+      </Heading>
+
+      {!sucess && (
+        <Formik
+          initialValues={{
+            name: "",
+            phone: "",
+            "name-child": "",
+            class: "",
+            course: "",
+            email: "",
+            place: "",
+          }}
+          onSubmit={(values, actions) => {
+            handleSubmit(values, actions);
+          }}
+        >
+          {(props) => (
+            <Form>
+              <VStack spacing={"20px"}>
+                <Field name="name" validate={validateName}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="text"
+                        name="name"
+                        placeholder="Nhập họ tên bạn..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl flex={1}>
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="email"
+                        name="email"
+                        placeholder="Nhập email..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="phone" validate={validatePhone}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      flex={1}
+                      isInvalid={form.errors.phone && form.touched.phone}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="tel"
+                        name="phone"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                        placeholder="Nhập số điện thoại..."
+                      />
+                      <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+
+                <Field name="course">
+                  {({ field, form }: { field: SelectProps; form: any }) => (
+                    <FormControl>
+                      <Select
+                        {...field}
+                        bg={"white"}
+                        placeholder="Chọn ngành học"
+                        name="course"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      >
+                        <option>Ngành kế toán</option>
+                        <option>Ngành quản trị kinh doanh</option>
+                      </Select>
+                      <FormErrorMessage>{form.errors?.course}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+
+                <BtnTheme
+                  isLoading={props.isSubmitting}
+                  type="submit"
+                  colorScheme="red"
+                  w={"full"}
+                  mt={"24px"}
+                >
+                  Đăng ký ngay
+                </BtnTheme>
+              </VStack>
+            </Form>
+          )}
+        </Formik>
+      )}
+
+      
+    </Box>
+  );
+};
+/* export const FormContact = (props: IForm) => {
   const { title } = props;
 
   const [sucess, setSucess] = useState(false);
@@ -70,7 +729,13 @@ export const FormContact = (props: IForm) => {
   };
 
   return (
-    <Box rounded={"sm"} px={"24px"} py={"24px"} h={"max-content"}>
+    <Box
+      bg={"gray.100"}
+      rounded={"sm"}
+      px={"24px"}
+      py={"24px"}
+      h={"max-content"}
+    >
       <Heading
         as={"h2"}
         size={"md"}
@@ -78,7 +743,7 @@ export const FormContact = (props: IForm) => {
         pb={"24px"}
         color={sucess ? "green.700" : "gray.700"}
       >
-        {!sucess}
+        {!sucess && (title || "Tư vấn lộ trình học và ưu đãi")}
         {sucess && "Thành công"}
       </Heading>
       {!sucess && (
@@ -99,31 +764,40 @@ export const FormContact = (props: IForm) => {
           {(props) => (
             <Form>
               <VStack spacing={"12px"}>
+                <Field name="name" validate={validateName}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="text"
+                        name="name"
+                        placeholder="Nhập họ tên bạn..."
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
                 <HStack
                   spacing={"8px"}
                   justify={"space-between"}
                   w={"full"}
                   align={"flex-start"}
                 >
-                  <Field name="name" validate={validateName}>
+                  <Field name="email">
                     {({ field, form }: { field: InputProps; form: any }) => (
-                      <FormControl
-                        isRequired
-                        flex={1}
-                        isInvalid={form.errors.name && form.touched.name}
-                      >
+                      <FormControl flex={1}>
                         <Input
                           {...field}
-                          borderRadius={"50px"}
-                          color="#FFF"
-                          bg={"#f1f1f14d"}
-                          border={"none"}
-                          type="text"
-                          name="name"
-                          placeholder="Tên của bạn"
-                          _placeholder={{ color: "#FFF" }}
+                          bg={"white"}
+                          type="email"
+                          name="email"
+                          placeholder="Nhập email..."
                         />
-                        <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
@@ -136,61 +810,12 @@ export const FormContact = (props: IForm) => {
                       >
                         <Input
                           {...field}
-                          borderRadius={"50px"}
-                          color="#FFF"
-                          border={"none"}
-                          bg={"#f1f1f14d"}
+                          bg={"white"}
                           type="tel"
                           name="phone"
-                          placeholder="Số điện thoại"
-                          _placeholder={{ color: "#FFF" }}
-                        
+                          placeholder="Nhập số điện thoại..."
                         />
                         <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
-                </HStack>
-
-                <HStack
-                  spacing={"8px"}
-                  justify={"space-between"}
-                  w={"full"}
-                  align={"flex-start"}
-                >
-                  <Field name="email">
-                    {({ field, form }: { field: InputProps; form: any }) => (
-                      <FormControl flex={1}>
-                        <Input
-                          {...field}
-                          bg={"#f1f1f14d"}
-                          borderRadius={"50px"}
-                          color="#FFF"
-                          border={"none"}
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                          _placeholder={{ color: "#FFF" }}
-                        />
-                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
-                  <Field name="  place">
-                    {({ field, form }: { field: InputProps; form: any }) => (
-                      <FormControl isRequired flex={1}>
-                        <Input
-                          {...field}
-                          bg={"#f1f1f14d"}
-                          color="#FFF"
-                          border={"none"}
-                          borderRadius={"50px"}
-                          type="tel"
-                          name="phone"
-                          placeholder="Địa chỉ"
-                          _placeholder={{ color: "#FFF" }}
-                        />
-                        <FormErrorMessage>{form.errors.place}</FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>
@@ -199,13 +824,20 @@ export const FormContact = (props: IForm) => {
                 <Field name="course">
                   {({ field, form }: { field: SelectProps; form: any }) => (
                     <FormControl>
-                      <Textarea
-                        color="#FFF"
-                        placeholder="Lời nhắn"
-                        _placeholder={{ color: "#FFF" }}
-                        border={"none"}
-                        bg={"#f1f1f14d"}
-                      />
+                      <Select
+                        {...field}
+                        bg={"white"}
+                        placeholder="Chọn ngành học"
+                        name="course"
+                      >
+                        <option>
+                          Ngành kinh doanh xuất nhập khẩu nông sản
+                        </option>
+                        <option>Ngành công nghệ thực phẩm</option>
+                        <option>Ngành công nghệ thực phẩm tiếng Anh</option>
+                        <option>Ngành nông nghiệp công nghệ cao</option>
+                      </Select>
+                      <FormErrorMessage>{form.errors?.course}</FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -214,10 +846,16 @@ export const FormContact = (props: IForm) => {
                   isLoading={props.isSubmitting}
                   type="submit"
                   colorScheme="red"
+                  w={"full"}
                   mt={"24px"}
                 >
-                  Đăng ký
+                  Đăng ký tư vấn
                 </BtnTheme>
+
+                <Text fontSize={".7rem"} fontWeight={"bold"}>
+                  * Vui lòng để ý điện thoại, chúng tôi sẽ liên hệ bạn sớm
+                  (trong vòng 24h)
+                </Text>
               </VStack>
             </Form>
           )}
@@ -240,7 +878,7 @@ export const FormContact = (props: IForm) => {
       )}
     </Box>
   );
-};
+}; */
 
 const comonForm = ({ id, href }: { id: string; href: string }) => {
   const generateMatch = ({ utm, value }: { utm: string; value?: string }) => {
@@ -349,6 +987,333 @@ const comonForm = ({ id, href }: { id: string; href: string }) => {
   if (!s?.hasChildNodes()) s?.appendChild(f);
 };
 
+export const FormMain = ({ title }: { title?: string }) => {
+  const [id, setId] = useState("getfly-optin-form-iframe-1695175881155");
+  const [href, setHref] = useState(
+    "https://aum.getflycrm.com/api/forms/viewform/?key=AxFWg9xmg9RGLjPsUiSwBCtbhyYTGWB3rBOtmMnxfQCEc9Draw&referrer="
+  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+        comonForm({
+          id,
+          href,
+        });
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getForm();
+  }, [id, href, isLoading]);
+
+  return (
+    <Box minH={"45vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+      {isLoading && <Loading he="38vh" />}
+      {!isLoading && <div id={id} />}
+    </Box>
+  );
+};
+
+/* export const FormPoup = ({ title }: { title?: string }) => {
+  const [id, setId] = useState("getfly-optin-form-iframe-1695175842604");
+  const [href, setHref] = useState(
+    "https://aum.getflycrm.com/api/forms/viewform/?key=Gks7frPWuBMzyzUC6CzH0zKCnGrO7OBcnenVzuBlKcWsplsPTm&referrer="
+  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-poup`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+        comonForm({
+          id,
+          href,
+        });
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getForm();
+  }, [id, href, isLoading]);
+
+  return (
+    <Box minH={"45vh"}>
+      {title && (
+        <Heading
+          as={"h2"}
+          size={{ base: "md", md: "lg" }}
+          textAlign={"center"}
+          color={"blue.700"}
+          pb={"16px"}
+        >
+          Để lại thông tin
+        </Heading>
+      )}
+      {isLoading && <Loading he="38vh" />}
+      {!isLoading && <div id={id} />}
+    </Box>
+  );
+}; */
+export const FormPoup = (props: IForm) => {
+  const { title } = props;
+
+  const [sucess, setSucess] = useState(false);
+
+  const validateName = (value: string) => {
+    let error;
+    if (!value) {
+      error = "Họ tên là bắt buộc";
+    } else if (value?.trim().length < 2) {
+      error = "Tên phải lớn hơn 2 ký tự😱";
+    }
+    return error;
+  };
+
+  const validatePhone = (value: string) => {
+    const regex = /^(0[3-9]{1}\d{8})|(02[0-9]{1}\d{7,8})$/;
+    let error;
+    if (!value) {
+      error = "Số điện thoại là bắt buộc";
+    } else if (!regex.test(value.trim())) {
+      error = "Số điện thoại không hợp lệ😱";
+    }
+    return error;
+  };
+
+  const handleSubmit = async (formData: any, actions: any) => {
+    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
+      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
+    try {
+      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+      actions.setSubmitting(false);
+      setSucess(true);
+    } catch (error) {
+      alert("Đăng ký không thành công, vui lòng thử lại!");
+      actions.setSubmitting(false);
+      setSucess(false);
+    }
+  };
+
+  return (
+    <Box rounded={"sm"} px={"20px"} py={"24px"} h={"max-content"}>
+      <Heading
+        fontSize={"36px"}
+        lineHeight={"48px"}
+        textAlign={"left"}
+        fontWeight={"700"}
+        mb={"24px"}
+        color={sucess ? "green.700" : "#021d6c"}
+      >
+        {!sucess && (title || "Đăng ký ")}
+        {sucess && "Thành công"}
+      </Heading>
+
+      {!sucess && (
+        <Formik
+          initialValues={{
+            name: "",
+            phone: "",
+            "name-child": "",
+            class: "",
+            course: "",
+            email: "",
+            place: "",
+          }}
+          onSubmit={(values, actions) => {
+            handleSubmit(values, actions);
+          }}
+        >
+          {(props) => (
+            <Form>
+              <VStack spacing={"34px"}>
+                <Field name="name" validate={validateName}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="text"
+                        name="name"
+                        placeholder="Nhập họ tên bạn..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl flex={1}>
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="email"
+                        name="email"
+                        placeholder="Nhập email..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="phone" validate={validatePhone}>
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl
+                      isRequired
+                      flex={1}
+                      isInvalid={form.errors.phone && form.touched.phone}
+                    >
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="tel"
+                        name="phone"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                        placeholder="Nhập số điện thoại..."
+                      />
+                      <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                {/*     <HStack
+                  spacing={"8px"}
+                  justify={"space-between"}
+                  w={"full"}
+                  align={"flex-start"}
+                >
+                  <Field name="email">
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl flex={1}>
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="email"
+                          name="email"
+                          placeholder="Nhập email..."
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                        />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                  <Field name="phone" validate={validatePhone}>
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl
+                        isRequired
+                        flex={1}
+                        isInvalid={form.errors.phone && form.touched.phone}
+                      >
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="tel"
+                          name="phone"
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                          placeholder="Nhập số điện thoại..."
+                        />
+                        <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+                </HStack> */}
+
+                <Field name="course">
+                  {({ field, form }: { field: SelectProps; form: any }) => (
+                    <FormControl>
+                      <Select
+                        {...field}
+                        bg={"white"}
+                        placeholder="Chọn ngành học"
+                        name="course"
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      >
+                        <option>Ngành kế toán</option>
+                        <option>Ngành quản trị kinh doanh</option>
+                      </Select>
+                      <FormErrorMessage>{form.errors?.course}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+
+                <BtnThemeContacts
+                  isLoading={props.isSubmitting}
+                  type="submit"
+                  colorScheme="red"
+                  w={"full"}
+                  mt={"24px"}
+                  mb="25px"
+                >
+                  Đăng ký tư vấn
+                </BtnThemeContacts>
+              </VStack>
+            </Form>
+          )}
+        </Formik>
+      )}
+
+      {sucess && (
+        <Center flexDir={"column"}>
+          <Image
+            priority
+            src={"/success-icon.png"}
+            width={100}
+            height={100}
+            alt="Thành công"
+          />
+          <Text fontWeight={600} color={"green.700"} pt={"16px"}>
+            Chúng tôi sẽ liên hệ lại với bạn!
+          </Text>
+        </Center>
+      )}
+    </Box>
+  );
+};
 export const FormGetFly2 = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({

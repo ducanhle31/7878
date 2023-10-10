@@ -1,114 +1,157 @@
-"use client";
-
-import styles from "@/styles/Home.module.css";
 import {
+  As,
   Box,
+  Button,
   Container,
-  Divider,
+  Flex,
   GridItem,
-  List,
+  HStack,
+  Heading,
+  Icon,
   SimpleGrid,
   Text,
-  useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
-import { FormContact } from "../../components/FormContact";
+import Link from "next/link";
+import { FaPhone } from "react-icons/fa6";
+import { InputRes } from "../../components/InputRes";
+export const Item = ({
+  path,
+  title,
+  desc,
+  icon,
+}: {
+  path: string;
+  title: string;
+  desc: string;
+  icon?: As;
+}) => {
+  return (
+    <Box
+      as={Link}
+      href={path || "/"}
+      pos="relative"
+      transition={"all ease .4s"}
+      color={"#004956"}
+      p={{ base: "16px", md: "20px", lg: "24px" }}
+      border={"1px solid"}
+      borderColor={"gray.300"}
+      rounded={"sm"}
+      boxShadow="2xl"
+      mb={"40px"}
+      _hover={{
+        color: " white",
+        transition: "height .5s ease-in-out",
+        background:
+          "linear-gradient(135deg,rgb(40,116,252) 0%,rgb(2,3,129) 100%)",
+        "& Icon": {
+          color: "white",
+        },
+        "& .desc-text": {
+          color: "white",
+        },
+        "& svg": {
+          color: "white",
+        },
+        "& Button": {
+          color: "white",
+        },
+      }}
+    >
+      <Heading as={"h2"} size={{ base: "md" }}>
+        {title}
+      </Heading>
+      <HStack spacing={"12px"} pt={"16px"}>
+        <Icon
+          as={icon}
+          width={{ base: "50px", md: "100px" }}
+          height={{ base: "50px", md: "100px" }}
+          alt="Ngành kế toán HVTC"
+          color={" #4054B2"}
+          mt={"-28px"}
+        />
+
+        <VStack align={"start"}>
+          <Text
+            className="desc-text"
+            color={"gray.500"}
+            fontSize={{ base: ".8rem", md: "sm" }}
+          >
+            {desc}
+          </Text>
+
+          <Button mt={"22px"} variant={"link"} color={"#004956"}>
+            Xem chi tiết
+          </Button>
+        </VStack>
+      </HStack>
+    </Box>
+  );
+};
 
 export const Contact = () => {
   return (
-    <Box
-      pos={"relative"}
-      backgroundRepeat={"no-repeat"}
-      backgroundSize={"cover"}
-      h={{ base: "750px", lg: "500px" }}
-      style={{
-        clipPath: "polygon(0 0, 100% 5%, 100% 100%, 0 100%)",
-      }}
-    >
-      <Container
-        maxW={"6xl"}
-        pt={"60px"}
-        pos={"absolute"}
-        top={0}
-        left={"50%"}
-        transform={"translateX(-50%)"}
-        className="context"
-      >
-        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={"24px"}>
-          <GridItem order={{ base: 1, md: 0 }}>
-            <FormContact />
-          </GridItem>
-          <GridItem pt={"24px"}>
-            <Box color={"white"}>
-              <List
-                spacing={"18px"}
-                p={{ base: "12px", md: "16px" }}
-                rounded={"sm"}
-              >
-                <Box
-                  display={"flex"}
-                  alignItems={"flex-end"}
-                  flexDirection={"column"}
-                >
-                  <Text
-                    textAlign={"right"}
-                    fontWeight={700}
-                    fontSize={"32px"}
-                    color={"white"}
-                    fontFamily={"Roboto Condensed"}
-                  >
-                    Liên hệ
-                  </Text>
-                  <Divider
-                    mt={"10px"}
-                    borderColor={useColorModeValue("white", "white")}
-                    w={"80px"}
-                    borderWidth={3}
-                    borderRadius={"50px"}
-                  />
-                  <Text
-                    mt={"16px"}
-                    letterSpacing={"0.7px"}
-                    textAlign={"right"}
-                    fontFamily={"Montserrat"}
-                    textTransform={"uppercase"}
-                  >
-                    ÁP DỤNG ĐẾN HẾT NGÀY 12/1/2019
-                  </Text>
-                  <Text
-                    letterSpacing={"0.7px"}
-                    textAlign={"right"}
-                    fontFamily={"Montserrat"}
-                    textTransform={"uppercase"}
-                  >
-                    ĐĂNG KÝ KHÓA HỌC NGAY ĐỂ NHẬN ƯU ĐÃI
-                  </Text>
-                  <Text
-                    textAlign={"left"}
-                    color={"white"}
-                    fontWeight={600}
-                    fontSize={{ base: "sm", md: "md", lg: "lg" }}
-                    borderRadius={"100px"}
-                    px={"19px"}
-                    py={"7px"}
-                    mt={"20px"}
-                    bg={"#ed1c24"}
-                    _hover={{ bg: "#b20000;" }}
-                  >
-                    HẤP DẪN ĐẾN TỪNG GIÂY
-                  </Text>
-                </Box>
-              </List>
+    <Box bg={"white"} mb={"18px"}>
+      <Container maxW="6xl">
+        <SimpleGrid
+          spacing={"8"}
+          gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+        >
+          <GridItem
+            borderRadius={"5px"}
+            bg="#a6a6a6a6"
+            height="240px"
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Box mr={"20px"} fontSize={"45px"}>
+              <FaPhone />
             </Box>
+            <Box color={"#fff"}>
+              <Text
+                fontSize={{ base: "2xl", lg: "26px" }}
+                fontWeight={"700"}
+                lineHeight={"29px"}
+                pb={"18px"}
+              >
+                Have any questions?
+              </Text>
+              <Text
+                fontSize={{ base: "3xl", lg: "36px" }}
+                fontWeight={"700"}
+                lineHeight={"43.2px"}
+              >
+                Call:123456789
+              </Text>
+            </Box>
+          </GridItem>
+          <GridItem
+            borderRadius={"5px"}
+            bg="#a6a6a6a6"
+            height="240px"
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            flexDirection={"column"}
+          >
+            <Text
+              color={"#021d6c"}
+              fontSize={{ base: "2xl", lg: "26px" }}
+              fontWeight={"700"}
+              lineHeight={"31px"}
+              pb={"22px"}
+            >
+              Contact for getting quote:
+            </Text>
+            <Flex>
+              <Box maxW="md">
+                <InputRes placeholder="Nhập email để đăng ký" label="Đăng ký" />
+              </Box>
+            </Flex>
           </GridItem>
         </SimpleGrid>
       </Container>
-
-      {/* Animate  */}
-      <Box
-        className={styles["area"]}
-        bg={"linear-gradient(125deg, #feaa26, #e04c6e);"}
-        w={"100%"}
-      ></Box>
     </Box>
   );
 };

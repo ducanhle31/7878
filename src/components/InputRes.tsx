@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import React from "react";
-import { BtnTheme } from "./BtnTheme";
+import {  BtnThemeinput } from "./BtnTheme";
 
 interface IInputRes {
   placeholder?: string;
@@ -14,7 +14,7 @@ export const InputRes = (props: IInputRes) => {
     <InputGroup size="md">
       <Input pr="4.5rem" type="text" placeholder={placeholder} />
       <InputRightElement width="4.5rem" mr="4px">
-        <BtnTheme
+        < BtnThemeinput
           h="2rem"
           size="md"
           colorScheme="red"
@@ -23,7 +23,7 @@ export const InputRes = (props: IInputRes) => {
           onClick={(e) => onClick && onClick(e)}
         >
           {label}
-        </BtnTheme>
+        </ BtnThemeinput>
       </InputRightElement>
     </InputGroup>
   );

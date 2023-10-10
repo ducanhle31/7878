@@ -1,47 +1,116 @@
+"use client";
 import { useSize } from "@/hooks/useSizeWindow";
 import {
+  As,
   Box,
-  Card,
-  CardBody,
   Container,
+  Divider,
   Flex,
+  GridItem,
   Heading,
-  Stack,
+  Icon,
+  SimpleGrid,
   Text,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import Image from "next/image";
+import { AiOutlineDollarCircle } from "react-icons/ai";
+import { BsAlarm, BsFillPeopleFill } from "react-icons/bs";
+import { FaUserGraduate } from "react-icons/fa";
+import { GoPersonFill } from "react-icons/go";
+import {
+  RiArrowLeftSLine,
+  RiArrowRightSLine,
+  RiInputMethodLine,
+} from "react-icons/ri";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { A11y, Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+
 
 export const CardTeacher = ({
   title,
   desc,
-  image,
+  icon,
 }: {
   title: string;
   desc: string;
-  image: string;
+
+  icon?: As;
 }) => {
   return (
-    <Card maxW="sm" bg={"gray.100"}>
-      <CardBody>
-        <Image
-          width={400}
-          height={400}
-          src={image}
-          alt="Green double couch with wooden legs"
-          style={{ borderRadius: "12px" }}
+    <Box
+      h="345px"
+      bg="white"
+      pos="relative"
+      transition={"all ease .4s"}
+      color={"#004956"}
+      p={{ base: "16px", md: "20px", lg: "24px" }}
+      border={"1px solid"}
+      borderColor={"gray.300"}
+      rounded={"sm"}
+      boxShadow="2xl"
+      overflow={"hidden"}
+      mb={"40px"}
+      _hover={{
+        color: " white",
+
+        "& Icon": {
+          color: "white",
+        },
+        "& .desc-text": {
+          color: "white",
+        },
+        "& svg": {
+          color: "white",
+        },
+        "& Button": {
+          color: "white",
+        },
+        "& .Layerr": {
+          top: "0",
+        },
+      }}
+    >
+      <Box
+        className="Layerr"
+        zIndex={"1"}
+        pos={"absolute"}
+        top={"calc(100%)"}
+        h={"100%"}
+        w={"100%"}
+        left={0}
+        bg={"linear-gradient(to left , rgb(40,116,252) ,rgb(2,3,129) )"}
+        transition={"0.5s"}
+      ></Box>
+      <Flex
+        zIndex={"2"}
+        pos={"relative"}
+        flexDirection="column"
+        alignItems="center"
+      >
+        <Icon
+          as={icon}
+          alt="Ngành kế toán HVTC"
+          color={" #4054B2"}
+          borderRadius="full"
+          boxSize="50px"
         />
-        <Stack mt="6" spacing="3">
-          <Heading size="md">{title}</Heading>
-          <Text>{desc}</Text>
-        </Stack>
-      </CardBody>
-    </Card>
+
+        <Heading mt="20px" textAlign="center" as={"h2"} size={{ base: "md" }}>
+          {title}
+        </Heading>
+        <Text
+          mt="10px"
+          className="desc-text"
+          color={"gray.500"}
+          fontSize={{ base: ".8rem", md: "sm" }}
+        >
+          {desc}
+        </Text>
+      </Flex>
+    </Box>
   );
 };
 
@@ -51,108 +120,177 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
   width: 300px;
 `;
 
+export const SwiperNavButtons = () => {
+  const swiper = useSwiper();
+  const NavButtonsContainer = styled.div`
+    display: flex;
+    justify-content: right;
+    margin-top: 50px;
+    right: inherit;
+    padding-bottom: 30px;
+  `;
+  const NavButton = styled.button`
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: hsl(0, 0%, 100%);
+    color: #000000;
+    margin: 0px 1rem;
+    box-shadow: 0px 0px 10px 10px rgba(196, 196, 196, 0.6);
+    transition: all 0.5s;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    &:hover {
+      background-color: hsl(
+        40.08298755186722,
+        96.7871485943775%,
+        48.82352941176471%
+      );
+      cursor: pointer;
+      color: #ffffff;
+    }
+  `;
+  return (
+    <NavButtonsContainer className="swiper-nav-btns">
+      <NavButton onClick={() => swiper.slideNext()}>
+        {" "}
+        <RiArrowLeftSLine />
+      </NavButton>
+      <NavButton onClick={() => swiper.slidePrev()}>
+        <RiArrowRightSLine />
+      </NavButton>
+    </NavButtonsContainer>
+  );
+};
+
 export const ListTeacher = () => {
   const { size } = useSize();
 
   const teachers = [
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Tiết kiệm chi phí ",
+      desc: "Chủ động lựa chọn thời gian, địa điểm học tập phù hợp. Học ngay tại nhà hay bất cứ đâu, tiết kiệm tối đa chi phí phát sinh",
+
+      icon: AiOutlineDollarCircle,
     },
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Thời gian học ngắn ",
+      desc: "Nhận bằng chỉ từ 2 đến 4 năm đào tạo tùy thuộc điều kiện đầu vào. Đăng ký học theo tín chỉ, sinh viên có thể học vượt đẩy nhanh thời gian đào tạo",
+
+      icon: BsAlarm,
     },
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Phương pháp hiện đại ",
+      desc: "Chương trình học áp dụng phương pháp đào tạo trực tuyến theo hình thức E-Learning hiện đại, tạo ra môi trường học tập và trao đổi online thuận lợi nhất cho sinh viên",
+
+      icon: RiInputMethodLine,
     },
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Giảng viên đầu ngành  ",
+      desc: "Đội ngũ giảng viên có chuyên môn cao, giàu kinh nghiệm đào tạo, hiện đang trực tiếp công tác tại trường ",
+
+      icon: GoPersonFill,
     },
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Bằng tốt nghiệp ",
+      desc: "Tốt nghiệp sinh viên được nhận Bằng cử nhân do Học Viện Tài Chính cấp, được Bộ GD&ĐT công nhận, có giá trị tương đương bằng chính quy, Đủ điều kiện học lên cao học, xét bậc lương, thi công chức theo đúng quy định ",
+
+      icon: FaUserGraduate,
     },
     {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
-    },
-    {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
-    },
-    {
-      title: "Ms Huyền - Giáo viên được yêu thích nhất",
-      desc: "2 năm sinh sống và làm việc tại Anh",
-      avt: `/teacher-2.png`,
+      title: "Cơ hội việc làm  ",
+      desc: "Dễ dàng hơn khi xin việc, xét bậc lương tăng khả năng thăng tiến, đủ điều kiện thi cao học, công chức theo đúng quy định của Nhà nước ",
+
+      icon: BsFillPeopleFill,
     },
   ];
 
   return (
-    <Container maxW={"9xl"}>
-      <Heading
-        as={Flex}
-        fontSize={"2xl"}
-        color={"red.500"}
-        gap={"8px"}
-        flexDir={{ base: "column", md: "row" }}
-        justify={"center"}
-        pb={"32px"}
-        textAlign={"center"}
-      >
-        300+ GIÁO VIÊN
-        <Heading fontSize={"2xl"} color={"gray.700"} textAlign={"center"}>
-          TRUYỀN CẢM HỨNG
-        </Heading>
-      </Heading>
-      <Box>
-        <Swiper
-          effect={"coverflow"}
-          autoplay={{ delay: 1 }}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={
-            size.width < 768
-              ? 1
-              : size.width < 992
-              ? 2
-              : size.width < 1280
-              ? 3
-              : size.width < 1536
-              ? 4
-              : 6
-          }
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination]}
-          className="mySwiper"
+    <Box mt={{ base: "0", md: "0", lg: "200px" }}>
+      <Container maxW={"6xl"}>
+        <SimpleGrid
+          pt={"30px"}
+          spacing={"8"}
+          gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+          marginBottom={"60px"}
         >
-          {teachers.map((teacher, index) => (
-            <StyledSwiperSlide key={index}>
-              <CardTeacher
-                title={teacher.title}
-                desc={teacher.desc}
-                image={teacher.avt}
+          <GridItem>
+            <Box display={"flex"}>
+              <Divider
+                w={"70px"}
+                pt={"40px"}
+                mr={"20px"}
+                borderColor={"#f5750d"}
+                style={{ borderBottomWidth: "4px" }}
               />
-            </StyledSwiperSlide>
-          ))}
-        </Swiper>
-      </Box>
-    </Container>
+
+              <Box
+                fontWeight="bold"
+                textAlign={"left"}
+                pt={"12px"}
+                fontSize={"36px"}
+                color="#00165a"
+                fontFamily="Montserrat"
+                display="inline"
+              >
+                TẠI SAO NÊN HỌC TỪ XA TẠI{" "}
+                <Text display="inline" color="#f5750d">
+                  AOF E-LEARNING?
+                </Text>
+              </Box>
+            </Box>
+          </GridItem>
+          <GridItem
+            textAlign={"left"}
+            fontSize={"16px"}
+            color={"#4d546b"}
+            fontWeight={"500"}
+          >
+            <Text pt={"20px"} lineHeight={"30px"}>
+              Bạn đang muốn tìm trường Đại Học chất lượng, phương pháp học hiện
+              đại, tiết kiệm thời gian chi phí? Chương trình đại học HỆ TỪ XA
+              tại AOF sẽ giúp bạn điều đó!
+            </Text>
+            <Text lineHeight={"30px"}>
+              Chương trình đại học HỆ TỪ XA tại AOF sẽ giúp bạn điều đó!
+            </Text>
+          </GridItem>
+        </SimpleGrid>
+        <Box>
+          <Swiper
+            autoplay={{ delay: 3000 }}
+            loop={true}
+            slidesPerView={
+              size.width < 768
+                ? 1
+                : size.width < 992
+                ? 2
+                : size.width < 1280
+                ? 3
+                : size.width < 1536
+                ? 4
+                : 4
+            }
+            spaceBetween={30}
+            modules={[Navigation, A11y, Autoplay]}
+            className="mySwiper"
+          >
+            {teachers?.map((teacher, index) => (
+              <StyledSwiperSlide key={index}>
+                <CardTeacher
+                  title={teacher.title}
+                  desc={teacher.desc}
+                  icon={teacher.icon}
+                />
+              </StyledSwiperSlide>
+            ))}
+            <SwiperNavButtons />
+          </Swiper>
+        </Box>
+      </Container>
+    </Box>
   );
 };

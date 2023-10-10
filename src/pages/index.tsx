@@ -1,17 +1,13 @@
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { Loading } from "@/components/Loading";
 import { Home } from "@/features/home";
 
-interface IHomepage {
-  news: any[];
-  totalNews: string;
-  notifis: any[];
-  totalNotifis: string;
-}
-
-const Page = (props: IHomepage) => {
-  const { news, notifis } = props;
+const Page = () => {
   return (
     <>
-      <Home news={news || []} notifis={notifis || []} />
+      <ErrorBoundary fallback={<Loading />}>
+        <Home />
+      </ErrorBoundary>
     </>
   );
 };

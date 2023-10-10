@@ -1,36 +1,38 @@
 export const menus = [
   {
-    path: "#section0", // the url
-    title: "Giới thiệu",
+    path: "/", // the url
+    title: "Trang chủ",
   },
   {
-    path: "#section1", // the url
-    title: "Đối tượng",
+    path: "/gioi-thieu", // the url
+    title: "Giới thiệu",
   },
 
   {
-    path: "#section2", // the url
-    title: "Lợi ích",
-  
+    path: "#", // the url
+    title: "Ngành học",
+    childs: [
+      {
+        path: "/nganh-quan-tri-kinh-doanh",
+        title: "Quản trị kinh doanh",
+      },
+
+      {
+        path: "/nganh-ke-toan",
+        title: "Kế toán",
+      },
+    ],
   },
   {
-    path: "#section3", // the url
-    title: "Nội dung khóa học ",
+    path: "/lich-khai-giang", // the url
+    title: "Lịch khai giảng",
   },
   {
-    path: "#section4", // the url
-    title: "Giảng viên",
+    path: "/lien-he", // the url
+    title: "Đăng ký",
   },
   {
-    path: "#section5", // the url
-    title: "Đối tác ", // view rendered
-  },
-  {
-    path: "#section7", // the url
-    title: "Cam kết ", // view rendered
-  },
-  {
-    path: "#section8", // the url
-    title: "Đăng ký ngay ", // view rendered
+    path: "/tin-tuc", // the url
+    title: "Tin tức", // view rendered
   },
 ];

@@ -22,7 +22,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
-
+import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
 
 interface INavItem {
@@ -111,7 +111,7 @@ export const MobileNav = () => {
         ref={btnRef}
         onClick={onOpen}
         icon={<Icon as={AiOutlineMenu} w={"24px"} h={"24px"} />}
-        variant={"ghost"} 
+        variant={"ghost"}
         aria-label={"Toggle Navigation"}
       />
       <Drawer
@@ -124,7 +124,7 @@ export const MobileNav = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Flex justify={"center"} >
+            <Flex justify={"center"}>
               <Logo />
             </Flex>
           </DrawerHeader>
