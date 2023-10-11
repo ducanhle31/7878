@@ -12,14 +12,14 @@ import {
 export const Lienhe = () => {
   return (
     <>
-      <Box bgImage={"/bg-page-title.jpg"} objectFit="cover">
+      <Box bgImage={"/bg-page-title.jpg"}   bgSize="cover" bgRepeat={"no-repeat"}>
         <Container maxW="6xl">
           <SimpleGrid
             gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
           >
             <GridItem
               pt={{ base: "100px", md: "128px", lg: "128px" }}
-              pb={{ base: "0", lg: "160px" }}
+              pb={{ base: "0",md:"70px", lg: "140px" }}
               display={"flex"}
               flexDirection={"column"}
               alignItems={"flex-start"}
@@ -76,7 +76,7 @@ export const Lienhe = () => {
               alignItems={"center"}
               justifyContent={"center"}
               flexDirection={"column"}
-              pb={{ base: "0", lg: "160px" }}
+              pb={{ base: "50px", lg: "140px" }}
             >
               <FormContactLienhe />
             </GridItem>

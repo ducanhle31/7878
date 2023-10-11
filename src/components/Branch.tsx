@@ -106,13 +106,13 @@ export const Branch = (props: IBranch) => {
         ))}
       </Box>
       <HStack pb={"16px"}>
-        <Heading as={"h2"} size={"md"}>
+        <Heading as={"h2"} fontSize={"26px"}>
           Đăng ký nhận chương trình học tại…..
         </Heading>
       </HStack>
       <Box pt={"26px"}>
         <HStack pb={"16px"}>
-          <Heading as={"h2"} size={"md"}>
+          <Heading as={"h2"} fontSize={"26px"}>
             Thời gian đào tạo
           </Heading>
         </HStack>
@@ -141,7 +141,7 @@ export const Branch = (props: IBranch) => {
             borderColor={"#f5750d"}
             style={{ borderBottomWidth: "4px" }}
           />
-          <Heading as={"h2"} fontSize={"24px"}>
+          <Heading as={"h2"} fontSize={"36px"} color="#00165a">
             {`  Mục tiêu đào tạo ngành ${name}`}
           </Heading>
         </HStack>
@@ -155,7 +155,7 @@ export const Branch = (props: IBranch) => {
       </Box>
       <Box pt={"32px"}>
         <HStack>
-          <Heading as={"h2"} size={"md"}>
+          <Heading as={"h2"} fontSize={"26px"}>
             Đối tượng dự tuyển được xác định tại thời điểm xét tuyển:
           </Heading>
         </HStack>
@@ -169,7 +169,7 @@ export const Branch = (props: IBranch) => {
       </Box>
       <Box pt={"32px"}>
         <HStack>
-          <Heading as={"h2"} size={"md"}>
+          <Heading as={"h2"} fontSize={"26px"}>
             Phương thức tuyển sinh
           </Heading>
         </HStack>

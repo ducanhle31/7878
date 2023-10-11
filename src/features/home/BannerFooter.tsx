@@ -1,60 +1,31 @@
 import { FormContactBanner } from "@/components/FormContact";
 import {
-  AspectRatio,
   Box,
-  Button,
   Container,
   Divider,
   Flex,
   GridItem,
   Heading,
   Image,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   SimpleGrid,
   Text,
-  useDisclosure,
 } from "@chakra-ui/react";
 import CountUp from "react-countup";
-import { BsFillPlayFill } from "react-icons/bs";
 interface ICounter {
   start: number;
   end: number;
   subfix: string;
   prefix?: string;
   image?: string;
+  text?: string;
 }
-interface ModalComponentProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const ModalComponent: React.FC<ModalComponentProps> = ({ isOpen, onClose }) => {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent maxW="900px" h={"506px"} bg={"#ffffff0"}>
-        <AspectRatio maxW="900px" h={"506px"} ratio={1}>
-          <iframe
-            title="naruto"
-            src="https://www.youtube.com/embed/QhBnZ6NPOY0"
-            allowFullScreen
-          />
-        </AspectRatio>
-      </ModalContent>
-    </Modal>
-  );
-};
-
-export default ModalComponent;
 
 const counters = [
   {
     start: 0,
     end: 3,
     suffix: "trường ĐH đạt chuẩn chất lượng giáo dục ",
-    prefix: "Top",
+    text: "Top",
     image: "/counter-icon-01.png",
   },
   {
@@ -62,17 +33,19 @@ const counters = [
     end: 1000,
     suffix: "Học viên theo học Hệ từ xa năm 2023 ",
     image: "/counter-icon-02.png",
+    prefix: "+",
   },
   {
     start: 0,
     end: 15,
     suffix: "Huân chương cao quý của Đảng và Nhà nước ",
     image: "/counter-icon-03.png",
+    prefix: "+",
   },
 ];
 
 export const Counter = (props: ICounter) => {
-  const { start, end, subfix, image, prefix = "+" } = props;
+  const { start, end, subfix, image, prefix, text } = props;
 
   return (
     <CountUp
@@ -93,15 +66,27 @@ export const Counter = (props: ICounter) => {
             flexDir="column"
             alignItems={"flex-start"}
           >
-            <span
-              style={{
-                fontSize: "36px",
-                textAlign: "left",
-                fontWeight: "600",
-                color: "red",
-              }}
-              ref={countUpRef}
-            />
+            <Box>
+              <span
+                style={{
+                  fontSize: "36px",
+                  textAlign: "left",
+                  fontWeight: "600",
+                  color: "red",
+                }}
+              >
+                {text}
+              </span>
+              <span
+                style={{
+                  fontSize: "36px",
+                  textAlign: "left",
+                  fontWeight: "600",
+                  color: "red",
+                }}
+                ref={countUpRef}
+              />
+            </Box>
 
             <Heading fontSize="14px" fontWeight={500} color="red">
               {subfix}
@@ -114,7 +99,6 @@ export const Counter = (props: ICounter) => {
 };
 
 export const BannerFooter = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box
       pt={{ base: "290px", md: "290px", lg: "0" }}
@@ -159,29 +143,13 @@ export const BannerFooter = () => {
               textAlign={"left"}
               pt={"20px"}
               lineHeight={"30px"}
-              fontSize={"16px"}
+              fontSize={"18px"}
               color={"#4d546b"}
             >
               Chọn HỆ TỪ XA Học Viện Tài Chính – Trường đại học TOP ĐẦU đào tạo
               khối ngành kinh tế sẽ là bệ phóng giúp các bạn sinh viên chinh
               phục nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
             </Text>
-            <Box display={"flex"} mt={"40px"}>
-              <Button
-                w={"50px"}
-                h={"50px"}
-                color={"#4054B2"}
-                borderRadius={"100%"}
-                className="arrow-left"
-                fontSize={"20px"}
-                onClick={onOpen}
-                mr={"20px"}
-                shadow={"0px 0px 16px 0px rgba(135,135,135,1)"}
-              >
-                <BsFillPlayFill />
-              </Button>
-              <Image src="/signature.png" alt="Dan " />
-            </Box>
           </GridItem>
           <GridItem
             w="100%"
@@ -201,10 +169,11 @@ export const BannerFooter = () => {
                 subfix={counter.suffix}
                 prefix={counter.prefix}
                 image={counter.image}
+                text={counter.text}
               />
             ))}
           </GridItem>
-          <GridItem mt="-20px" w="100%" colSpan={7}>
+          <GridItem mt="-20px" w="100%" mb="0px" colSpan={7}>
             <FormContactBanner />
           </GridItem>
         </SimpleGrid>
@@ -235,14 +204,14 @@ export const BannerFooter = () => {
         w="77%"
         h="1200px"
         bgImage={"./bg-pricing-03.png"}
-        backgroundPosition="center bottom"  backgroundRepeat="no-repeat"
+        backgroundPosition="center bottom"
+        backgroundRepeat="no-repeat"
         style={{
           clipPath: "polygon(36% 0, 100% 0, 100% 100%, 0% 100%)",
         }}
       >
         {" "}
       </Box>
-      <ModalComponent isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

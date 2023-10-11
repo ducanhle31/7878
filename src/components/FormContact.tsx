@@ -553,9 +553,10 @@ export const FormContactLienhe = (props: IForm) => {
   return (
     <Box
       rounded={"sm"}
-      pl={{ base: "0", md: "60px", lg: "120px" }}
+      pl={{ base: "0", md: "60px", lg: "100px" }}
       py={"24px"}
       h={"max-content"}
+      w={{base:"max", md:"400px",lg:"500px"}}
     >
       <Heading
         fontSize={"36px"}
@@ -563,7 +564,7 @@ export const FormContactLienhe = (props: IForm) => {
         textAlign={"left"}
         fontWeight={"700"}
         mb={"24px"}
-        color={sucess ? "green.700" : "#ffffff"}
+        color={ "#ffffff"}
       >
         {!sucess && (title || "Đăng Ký")}
     

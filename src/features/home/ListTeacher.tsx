@@ -245,7 +245,7 @@ export const ListTeacher = () => {
           </GridItem>
           <GridItem
             textAlign={"left"}
-            fontSize={"16px"}
+            fontSize={"18px"}
             color={"#4d546b"}
             fontWeight={"500"}
           >

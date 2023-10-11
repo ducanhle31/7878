@@ -1,7 +1,7 @@
 "use client";
 
 import { Loading } from "@/components/Loading";
-import { Box, Container, Divider, Heading } from "@chakra-ui/react";
+import { Box, Container, Divider, Heading, Text } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
@@ -28,13 +28,21 @@ export const Posts = () => {
 
   return (
     <Box pb={"40px"}>
-      <Box bg="radial-gradient(circle, rgba(5,70,89,1) 2%, rgba(98,212,245,1) 100%, rgba(252,89,52,1) 100%)">
-        <Container maxW={"6xl"} py="60px">
+      <Box
+        w={"100%"}
+        bgImage="/bg-page-title.jpg"
+        bgRepeat={"no-repeat"}
+        bgSize={"cover"}
+        bgPosition={"-10px"}
+      >
+        <Container maxW={"6xl"} py="62px">
           <Heading
             as="h2"
             textAlign={"center"}
-            size={"lg"}
-            pb="16px"
+            fontSize={{ base: "36px", lg: "40px" }}
+            fontWeight={700}
+            mt="75px"
+            mb="75px"
             color={"white"}
           >
             Tin tức Học Viện Tài Chính

@@ -23,7 +23,7 @@ export const BoxTest = () => {
           <Heading
             as="h1"
             textAlign={"center"}
-            fontSize={{ base: "36px", lg: "55px" }}
+            fontSize='36px'
             fontWeight={700}
             pt="75px"
             color={"white"}

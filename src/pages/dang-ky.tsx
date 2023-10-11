@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
 
 const Lienhe = dynamic(
-  () => import("@/features/lien-he").then((mod) => mod.Lienhe),
+  () => import("@/features/dang-ky").then((mod) => mod.Lienhe),
   {
     loading: () => <Loading />,
   }

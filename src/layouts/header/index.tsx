@@ -3,37 +3,128 @@ import { BtnThemeContact } from "@/components/BtnTheme";
 import { FormContact } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import { Box, Container, Flex, HStack, useDisclosure } from "@chakra-ui/react";
+import { css, keyframes } from "@emotion/react";
+import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 import { DesktopNav } from "../components/DeskhopNav";
 import { HeaderTop } from "../components/HeaderTop";
 import { MobileNav } from "../components/MobileNav";
-import { useEffect, useState } from "react";
 
-export const Header = () => {
+interface NavProps {
+  isSticky: boolean;
+}
+
+const NavContainer = styled.nav<NavProps>`
+  z-index: 1000;
+
+  transition: all 0.5s ease-out;
+  ${(props) =>
+    props.isSticky &&
+    css`
+      position: fixed;
+      z-index: 1000;
+      width: 100%;
+      top: 0px;
+      background: #fff;
+      animation: ${navtransDown} 0.7s 1 linear;
+    `}
+  @media (max-width: 992px) {
+    ${(props) =>
+      props.isSticky &&
+      css`
+        top: 0px;
+      `}
+  }
+`;
+
+const NavbarBrand = styled.div<NavProps>`
+  display: flex;
+  justify-content: center;
+
+  box-shadow: ${(props) =>
+    props.isSticky
+      ? "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+      : "none"};
+`;
+const HiddenBox = styled(Box)<NavProps>`
+  display: ${(props) => (props.isSticky ? "block" : "none")};
+  height: 76px;
+`;
+const navtransDown = keyframes`
+  from {
+    transform: translate(0, -90px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+`;
+
+export const Navigation = () => {
+  const [isSticky, setIsSticky] = useState<boolean>(false);
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
-  const [containerWidth, setContainerWidth] = useState("6xl");
-  const [containerPadding, setContainerPadding] = useState("4");
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      // Adjust the width of the Container based on the scroll position
-      if (scrollTop > 0) {
-        setContainerWidth("100%");
-        setContainerPadding("10px");
-      } else {
-        setContainerWidth("6xl");
-        setContainerPadding("4"); // Set the original width here
-      }
-    };
-
-    // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
-
-    // Clean up the listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  return (
+    <NavContainer isSticky={isSticky}>
+      <Box>
+        <NavbarBrand isSticky={isSticky}>
+          <Container
+            as={Flex}
+            bg={"white"}
+            color={"gray.600"}
+            minH={"60px"}
+            py={{ base: 2 }}
+            align={"center"}
+            maxW={"6xl"}
+            mt={{ lg: isSticky ? "0px" : "-30px", base: "0px" }}
+            boxShadow={
+              isSticky
+                ? "none"
+                : "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+            }
+            pos={"absolute"}
+            zIndex={5}
+          >
+            <Flex ml={{ base: -2 }} display={{ base: "flex", lg: "none" }}>
+              <MobileNav />
+            </Flex>
+            <Flex
+              flex={{ base: 1 }}
+              justify={{ base: "center", lg: "start" }}
+              align={"center"}
+            >
+              <Flex display={{ base: "none", lg: "flex" }} ml={10}>
+                <DesktopNav />
+              </Flex>
+            </Flex>
+            <BtnThemeContact size={"lg"} onClick={onToggle}>
+              Đăng ký tư vấn
+            </BtnThemeContact>
+          </Container>
+          <HiddenBox isSticky={isSticky}></HiddenBox>
+        </NavbarBrand>
+      </Box>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <FormContact onClose={onClose} />
+      </ModalBase>
+    </NavContainer>
+  );
+};
+
+export const Header = () => {
   return (
     <>
       <Box
@@ -61,50 +152,7 @@ export const Header = () => {
           <HeaderTop />
         </HStack>
       </Box>
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        position={"sticky"}
-        top={"29px"}
-        zIndex={1000}
-      >
-        <Container
-          as={Flex}
-          bg={"white"}
-          color={"gray.600"}
-          minH={"60px"}
-          py={{ base: 2 }}
-          px={containerPadding}
-          align={"center"}
-          maxW={containerWidth}
-          mt={"-30px"}
-          boxShadow={
-            "rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;"
-          }
-          pos={"absolute"}
-          zIndex={5}
-        >
-          <Flex ml={{ base: -2 }} display={{ base: "flex", lg: "none" }}>
-            <MobileNav />
-          </Flex>
-          <Flex
-            flex={{ base: 1 }}
-            justify={{ base: "center", lg: "start" }}
-            align={"center"}
-          >
-            <Flex display={{ base: "none", lg: "flex" }} ml={10}>
-              <DesktopNav />
-            </Flex>
-          </Flex>
-          <BtnThemeContact size={"lg"} onClick={onToggle}>
-            Đăng ký tư vấn
-          </BtnThemeContact>
-        </Container>
-      </Box>
-  
-     <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormContact onClose={onClose} />
-      </ModalBase> 
+      <Navigation />
     </>
   );
 };

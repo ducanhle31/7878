@@ -28,7 +28,7 @@ export const menus = [
     title: "Lịch khai giảng",
   },
   {
-    path: "/lien-he", // the url
+    path: "/dang-ky", // the url
     title: "Đăng ký",
   },
   {
