@@ -1,38 +1,62 @@
 "use client";
 
-import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import {
+  Box,
+  Container,
+  Grid,
+  Heading,
+  Text,
+  Image,
+  Button,
+  Link,
+} from "@chakra-ui/react";
 
 export const About = () => {
   return (
-    <Box color={"blue.800"}>
+    <Box color={"blue.800"} >
       <Box
         w={"100%"}
-        bgImage="/bg-page-title.jpg"
+        bg="rgba(0, 0, 0, 0)"
+        bgSize="cover"
         bgRepeat={"no-repeat"}
-        bgSize={"cover"}
-        bgPosition={"-10px"}
+        position="relative"
       >
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bgImage="/bg-gt.jpg"
+          zIndex={-1}
+          filter="auto"
+          brightness="40%"
+          bgSize="cover"
+          bgRepeat={"no-repeat"}
+          bgPosition={"0px"}
+        ></Box>
         <Container maxW={"6xl"} py="62px">
-          <Heading
-            as="h2"
-            textAlign={"center"}
-            fontSize={{ base: "36px", lg: "40px" }}
-            fontWeight={700}
-            mt="75px"
-            color={"white"}
-          >
-            Giới thiệu Học Viện Tài Chính
-          </Heading>
-          <Text
-            mt={"18px"}
-            fontSize={"16px"}
-            textAlign={"center"}
-            color={"white"}
-            pb="60px"
-          >
-            Trang chủ - Giới thiệu
-          </Text>
+          <Box>
+            <Heading
+              as="h2"
+              textAlign={"center"}
+              fontSize={{ base: "36px", lg: "40px" }}
+              fontWeight={700}
+              mt="75px"
+              color={"white"}
+            >
+              Giới thiệu Học Viện Tài Chính
+            </Heading>
+            <Text
+              mt={"18px"}
+              fontSize={"16px"}
+              textAlign={"center"}
+              color={"white"}
+              pb="60px"
+            >
+              Trang chủ - Giới thiệu
+            </Text>
+          </Box>
         </Container>
       </Box>
 
@@ -80,6 +104,25 @@ export const About = () => {
           DCND Lào.
         </Text>
         <Text>Cờ thi đua của Chính phủ và nhiều phần thưởng cao quý khác.</Text>
+        <Box display="flex" alignItems="center" justifyContent="center">
+          <Button
+            as={Link}
+            href="/dang-ky"
+            color={"white"}
+            size={"md"}
+            rounded={"sm"}
+            borderRadius="4px"
+            mt="30px"
+            bg={"linear-gradient(90deg,#f55301 0%,#ff9f00 50%,#f55301)"}
+            transition={"all ease .4s"}
+            h={"50px"}
+            _hover={{
+              background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
+            }}
+          >
+            NHẬN TƯ VẤN MIỄN PHÍ
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

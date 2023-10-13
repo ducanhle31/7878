@@ -1,5 +1,8 @@
+import { FormContact } from "@/components/FormContact";
+import { ModalBase } from "@/components/Modal";
 import {
   Box,
+  Button,
   Container,
   Divider,
   Flex,
@@ -7,10 +10,12 @@ import {
   Heading,
   SimpleGrid,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { FormContactFooter } from "./FormContact";
 
 export const BoxTest = () => {
+  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <>
       <Box
@@ -23,7 +28,7 @@ export const BoxTest = () => {
           <Heading
             as="h1"
             textAlign={"center"}
-            fontSize='36px'
+            fontSize="36px"
             fontWeight={700}
             pt="75px"
             color={"white"}
@@ -45,39 +50,9 @@ export const BoxTest = () => {
             <GridItem colSpan={2} pr={{ base: "0", md: "30px", lg: "30px" }}>
               <SimpleGrid
                 spacing="30px"
-                gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+                gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
                 mt="73px"
               >
-                <Box
-                  bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
-                  borderRadius={"18px"}
-                  h={{ base: "160px", lg: "180px" }}
-                
-                >
-                  <Flex
-                    mt="27px"
-                    lineHeight="50px"
-                    textAlign={"center"}
-                    fontSize="50px"
-                    fontWeight="700"
-                    color="#222222"
-                    flexDirection="column"
-                    alignItems="center"
-                  >
-                    22
-                    <Divider
-                      w={"40px"}
-                      pt="5px"
-                      textAlign={"center"}
-                      borderColor={"#ff7300"}
-                      style={{ borderBottomWidth: "4px" }}
-                    />
-                  </Flex>
-
-                  <Text lineHeight="45px" textAlign={"center"} fontSize="24px">
-                    Ngày
-                  </Text>
-                </Box>
                 <Box
                   bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
                   borderRadius={"18px"}
@@ -155,11 +130,44 @@ export const BoxTest = () => {
               </Box>
             </GridItem>
           </SimpleGrid>
-          <Box mt="80px" pb="100px">
+          <Text
+            fontSize={"16px"}
+            lineHeight={"24px"}
+            textAlign={"center"}
+            fontWeight={"600"}
+            mt={"60px"}
+            color={"#ffffff"}
+          >
+            Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất
+          </Text>
+          <Flex
+            mt="80px"
+            pb="100px"
+            justifyContent="center"
+            alignItems="center"
+          >
             <FormContactFooter />
-          </Box>
+            <Button
+              color={"white"}
+              size={"md"}
+              rounded={"sm"}
+              borderRadius="4px"
+              bg={"linear-gradient(90deg,#f55301 0%,#ff9f00 50%,#f55301)"}
+              transition={"all ease .4s"}
+              h={"50px"}
+              _hover={{
+                background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
+              }}
+              onClick={onToggle}
+            >
+              ĐĂNG KÝ NGAY
+            </Button>
+          </Flex>
         </Container>
       </Box>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <FormContact title="Để lại thông tin" onClose={onClose} />
+      </ModalBase>
     </>
   );
 };

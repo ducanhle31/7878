@@ -1,5 +1,7 @@
 "use client";
 
+import { FormContact } from "@/components/FormContact";
+import { ModalBase } from "@/components/Modal";
 import {
   Accordion,
   AccordionButton,
@@ -11,11 +13,13 @@ import {
   HStack,
   Heading,
   Icon,
+  Link,
   List,
   ListIcon,
   ListItem,
   Text,
   UnorderedList,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { BiPlus } from "react-icons/bi";
 import { BsCheckLg } from "react-icons/bs";
@@ -77,6 +81,7 @@ export const Accs = ({
 
 export const Branch = (props: IBranch) => {
   const { name, overview, jobs, program, person, procedure } = props;
+  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box color={"blue.800"}>
       <Flex>
@@ -105,9 +110,9 @@ export const Branch = (props: IBranch) => {
           </Text>
         ))}
       </Box>
-      <HStack pb={"16px"}>
-        <Heading as={"h2"} fontSize={"26px"}>
-          Đăng ký nhận chương trình học tại…..
+      <HStack py={"16px"}>
+        <Heading color="#fe9800" as={Link} fontSize={"26px"} onClick={onToggle}>
+          Đăng ký ngay
         </Heading>
       </HStack>
       <Box pt={"26px"}>
@@ -181,6 +186,9 @@ export const Branch = (props: IBranch) => {
           ))}
         </Box>
       </Box>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <FormContact title="Để lại thông tin" onClose={onClose} />
+      </ModalBase>
     </Box>
   );
 };

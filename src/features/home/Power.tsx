@@ -1,5 +1,3 @@
-import { FormContact} from "@/components/FormContact";
-import { ModalBase } from "@/components/Modal";
 import {
   Box,
   Button,
@@ -13,14 +11,18 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { Loading } from "@/components/Loading";
+import { FormContact } from "@/components/FormContact";
+import { ModalBase } from "@/components/Modal";
 
 export const Timer = () => {
+  const [loading, setLoading] = useState(true);
   const [days, setDays] = useState<number>(0);
   const [hr, setHr] = useState<number>(0);
   const [min, setMin] = useState<number>(0);
   const [sec, setSec] = useState<number>(0);
 
-  const targetDate: Date = new Date("2023-10-12T00:00:00.000Z");
+  const targetDate: Date = new Date("2023-10-19T00:00:00.000Z");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -34,6 +36,7 @@ export const Timer = () => {
         setHr(0);
         setMin(0);
         setSec(0);
+         setLoading(false);
       } else {
         const remainingSeconds: number = Math.floor(timeDifference / 1000);
         const remainingMinutes: number = Math.floor(remainingSeconds / 60);
@@ -43,19 +46,23 @@ export const Timer = () => {
         setHr(remainingHours % 24);
         setMin(remainingMinutes % 60);
         setSec(remainingSeconds % 60);
+        setLoading(false);
       }
     }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <List
       display="flex"
       pt="10px"
       fontSize="26px"
       fontWeight="700"
-      textAlign="center" color='red'
+      textAlign="center"
+      color="red"
     >
       <Box pr="20px">
         <Text>{days}</Text>
@@ -97,13 +104,13 @@ export const Power = () => {
             />
 
             <Box
-              color={"#f0ac00"}
+              color={"#00165a"}
               mt="25px"
               fontSize={"24px"}
               fontWeight="600"
               textAlign="center"
             >
-              Khai Giảng Khóa cuối
+              Thời gian nhận hồ sơ xét tuyển
             </Box>
             <Flex justifyContent="center">
               <Timer />
@@ -200,8 +207,7 @@ export const Power = () => {
         </SimpleGrid>
       </Container>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-      <FormContact title="Để lại thông tin" onClose={onClose} />
-      
+        <FormContact title="Để lại thông tin" onClose={onClose} />
       </ModalBase>
     </Box>
   );

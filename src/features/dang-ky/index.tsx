@@ -9,17 +9,36 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
+
 export const Lienhe = () => {
   return (
     <>
-      <Box bgImage={"/bg-page-title.jpg"}   bgSize="cover" bgRepeat={"no-repeat"}>
+      <Box
+        bg="rgba(0, 0, 0, 0)"
+        bgSize="cover"
+        bgRepeat={"no-repeat"}
+        position="relative"
+      >
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bgImage={"/dang-ky-bg.png"}
+          zIndex={-1}
+          filter="auto"
+          brightness="50%"
+          bgSize="cover"
+          bgRepeat={"no-repeat"}
+        ></Box>
         <Container maxW="6xl">
           <SimpleGrid
             gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
           >
             <GridItem
               pt={{ base: "100px", md: "128px", lg: "128px" }}
-              pb={{ base: "0",md:"70px", lg: "140px" }}
+              pb={{ base: "0", md: "70px", lg: "140px" }}
               display={"flex"}
               flexDirection={"column"}
               alignItems={"flex-start"}

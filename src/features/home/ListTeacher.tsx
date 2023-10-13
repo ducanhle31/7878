@@ -209,7 +209,7 @@ export const ListTeacher = () => {
   ];
 
   return (
-    <Box mt={{ base: "0", md: "0", lg: "200px" }}>
+    <Box mt={{ base: "0", md: "30px", lg: "50px" }}>
       <Container maxW={"6xl"}>
         <SimpleGrid
           pt={"30px"}
@@ -251,10 +251,9 @@ export const ListTeacher = () => {
           >
             <Text pt={"20px"} lineHeight={"30px"}>
               Bạn đang muốn tìm trường Đại Học chất lượng, phương pháp học hiện
-              đại, tiết kiệm thời gian chi phí? Chương trình đại học HỆ TỪ XA
-              tại AOF sẽ giúp bạn điều đó!
+              đại, tiết kiệm thời gian chi phí? 
             </Text>
-            <Text lineHeight={"30px"}>
+            <Text color="#f5750d" lineHeight={"30px"}>
               Chương trình đại học HỆ TỪ XA tại AOF sẽ giúp bạn điều đó!
             </Text>
           </GridItem>

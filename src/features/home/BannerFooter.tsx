@@ -1,5 +1,6 @@
 import { FormContactBanner } from "@/components/FormContact";
 import {
+  AspectRatio,
   Box,
   Container,
   Divider,
@@ -7,8 +8,12 @@ import {
   GridItem,
   Heading,
   Image,
+  Modal,
+  ModalContent,
+  ModalOverlay,
   SimpleGrid,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import CountUp from "react-countup";
 interface ICounter {
@@ -20,11 +25,35 @@ interface ICounter {
   text?: string;
 }
 
+interface ModalComponentProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const ModalComponent: React.FC<ModalComponentProps> = ({ isOpen, onClose }) => {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent maxW="900px" h={"506px"} bg={"#ffffff0"}>
+        <AspectRatio maxW="900px" h={"506px"} ratio={1}>
+          <iframe
+            title="naruto"
+            src="https://www.youtube.com/embed/FjWX-2wTP0k?si=U0cnZDkIanM1Xlh-"
+            allowFullScreen
+          />
+        </AspectRatio>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export default ModalComponent;
+
 const counters = [
   {
     start: 0,
     end: 3,
-    suffix: "trường ĐH đạt chuẩn chất lượng giáo dục ",
+    suffix: "Trường được công nhận đạt chuẩn chất lượng giáo dục",
     text: "Top",
     image: "/counter-icon-01.png",
   },
@@ -99,26 +128,21 @@ export const Counter = (props: ICounter) => {
 };
 
 export const BannerFooter = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box
-      pt={{ base: "290px", md: "290px", lg: "0" }}
-      mx={{ base: "0", lg: "53px" }}
-    >
+    <Box mx={{ lg: "3.5%" }}>
       <Container
         bgColor="white"
-        position={"relative"}
+        boxShadow={
+          "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
+        }
         maxW="8xl"
         zIndex={"1"}
-        boxShadow="0px 89px 72px 47px rgba(113, 113, 113, 0.75);"
-        mt={"-400px"}
         px={{ base: "20px", lg: "128px" }}
-        style={{
-          clipPath:
-            "polygon(8% 0, 100% 0, 100% 43%, 100% 100%, 68% 100%, 32% 100%, 0 100%, 0 19%, 4% 19%)",
-        }}
+        mt="-132px"
       >
         <SimpleGrid
-          pt={"20px"}
+          pt={"50px"}
           templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(20, 1fr)" }}
         >
           <GridItem w="100%" colSpan={7} mb={"71px"}>
@@ -150,6 +174,14 @@ export const BannerFooter = () => {
               khối ngành kinh tế sẽ là bệ phóng giúp các bạn sinh viên chinh
               phục nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
             </Text>
+            <Box display={"flex"} mt={"40px"}>
+              <Image
+                onClick={onOpen}
+                objectFit="cover"
+                src="/logo-aof.png"
+                alt="Dan "
+              />
+            </Box>
           </GridItem>
           <GridItem
             w="100%"
@@ -178,40 +210,8 @@ export const BannerFooter = () => {
           </GridItem>
         </SimpleGrid>
       </Container>
-      <Box
-        display={{ base: "none", md: "none", lg: "hidden" }}
-        pos="absolute"
-        zIndex={"-1"}
-        top={"50px"}
-        right="0"
-        w="77%"
-        h="1200px"
-        bgImage={
-          "linear-gradient(135deg,rgb(0, 0, 105) 0%,rgb(9, 71, 179) 100%);"
-        }
-        style={{
-          clipPath: "polygon(36% 0, 100% 0, 100% 100%, 0% 100%)",
-        }}
-      >
-        {" "}
-      </Box>
-      <Box
-        display={{ base: "none", md: "none", lg: "hidden" }}
-        pos="absolute"
-        zIndex={"-1"}
-        top={"50px"}
-        right="0"
-        w="77%"
-        h="1200px"
-        bgImage={"./bg-pricing-03.png"}
-        backgroundPosition="center bottom"
-        backgroundRepeat="no-repeat"
-        style={{
-          clipPath: "polygon(36% 0, 100% 0, 100% 100%, 0% 100%)",
-        }}
-      >
-        {" "}
-      </Box>
+
+      <ModalComponent isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

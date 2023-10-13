@@ -9,7 +9,6 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   Flex,
@@ -22,7 +21,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
-import { HeaderTop } from "./HeaderTop";
 import { Logo } from "./Logo";
 
 interface INavItem {
@@ -142,7 +140,6 @@ export const MobileNav = () => {
             </Stack>
           </DrawerBody>
           <Divider />
-        
         </DrawerContent>
       </Drawer>
     </>

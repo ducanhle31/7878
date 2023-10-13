@@ -1,6 +1,8 @@
 "use client";
 
 import { CardBlog } from "@/components/CardBlog";
+import { Loading } from "@/components/Loading";
+import { clean } from "@/lib/sanitizeHtml";
 import { formatDate } from "@/ultil/date";
 import { Container, Grid } from "@chakra-ui/react";
 import styled from "@emotion/styled";
@@ -10,9 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import xss from "xss";
 import { useSize } from "../../hooks/useSizeWindow";
-import { Loading } from "@/components/Loading";
 
 export const StyledContainer = styled(Container)`
   .mySwiper {
@@ -77,7 +77,7 @@ export const Announcement = () => {
                 title={post?.title?.rendered}
                 tag="Thông báo"
                 bgTag="green.500"
-                desc={xss(post.excerpt.rendered)}
+                desc={clean(post?.excerpt?.rendered)}
                 image={post?.featured_image || ""}
                 path={`/tin-tuc/${post?.slug}`}
               />

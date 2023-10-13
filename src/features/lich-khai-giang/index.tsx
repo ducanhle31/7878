@@ -4,14 +4,28 @@ import { Box, Container, Heading, Text } from "@chakra-ui/react";
 export const LichKg = () => {
   return (
     <>
-      <Box
+        <Box
         w={"100%"}
-        bgImage="/bg-page-title.jpg"
+        bg="rgba(0, 0, 0, 0)"
+        bgSize="cover"
         bgRepeat={"no-repeat"}
-        bgSize={"cover"}
-        bgPosition={"-10px"}
+        position="relative"
       >
-        <Container maxW={"6xl"} py="62px">
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bgImage="/bg-gt.jpg"
+          zIndex={-1}
+          filter="auto"
+          brightness="40%"
+          bgSize="cover"
+          bgRepeat={"no-repeat"}
+          bgPosition={"0px"}
+        ></Box>
+          <Container maxW={"6xl"} py="62px">
           <Heading
             as="h2"
             textAlign={"center"}
@@ -33,6 +47,7 @@ export const LichKg = () => {
           </Text>
         </Container>
       </Box>
+    
 
       <BoxTest />
     </>

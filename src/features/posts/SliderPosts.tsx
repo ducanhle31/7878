@@ -1,6 +1,8 @@
 "use client";
 
 import { CardBlog } from "@/components/CardBlog";
+import { Loading } from "@/components/Loading";
+import { clean } from "@/lib/sanitizeHtml";
 import { formatDate } from "@/ultil/date";
 import { Container, Grid } from "@chakra-ui/react";
 import styled from "@emotion/styled";
@@ -10,22 +12,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import xss from "xss";
 import { useSize } from "../../hooks/useSizeWindow";
-import { Loading } from "@/components/Loading";
 
 export const StyledContainer = styled(Container)`
   .mySwiper {
     padding-bottom: 30px;
-
   }
 
   .swiper-slide {
     height: 550px;
   }
 `;
-
-
 
 export const SLiderPosts = () => {
   const { size } = useSize();
@@ -56,19 +53,18 @@ export const SLiderPosts = () => {
   }, [page]);
 
   return (
-    <StyledContainer maxW="6xl" >
+    <StyledContainer maxW="6xl">
       {!isLoading && (
         <Swiper
           slidesPerView={
             (size.width < 480 && 1) || (size.width < 992 && 2) || 3
           }
-            autoplay={{
+          autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
           spaceBetween={30}
-        
-          modules={[Pagination,Autoplay]}
+          modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
           {posts?.map((post: any, index: number) => (
@@ -78,7 +74,7 @@ export const SLiderPosts = () => {
                 key={index}
                 title={post?.title?.rendered}
                 tag="Tin tức"
-                desc={xss(post.excerpt.rendered)}
+                desc={clean(post?.excerpt?.rendered)}
                 image={post?.featured_image || ""}
                 path={`/tin-tuc/${post?.slug}`}
               />

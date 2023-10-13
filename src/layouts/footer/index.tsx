@@ -4,21 +4,15 @@ import { FormPoup } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import {
   Box,
-  Circle,
   Container,
-  Flex,
-  HStack,
   Heading,
+  Image,
   SimpleGrid,
   Stack,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { AiFillLinkedin, AiOutlineGooglePlus } from "react-icons/ai";
-import { BiLogoFacebook } from "react-icons/bi";
-import { FaInstagram } from "react-icons/fa";
-import { InputRes } from "../../components/InputRes";
 import { Logo } from "../components/Logo";
 
 export const Footer = () => {
@@ -44,7 +38,7 @@ export const Footer = () => {
             </Box>
           </Stack>
 
-          <Stack align={"flex-start"}>
+          <Stack>
             <Heading fontSize={"24px"} fontWeight={600} textAlign="left" mb={4}>
               Hỗ Trợ
             </Heading>
@@ -55,69 +49,24 @@ export const Footer = () => {
             <Box as={Link} href={"/gioi-thieu"}>
               Giới thiệu
             </Box>
-            <Box as="a" href={"#"}>
+            <Box as={Link} href={"#"}>
               Ngành học
             </Box>
-            <Box as="a" href={"/lich-khai-giang"}>
+            <Box as={Link} href={"/lich-khai-giang"}>
               Lịch khai giảng
             </Box>
-            <Box as="a" href={"/lien-he"}>
+            <Box as={Link} href={"/lien-he"}>
               Liên hệ
             </Box>
-            <Box as="a" href={"/tin-tuc"}>
+            <Box as={Link} href={"/tin-tuc"}>
               Tin tức
             </Box>
           </Stack>
 
           <Stack align={"flex-start"}>
-            <Flex
-              justify="left"
-              alignItems={"flex-start"}
-              direction="column"
-              mb="32px"
-            >
-              <Heading
-                fontSize={"24px"}
-                fontWeight={600}
-                textAlign="left"
-                mb={4}
-              >
-                Đăng ký nhận bản tin
-              </Heading>
-              <Flex
-                mt={"8px"}
-                flexDirection={"column"}
-                justifyContent={"center"}
-                bg={"#011143"}
-                h={"250px"}
-                px={"40px"}
-              >
-                <Text fontSize={"14px"} lineHeight={"24px"}>
-                Liên hệ với chúng tôi
-                </Text>
-                <Box maxW="md" pt={"21px"}>
-                  <InputRes
-                    placeholder="Nhập email"
-                    label="Đăng ký"
-                    onClick={onToggle}
-                  />
-                </Box>
-                <HStack justify="left" pt={"28px"}>
-                  <Circle size="30px" bg="white" color="#3a589d">
-                    <BiLogoFacebook />
-                  </Circle>
-                  <Circle size="30px" bg=" white" color="#3b6994">
-                    <FaInstagram />
-                  </Circle>
-                  <Circle size="30px" bg=" white" color="red">
-                    <AiOutlineGooglePlus />
-                  </Circle>{" "}
-                  <Circle size="30px" bg=" white" color="#0072b7">
-                    <AiFillLinkedin />
-                  </Circle>
-                </HStack>
-              </Flex>
-            </Flex>
+            <Box as={Link} href={"https://timdoitac.aum.edu.vn/ "}>
+              <Image src="/doi-tac.jpg" alt="Đối-tác" />
+            </Box>
           </Stack>
         </SimpleGrid>
       </Container>

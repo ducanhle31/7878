@@ -1,5 +1,6 @@
 "use client";
 
+import { clean } from "@/lib/sanitizeHtml";
 import {
   Box,
   Button,
@@ -15,7 +16,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import xss from "xss";
 
 export const CardBlogVert = ({
   title,
@@ -74,7 +74,7 @@ export const CardBlogVert = ({
               size="sm"
               _hover={{ color: "red.500" }}
               transition={"all ease .3s"}
-              dangerouslySetInnerHTML={{ __html: xss(title) }}
+              dangerouslySetInnerHTML={{ __html: clean(title) }}
             />
           </HStack>
 

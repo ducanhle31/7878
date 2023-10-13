@@ -1,5 +1,6 @@
 "use client";
 
+import { clean } from "@/lib/sanitizeHtml";
 import {
   Avatar,
   AvatarBadge,
@@ -13,7 +14,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import xss from "xss";
 
 export const CardBlog = ({
   image,
@@ -111,7 +111,7 @@ export const CardBlog = ({
                 overflow: "hidden",
                 textOverflow: "ellipsis",
               }}
-              dangerouslySetInnerHTML={{ __html: xss(title) }}
+              dangerouslySetInnerHTML={{ __html: clean(title) }}
             />
 
             {isMounted && (

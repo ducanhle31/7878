@@ -109,7 +109,7 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
               colorScheme="facebook"
               w={"full"}
               as={Link}
-              href={"https://www.facebook.com/TNUElearning?locale=vi_VN"}
+              href={"https://www.facebook.com/cunhantructuyenhvtc/"}
             >
               Fanpage
             </Button>
@@ -119,7 +119,9 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
               colorScheme="red"
               w={"full"}
               as={Link}
-              href={"https://www.youtube.com/@trungtamaotaotuxaaihocthai6708 "}
+              href={
+                "https://www.youtube.com/@aihoctuxahocvientaichinh-a910/featured "
+              }
             >
               Youtube
             </Button>
@@ -130,7 +132,9 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
               w={"full"}
               color={"whiteAlpha.800"}
               as={Link}
-              href={"https://www.tiktok.com/@tnuelearning"}
+              href={
+                "https://www.tiktok.com/@tuyensinhaof?is_from_webapp=1&sender_device=pc"
+              }
             >
               Tiktok
             </Button>
@@ -142,7 +146,7 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
                 color={"red.600"}
                 w={"full"}
               >
-                <Link href="tel: 0914709118">0914709118</Link>
+                <Link href="tel: 094.162.8017">094.162.8017</Link>
               </Button>
             </VStack>
           </VStack>

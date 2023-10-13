@@ -29,10 +29,10 @@ export default async function handler(
     // const notifiCat = cats?.find((cat) => cat.name === "Thông báo");
     const idNotifi = 3;
     const id = type === "news" ? idNew : type === "notifis" ? idNotifi : null;
-  const endPoint = id
+    const endPoint = id
       ? `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`
-      : `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}&categories=${id}`; 
-  /*     const endPoint = id
+      : `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}&categories=${id}`;
+    /*     const endPoint = id
       ? `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`
       : `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`; */
     //get posts category==='tin-tuc'

@@ -11,18 +11,13 @@ import {
   SelectProps,
   Text,
   VStack,
-  Button,
-  Stack,
-  useColorModeValue,
-  Container,
-  Flex,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import Image from "next/image";
-import { FormEvent, ChangeEvent, useEffect, useState } from "react";
-import { BtnThemeContacts, BtnTheme, BtnThemeContactsfooter } from "./BtnTheme";
-import { Loading } from "./Loading";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { BtnTheme, BtnThemeContacts } from "./BtnTheme";
+import { Loading } from "./Loading";
 interface IForm {
   title?: string;
   onClose?: () => void;
@@ -233,13 +228,8 @@ export const FormContactFooter = (props: IForm) => {
   };
 
   return (
-    <Box
-      rounded={"sm"}
-      px={{ base: "0px", lg: "60px" }}
-      py={"24px"}
-      h={"max-content"}
-    >
-      <Heading
+    <Box rounded={"sm"} py={"24px"} h={"max-content"}>
+      {/* <Heading
         fontSize={"16px"}
         lineHeight={"24px"}
         textAlign={"center"}
@@ -250,7 +240,7 @@ export const FormContactFooter = (props: IForm) => {
         {!sucess &&
           (title || "Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất")}
         {sucess && "Thành công"}
-      </Heading>
+      </Heading> */}
 
       {!sucess && (
         <Formik
@@ -269,39 +259,29 @@ export const FormContactFooter = (props: IForm) => {
         >
           {(props) => (
             <Form>
-              <VStack>
-                <HStack
-                  justify={"space-between"}
-                  w={{ base: "full", lg: "550px" }}
-                  align={"flex-start"}
-                >
-                  <Field name="email">
-                    {({ field, form }: { field: InputProps; form: any }) => (
-                      <FormControl flex={1}>
-                        <Input
-                          {...field}
-                          bg={"#484848"}
-                          type="email"
-                          name="email"
-                          placeholder="Nhập email..."
-                          _placeholder={{ color: "#fff" }}
-                          color="#fff"
-                          h="50px"
-                        />
-                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
-
-                  <BtnThemeContactsfooter
-                    isLoading={props.isSubmitting}
-                    type="submit"
-                    colorScheme="red"
-                  >
-                    Đăng ký tư vấn
-                  </BtnThemeContactsfooter>
-                </HStack>
-              </VStack>
+              <HStack
+                justify={"space-between"}
+                w={{ base: "full", lg: "400px" }}
+                align={"flex-start"}
+              >
+                <Field name="email">
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl flex={1}>
+                      <Input
+                        {...field}
+                        bg={"#484848"}
+                        type="email"
+                        name="email"
+                        placeholder="Nhập email..."
+                        _placeholder={{ color: "#fff" }}
+                        color="#fff"
+                        h="50px"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+              </HStack>
             </Form>
           )}
         </Formik>
@@ -429,22 +409,6 @@ export const FormContactBanner = (props: IForm) => {
                     </FormControl>
                   )}
                 </Field>
-                <Field name="email">
-                  {({ field, form }: { field: InputProps; form: any }) => (
-                    <FormControl flex={1}>
-                      <Input
-                        {...field}
-                        bg={"white"}
-                        type="email"
-                        name="email"
-                        placeholder="Nhập email..."
-                        _placeholder={{ color: "#6787c0" }}
-                        color="#6787c0"
-                      />
-                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
                 <Field name="phone" validate={validatePhone}>
                   {({ field, form }: { field: InputProps; form: any }) => (
                     <FormControl
@@ -462,6 +426,22 @@ export const FormContactBanner = (props: IForm) => {
                         placeholder="Nhập số điện thoại..."
                       />
                       <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
+                <Field name="email">
+                  {({ field, form }: { field: InputProps; form: any }) => (
+                    <FormControl flex={1}>
+                      <Input
+                        {...field}
+                        bg={"white"}
+                        type="email"
+                        name="email"
+                        placeholder="Nhập email..."
+                        _placeholder={{ color: "#6787c0" }}
+                        color="#6787c0"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -541,7 +521,7 @@ export const FormContactLienhe = (props: IForm) => {
       });
       actions.setSubmitting(false);
       setSucess(true);
-  
+
       router?.push("/dang-ky-thanh-cong");
     } catch (error) {
       alert("Đăng ký không thành công, vui lòng thử lại!");
@@ -556,7 +536,7 @@ export const FormContactLienhe = (props: IForm) => {
       pl={{ base: "0", md: "60px", lg: "100px" }}
       py={"24px"}
       h={"max-content"}
-      w={{base:"max", md:"400px",lg:"500px"}}
+      w={{ base: "max", md: "400px", lg: "500px" }}
     >
       <Heading
         fontSize={"36px"}
@@ -564,10 +544,9 @@ export const FormContactLienhe = (props: IForm) => {
         textAlign={"left"}
         fontWeight={"700"}
         mb={"24px"}
-        color={ "#ffffff"}
+        color={"#ffffff"}
       >
         {!sucess && (title || "Đăng Ký")}
-    
       </Heading>
 
       {!sucess && (
@@ -677,8 +656,6 @@ export const FormContactLienhe = (props: IForm) => {
           )}
         </Formik>
       )}
-
-      
     </Box>
   );
 };

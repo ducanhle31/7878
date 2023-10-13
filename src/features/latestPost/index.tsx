@@ -6,7 +6,7 @@ import { Loading } from "@/components/Loading";
 import { formatDate } from "@/ultil/date";
 import { Box, Center, Container, GridItem, SimpleGrid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import xss from "xss";
+import { clean } from "@/lib/sanitizeHtml";
 
 export const LatestPost = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -59,7 +59,7 @@ export const LatestPost = () => {
                 date={post?.date ? formatDate(post.date) : ""}
                 key={index}
                 title={post?.title?.rendered}
-                desc={xss(post.excerpt.rendered)}
+                desc={clean(post?.excerpt?.rendered)}
                 image={post?.featured_image || ""}
                 path={`/bai-viet-moi/${post?.slug}`}
               />

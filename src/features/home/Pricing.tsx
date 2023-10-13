@@ -76,7 +76,6 @@ export const PriceWrapper = ({
       <Box py={4}>
         <Box px={"25px"}>
           <Text
-          
             textAlign={"left"}
             lineHeight={"30px"}
             fontWeight="700"
@@ -93,7 +92,6 @@ export const PriceWrapper = ({
             fontSize="16px"
             color="#4d546b"
           >
-            {" "}
             The argument in favor of using to filler text goes something.
           </Text>
         </Box>
@@ -122,7 +120,6 @@ export const PriceWrapper = ({
               h={"52px"}
               key={index}
               fontSize={"15px"}
-            
             >
               <ListIcon as={CgRadioChecked} color="#1040d3" />
               {value}
@@ -168,15 +165,13 @@ export const Pricing = () => {
     { text: "Standard Plan", dec: ["qdfgd fgưe", "sddf dfdc", "dffdfddf"] },
     { text: "Extended Plan", dec: ["qdf ưhe", "sdgddf c", "dffdfgff"] },
   ];
-  // Khởi tạo state để lưu trạng thái hiển thị mảng
+
   const [showArray1, setShowArray1] = useState(true);
 
-  // Hàm xử lý khi click vào button 1
   const handleButton1Click = () => {
     setShowArray1(true);
   };
 
-  // Hàm xử lý khi click vào button 2
   const handleButton2Click = () => {
     setShowArray1(false);
   };

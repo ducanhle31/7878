@@ -27,8 +27,12 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "react-paginate": "^8.2.0",
+    "sanitize-html": "^2.11.0",
     "swiper": "^10.2.0",
     "typescript": "5.2.2",
     "xss": "^1.0.14"
+  },
+  "devDependencies": {
+    "@types/sanitize-html": "^2.9.2"
   }
 }

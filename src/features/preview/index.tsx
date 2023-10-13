@@ -2,9 +2,9 @@
 
 import { CardBlog } from "@/components/CardBlog";
 import { HeadSection } from "@/components/HeadSection";
+import { clean } from "@/lib/sanitizeHtml";
 import { formatDate } from "@/ultil/date";
-import { Box, Container, GridItem, SimpleGrid, Center } from "@chakra-ui/react";
-import xss from "xss";
+import { Box, Center, Container, GridItem, SimpleGrid } from "@chakra-ui/react";
 
 export const Previews = ({ posts }: { posts?: any[] }) => {
   if (!posts || posts?.length === 0)
@@ -32,7 +32,7 @@ export const Previews = ({ posts }: { posts?: any[] }) => {
                 date={post?.date ? formatDate(post.date) : ""}
                 key={index}
                 title={post?.title?.rendered}
-                desc={xss(post.excerpt.rendered)}
+                desc={clean(post?.excerpt?.rendered)}
                 image={post?.featured_image || ""}
                 path={`/xem-truoc/${post?.slug}`}
               />

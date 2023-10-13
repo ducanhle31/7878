@@ -3,12 +3,12 @@
 import { CardBlogVert } from "@/components/CardBlogVert";
 import { Loading } from "@/components/Loading";
 import { LayoutBottom } from "@/layouts/layoutPosts/LayoutBottom";
+import { clean } from "@/lib/sanitizeHtml";
 import { Box, Grid, HStack, Heading, VStack } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import xss from "xss";
 
 const StyledPaginate = styled(ReactPaginate)`
   margin-bottom: 2rem;
@@ -97,7 +97,7 @@ export const ListPosts = ({
               <CardBlogVert
                 key={index}
                 title={post?.title?.rendered}
-                desc={xss(post.excerpt.rendered)}
+                desc={clean(post?.excerpt?.rendered)}
                 tag="tin tức"
                 image={post?.featured_image || ""}
                 path={`/tin-tuc/${post?.slug}`}

@@ -182,48 +182,53 @@ export const Testi = () => {
     {
       title: "Trần Vân Anh ",
       desc: " Mình đã từng tốt nghiệp hệ chính quy, vì thế đây là cơ hội để được trải nghiệm thêm một cách thức học mới. Mình rất vui khi học tập cùng các bạn và anh chị đang đi làm nên học hỏi được rất nhiều điều bổ ích",
-      avt: `/teacher-2.png`,
+      avt: `/testi-02.JPG`,
     },
     {
       title: "Nguyễn Thanh Huệ ",
       desc: "Mình học ngành Kế toán e-Learning tại AOF. Trước đây mình đã học Cao đẳng kế toán. Hệ từ xa rất phù hợp với bản thân mình, khi mà mình phải đi làm ban ngày và chỉ sắp xếp thời gian học được buổi tối",
-      avt: `/teacher-2.png`,
+      avt: `/testi-03.JPG`,
     },
     {
       title: "Nguyễn Quang Trường  ",
       desc: "Nhà trường đã áp dụng khoa học kỹ thuật, phần mềm giáo dục để hỗ trợ trong công tác giảng dạy, đó là bước tiến lớn của xã hội và là xu hướng giáo dục toàn cầu. Tôi tiết kiệm được khá nhiều thời gian và chi phí khi tham gia chương trình học tập này",
-      avt: `/teacher.jpg`,
+      avt: `/testi-01.jpg`,
     },
     {
-      title: "Bùi Việt Hương Thu ",
+      title: "Nguyễn Thái Học",
       desc: "Mình công nhận giáo trình và cách dạy ở đây rất hay, bài bản, dễ nhớ. Kiến thức thực tế hữu ích, cách học linh động giúp mình dễ dàng sắp xếp thời gian dành cho công việc và gia đình",
-      avt: `/teacher.jpg`,
+      avt: `/testi-04.jpg`,
     },
     {
       title: "Trần Vân Anh ",
       desc: " Mình đã từng tốt nghiệp hệ chính quy, vì thế đây là cơ hội để được trải nghiệm thêm một cách thức học mới. Mình rất vui khi học tập cùng các bạn và anh chị đang đi làm nên học hỏi được rất nhiều điều bổ ích",
-      avt: `/teacher-2.png`,
+      avt: `/testi-02.JPG`,
     },
     {
       title: "Nguyễn Thanh Huệ ",
       desc: "Mình học ngành Kế toán e-Learning tại AOF. Trước đây mình đã học Cao đẳng kế toán. Hệ từ xa rất phù hợp với bản thân mình, khi mà mình phải đi làm ban ngày và chỉ sắp xếp thời gian học được buổi tối",
-      avt: `/teacher-2.png`,
+      avt: `/testi-03.JPG`,
     },
     {
       title: "Nguyễn Quang Trường  ",
       desc: "Nhà trường đã áp dụng khoa học kỹ thuật, phần mềm giáo dục để hỗ trợ trong công tác giảng dạy, đó là bước tiến lớn của xã hội và là xu hướng giáo dục toàn cầu. Tôi tiết kiệm được khá nhiều thời gian và chi phí khi tham gia chương trình học tập này",
-      avt: `/teacher.jpg`,
+      avt: `/testi-01.jpg`,
     },
     {
-      title: "Bùi Việt Hương Thu ",
+      title: "Nguyễn Thái Học",
       desc: "Mình công nhận giáo trình và cách dạy ở đây rất hay, bài bản, dễ nhớ. Kiến thức thực tế hữu ích, cách học linh động giúp mình dễ dàng sắp xếp thời gian dành cho công việc và gia đình",
-      avt: `/teacher.jpg`,
+      avt: `/testi-04.jpg`,
     },
   ];
 
   return (
     <Box bg={"#00165a"}>
-      <Container maxW={"6xl"} backgroundImage={"/maptesti.png"} bgRepeat='no-repeat'  backgroundPosition="center">
+      <Container
+        maxW={"6xl"}
+        backgroundImage={"/maptesti.png"}
+        bgRepeat="no-repeat"
+        backgroundPosition="center"
+      >
         <SimpleGrid
           pos={"absolute"}
           pt={"80px"}
