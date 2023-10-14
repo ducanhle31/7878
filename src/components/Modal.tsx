@@ -1,13 +1,16 @@
 "use client";
 
 import {
+  Grid,
+  GridItem,
+  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
 } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface IModalBase {
   isOpen: boolean;
@@ -20,17 +23,24 @@ export const ModalBase = (props: IModalBase) => {
   const { onClose, isOpen, children } = props;
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal isOpen={isOpen} onClose={onClose} size={"2xl"} isCentered>
         <ModalOverlay />
-        <ModalContent
-          bg={"white"}
-          pt={"12px"}
-          rounded={"sm"}
-          px={{ base: "12px", lg: "24px" }}
-        >
+        <ModalContent bg={"white"} rounded={"sm"}>
           <ModalCloseButton />
           <ModalBody rounded={"xl"} p={0}>
-            {children}
+            <Grid   gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
+              <GridItem>{children}</GridItem>
+              <GridItem display={{ base: "none", md: "block" }}>
+                <Image
+                  style={{ objectFit: "contain" }}
+                  src="/popup.png"
+                  alt="popup"
+                  width={"100%"}
+                  height={"auto"}
+                  rounded={"sm"}
+                />
+              </GridItem>
+            </Grid>
           </ModalBody>
         </ModalContent>
       </Modal>

@@ -10,7 +10,7 @@ import {
   Select,
   SelectProps,
   Text,
-  VStack,
+  VStack,Flex 
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import Image from "next/image";
@@ -75,11 +75,11 @@ export const FormContact = (props: IForm) => {
 
   return (
     <>
-      <Box rounded={"sm"} px={"20px"} py={"24px"} h={"max-content"}>
+      <Box rounded={"sm"} pt={"30px"} px={"20px"} h={"max-content"}>
         <Heading
-          fontSize={"36px"}
+          fontSize={"24px"}
           lineHeight={"48px"}
-          textAlign={"left"}
+          textAlign={"center"}
           fontWeight={"700"}
           mb={"24px"}
           color={"#021d6c"}
@@ -124,22 +124,7 @@ export const FormContact = (props: IForm) => {
                       </FormControl>
                     )}
                   </Field>
-                  <Field name="email">
-                    {({ field, form }: { field: InputProps; form: any }) => (
-                      <FormControl flex={1}>
-                        <Input
-                          {...field}
-                          bg={"white"}
-                          type="email"
-                          name="email"
-                          placeholder="Nhập email..."
-                          _placeholder={{ color: "#6787c0" }}
-                          color="#6787c0"
-                        />
-                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
+
                   <Field name="phone" validate={validatePhone}>
                     {({ field, form }: { field: InputProps; form: any }) => (
                       <FormControl
@@ -160,7 +145,22 @@ export const FormContact = (props: IForm) => {
                       </FormControl>
                     )}
                   </Field>
-
+                  <Field name="email">
+                    {({ field, form }: { field: InputProps; form: any }) => (
+                      <FormControl flex={1}>
+                        <Input
+                          {...field}
+                          bg={"white"}
+                          type="email"
+                          name="email"
+                          placeholder="Nhập email..."
+                          _placeholder={{ color: "#6787c0" }}
+                          color="#6787c0"
+                        />
+                        <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
                   <Field name="course">
                     {({ field, form }: { field: SelectProps; form: any }) => (
                       <FormControl>

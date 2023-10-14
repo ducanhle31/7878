@@ -6,7 +6,6 @@ import {
   Container,
   Divider,
   Flex,
-  GridItem,
   Heading,
   SimpleGrid,
   Text,
@@ -19,19 +18,51 @@ export const BoxTest = () => {
   return (
     <>
       <Box
-        bg={"black"}
-        bgImage={"/bg-coming-soon.png"}
+        pt={"70px"}
         bgRepeat={"no-repeat"}
-        backgroundPosition="center"
+        bgSize="cover"
+        w={"100%"}
+        bg="rgba(0, 0, 0, 0)"
+        position="relative"
       >
+        <Box
+          w={"100%"}
+          pos="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bgImage={"/AOF-bg-lkg.png"}
+          zIndex={-1}
+          filter="auto"
+          brightness="40%"
+          bgSize="cover"
+          bgRepeat={"no-repeat"}
+          bgPosition={"0px"}
+        ></Box>
         <Container maxW={"6xl"}>
+          <Text
+            mt={{ lg: "30px", md: "50px", base: "50px" }}
+            fontSize={{ base: "16px", lg: "18px" }}
+            textAlign={"center"}
+            color={"white"}
+          >
+            HỌC VIỆN TÀI CHÍNH
+          </Text>
+          <Text
+            fontSize={{ base: "16px", lg: "18px" }}
+            textAlign={"center"}
+            color={"white"}
+          >
+            Chất lượng – uy tín – hiệu quả- chuyên nghiệp – và hiện đại
+          </Text>
           <Heading
             as="h1"
             textAlign={"center"}
-            fontSize="36px"
+            fontSize={{ lg: "48px", base: "24px", md: "36px" }}
             fontWeight={700}
-            pt="75px"
-            color={"white"}
+            pt={{ lg: "50px", base: "30px" }}
+            color={"#fe9800"}
           >
             LỊCH KHAI GIẢNG ĐẠI HỌC HỆ TỪ XA
           </Heading>
@@ -41,113 +72,103 @@ export const BoxTest = () => {
             textAlign={"center"}
             color={"white"}
           >
-            Lịch khai giảng dự kiến Hệ từ xa khóa mới nhất{" "}
+            Lịch khai giảng dự kiến Hệ từ xa khóa mới nhất
           </Text>
 
           <SimpleGrid
-            gridTemplateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+            spacing="30px"
+            gridTemplateColumns={{
+              base: "1fr",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
+            }}
+            mt="73px"
           >
-            <GridItem colSpan={2} pr={{ base: "0", md: "30px", lg: "30px" }}>
-              <SimpleGrid
-                spacing="30px"
-                gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-                mt="73px"
+            <Box
+              bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
+              borderRadius={"18px"}
+              h={{ base: "160px", lg: "180px" }}
+            >
+              {" "}
+              <Flex
+                mt="27px"
+                lineHeight="50px"
+                textAlign={"center"}
+                fontSize="50px"
+                fontWeight="700"
+                color="#222222"
+                flexDirection="column"
+                alignItems="center"
               >
-                <Box
-                  bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
-                  borderRadius={"18px"}
-                  h={{ base: "160px", lg: "180px" }}
-                >
-                  {" "}
-                  <Flex
-                    mt="27px"
-                    lineHeight="50px"
-                    textAlign={"center"}
-                    fontSize="50px"
-                    fontWeight="700"
-                    color="#222222"
-                    flexDirection="column"
-                    alignItems="center"
-                  >
-                    10
-                    <Divider
-                      w={"40px"}
-                      textAlign={"center"}
-                      borderColor={"#ff7300"}
-                      pt="5px"
-                      style={{ borderBottomWidth: "4px" }}
-                    />
-                  </Flex>
-                  <Text lineHeight="45px" textAlign={"center"} fontSize="24px">
-                    Tháng
-                  </Text>
-                </Box>
-                <Box
-                  bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
-                  borderRadius={"18px"}
-                  h={{ base: "160px", lg: "180px" }}
-                >
-                  <Flex
-                    mt="27px"
-                    lineHeight="50px"
-                    textAlign={"center"}
-                    fontSize="50px"
-                    fontWeight="700"
-                    color="#222222"
-                    flexDirection="column"
-                    alignItems="center"
-                  >
-                    2023
-                    <Divider
-                      w={"40px"}
-                      textAlign={"center"}
-                      borderColor={"#ff7300"}
-                      pt="5px"
-                      style={{ borderBottomWidth: "4px" }}
-                    />
-                  </Flex>
-                  <Text lineHeight="45px" textAlign={"center"} fontSize="24px">
-                    Năm
-                  </Text>
-                </Box>
-              </SimpleGrid>
-            </GridItem>
-            <GridItem colSpan={1}>
-              <Box
-                h={{ base: "200px", lg: "180px" }}
-                px="30px"
-                borderRadius={"18px"}
-                mt="73px"
-                bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
+                11
+                <Divider
+                  w={"40px"}
+                  textAlign={"center"}
+                  borderColor={"#ff7300"}
+                  pt="5px"
+                  style={{ borderBottomWidth: "4px" }}
+                />
+              </Flex>
+              <Text lineHeight="45px" textAlign={"center"} fontSize="24px">
+                Tháng
+              </Text>
+            </Box>
+            <Box
+              bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
+              borderRadius={"18px"}
+              h={{ base: "160px", lg: "180px" }}
+            >
+              <Flex
+                mt="27px"
+                lineHeight="50px"
+                textAlign={"center"}
+                fontSize="50px"
+                fontWeight="700"
+                color="#222222"
+                flexDirection="column"
+                alignItems="center"
               >
-                <Text lineHeight="50px" fontSize="24px" fontWeight="700">
-                  Địa điểm tổ chức
-                </Text>{" "}
-                <Text fontSize="18px">
-                  Hội trường Học viện Tài chính, Số 58 Lê Văn Hiến, phường Đức
-                  Thắng, quận Bắc Từ Liêm, Thành phố Hà Nội. 
-                </Text>{" "}
-              </Box>
-            </GridItem>
+                2023
+                <Divider
+                  w={"40px"}
+                  textAlign={"center"}
+                  borderColor={"#ff7300"}
+                  pt="5px"
+                  style={{ borderBottomWidth: "4px" }}
+                />
+              </Flex>
+              <Text lineHeight="45px" textAlign={"center"} fontSize="24px">
+                Năm
+              </Text>
+            </Box>
+            <Box
+              px="30px"
+              borderRadius={"18px"}
+              pb="10px"
+              bg=" linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);"
+            >
+              <Text lineHeight="50px" fontSize="24px" fontWeight="700">
+                Địa điểm tổ chức
+              </Text>{" "}
+              <Text fontSize="18px">
+                Hội trường Học viện Tài chính, Số 58 Lê Văn Hiến, phường Đức
+                Thắng, quận Bắc Từ Liêm, Thành phố Hà Nội. 
+              </Text>{" "}
+            </Box>
           </SimpleGrid>
           <Text
             fontSize={"16px"}
             lineHeight={"24px"}
             textAlign={"center"}
             fontWeight={"600"}
-            mt={"60px"}
+            mt={"80px"}
             color={"#ffffff"}
           >
             Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất
           </Text>
-          <Flex
-            mt="80px"
-            pb="100px"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <FormContactFooter />
-            <Button
+          <Flex mt="40px" pb="100px" justifyContent="center" alignItems="center">
+          
+            <Button 
               color={"white"}
               size={"md"}
               rounded={"sm"}
