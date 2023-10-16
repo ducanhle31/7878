@@ -28,9 +28,9 @@ export const ModalBase = (props: IModalBase) => {
         <ModalContent bg={"white"} rounded={"sm"}>
           <ModalCloseButton />
           <ModalBody rounded={"xl"} p={0}>
-            <Grid   gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
+            <Grid templateColumns="repeat(2, 1fr)">
               <GridItem>{children}</GridItem>
-              <GridItem display={{ base: "none", md: "block" }}>
+              <GridItem>
                 <Image
                   style={{ objectFit: "contain" }}
                   src="/popup.png"

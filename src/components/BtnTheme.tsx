@@ -36,11 +36,11 @@ export const BtnTheme = (props: ButtonProps) => {
       p={"0 40px"}
       {...args}
       transform={"skew(-15deg, 0)"}
-      bg={"linear-gradient(135deg,#035762 0%,#007180 100%)"}
+      bg={"linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)"}
       transition={"all ease .4s"}
       _hover={{
         background:
-          "linear-gradient(135deg,#007180 0%, #035762 100%)",
+          "linear-gradient(135deg,rgb(40,116,252) 0%,rgb(2,3,129) 100%)",
       }}
     >
       <Text transform={"skew( 15deg, 0)"}> {children}</Text>

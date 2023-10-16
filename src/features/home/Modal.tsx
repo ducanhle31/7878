@@ -22,14 +22,14 @@ export const ModalBase = (props: IModalBase) => {
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={"2xl"} isCentered>
         <ModalOverlay />
-        <ModalContent bg={"white"}rounded={"sm"}>
+        <ModalContent bg={"white"}>
           <ModalCloseButton />
           <ModalBody rounded={"xl"} p={0}>
-            <Grid  gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
+            <Grid templateColumns="repeat(2, 1fr)">
               <GridItem>
                 <FormContact title="Để lại thông tin" />
               </GridItem>
-              <GridItem display={{ base: "none", md: "block" }}>
+              <GridItem>
                 <Image
                   style={{ objectFit: "contain" }}
                   src="/popup.png"

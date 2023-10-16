@@ -30,50 +30,25 @@ export const Posts = () => {
     <Box pb={"40px"}>
       <Box
         w={"100%"}
-        bg="rgba(0, 0, 0, 0)"
-        bgSize="cover"
+        bgImage="/bg-page-title.jpg"
         bgRepeat={"no-repeat"}
-        position="relative"
+        bgSize={"cover"}
+        bgPosition={"-10px"}
       >
-        <Box
-          pos="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          bgImage="/bg-gt.jpg"
-          zIndex={-1}
-          filter="auto"
-          brightness="40%"
-          bgSize="cover"
-          bgRepeat={"no-repeat"}
-          bgPosition={"0px"}
-        ></Box>
         <Container maxW={"6xl"} py="62px">
-          <Box>
-            <Heading
-              as="h2"
-              textAlign={"center"}
-              fontSize={{ base: "36px", lg: "40px" }}
-              fontWeight={700}
-              mt="75px"
-              color={"white"}
-            >
-              Tin tức Học Viện Tài Chính
-            </Heading>
-            <Text
-              mt={"18px"}
-              fontSize={"16px"}
-              textAlign={"center"}
-              color={"white"}
-              pb="60px"
-            >
-              Trang chủ - Tin tức
-            </Text>
-          </Box>
+          <Heading
+            as="h2"
+            textAlign={"center"}
+            fontSize={{ base: "36px", lg: "40px" }}
+            fontWeight={700}
+            mt="75px"
+            mb="75px"
+            color={"white"}
+          >
+            Tin tức Học Viện Tài Chính
+          </Heading>
         </Container>
       </Box>
-
       <Box mt={"32px"}>
         <Suspense fallback={<Loading />}>
           <SLiderPosts />

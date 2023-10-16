@@ -18,7 +18,7 @@ import { Logo } from "../components/Logo";
 export const Footer = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
-    <Box bg={"#007180"} color={"White"}>
+    <Box bg={"#00165a"} color={"White"}>
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={"flex-start"}>
