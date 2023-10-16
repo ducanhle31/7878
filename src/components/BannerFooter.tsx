@@ -2,7 +2,6 @@ import { FormContactBanner } from "@/components/FormContact";
 import {
   AspectRatio,
   Box,
-  Container,
   Divider,
   Flex,
   GridItem,
@@ -62,7 +61,7 @@ const counters = [
     end: 1000,
     suffix: "Học viên theo học Hệ từ xa năm 2023 ",
     image: "/counter-icon-02.png",
-    prefix: "+",
+    text: "+",
   },
   {
     start: 0,
@@ -130,86 +129,83 @@ export const Counter = (props: ICounter) => {
 export const BannerFooter = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box mx={{ lg: "3.5%" }}>
-      <Container
-        bgColor="white"
-        boxShadow={
-          "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
-        }
-        maxW="8xl"
-        zIndex={"1"}
-        px={{ base: "20px", lg: "128px" }}
-        mt="-132px"
+    <Box
+      bgColor="white"
+      boxShadow={
+        "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
+      }
+      zIndex={"1"}
+      px={{ base: "20px", lg: "128px" }}
+      mt="-132px"
+    >
+      <SimpleGrid
+        pt={"50px"}
+        templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(20, 1fr)" }}
       >
-        <SimpleGrid
-          pt={"50px"}
-          templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(20, 1fr)" }}
-        >
-          <GridItem w="100%" colSpan={7} mb={"71px"}>
-            <Box display={"flex"}>
-              <Divider
-                w={"70px"}
-                pt={"20px"}
-                mr={"20px"}
-                borderColor={"#f5750d"}
-                style={{ borderBottomWidth: "4px" }}
-              />
-              <Text
-                fontWeight={700}
-                textAlign={"left"}
-                fontSize={"24px"}
-                color={"#00165a"}
-              >
-                Những con số ấn tượng về Học Viện Tài Chính
-              </Text>
-            </Box>
-            <Text
-              textAlign={"left"}
+        <GridItem w="100%" colSpan={7} mb={"71px"}>
+          <Box display={"flex"}>
+            <Divider
+              w={"70px"}
               pt={"20px"}
-              lineHeight={"30px"}
-              fontSize={"18px"}
-              color={"#4d546b"}
+              mr={"20px"}
+              borderColor={"#f5750d"}
+              style={{ borderBottomWidth: "4px" }}
+            />
+            <Text
+              fontWeight={700}
+              textAlign={"left"}
+              fontSize={"24px"}
+              color={"#00165a"}
             >
-              Chọn HỆ TỪ XA Học Viện Tài Chính – Trường đại học TOP ĐẦU đào tạo
-              khối ngành kinh tế sẽ là bệ phóng giúp các bạn sinh viên chinh
-              phục nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
+              Những con số ấn tượng về Học Viện Tài Chính
             </Text>
-            <Box display={"flex"} mt={"40px"}>
-              <Image
-                onClick={onOpen}
-                objectFit="cover"
-                src="/logo-aof.png"
-                alt="Dan "
-              />
-            </Box>
-          </GridItem>
-          <GridItem
-            w="100%"
-            colSpan={6}
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"space-evenly"}
-            pl={"40px"}
-            mt="-65px"
-            mb={"40px"}
+          </Box>
+          <Text
+            textAlign={"left"}
+            pt={"20px"}
+            lineHeight={"30px"}
+            fontSize={"18px"}
+            color={"#4d546b"}
           >
-            {counters?.map((counter, index) => (
-              <Counter
-                key={index}
-                start={counter.start}
-                end={counter.end}
-                subfix={counter.suffix}
-                prefix={counter.prefix}
-                image={counter.image}
-                text={counter.text}
-              />
-            ))}
-          </GridItem>
-          <GridItem mt="-20px" w="100%" mb="0px" colSpan={7}>
-            <FormContactBanner />
-          </GridItem>
-        </SimpleGrid>
-      </Container>
+            Chọn HỆ TỪ XA Học Viện Tài Chính – Trường đại học TOP ĐẦU đào tạo
+            khối ngành kinh tế sẽ là bệ phóng giúp các bạn sinh viên chinh phục
+            nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
+          </Text>
+          <Box display={"flex"} mt={"40px"}>
+            <Image
+              onClick={onOpen}
+              objectFit="cover"
+              src="/logo-aof.png"
+              alt="Dan "
+            />
+          </Box>
+        </GridItem>
+        <GridItem
+          w="100%"
+          colSpan={6}
+          display={"flex"}
+          flexDirection={"column"}
+          justifyContent={"space-evenly"}
+          pl={"40px"}
+          mt="-65px"
+          mb={"40px"}
+        >
+          {counters?.map((counter, index) => (
+            <Counter
+              key={index}
+              start={counter.start}
+              end={counter.end}
+              subfix={counter.suffix}
+              prefix={counter.prefix}
+              image={counter.image}
+              text={counter.text}
+            />
+          ))}
+        </GridItem>
+        <GridItem mt="-20px" w="100%" mb="0px" colSpan={7}>
+          <FormContactBanner />
+        </GridItem>
+      </SimpleGrid>
 
       <ModalComponent isOpen={isOpen} onClose={onClose} />
     </Box>

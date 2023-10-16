@@ -30,10 +30,10 @@ export const About = () => {
           bgImage="/bg-gt.jpg"
           zIndex={-1}
           filter="auto"
-          brightness="40%"
+          brightness="45%"
           bgSize="cover"
           bgRepeat={"no-repeat"}
-          bgPosition={"0px"}
+          bgPosition={"0 15%"}
         ></Box>
         <Container maxW={"6xl"} py="62px">
           <Box>

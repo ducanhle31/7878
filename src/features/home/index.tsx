@@ -9,12 +9,7 @@ import { useEffect } from "react";
 const Banner = dynamic(() => import("./Banner").then((mod) => mod.Banner), {
   loading: () => <Loading />,
 });
-const BannerFooter = dynamic(
-  () => import("./BannerFooter").then((mod) => mod.BannerFooter),
-  {
-    loading: () => <Loading />,
-  }
-);
+
 
 const Categorys = dynamic(
   () => import("./Categorys").then((mod) => mod.Categorys),
@@ -70,7 +65,7 @@ export const Home = () => {
   return (
     <>
       <Banner />
-      <BannerFooter />
+  
       <ListTeacher />
       <Power />
       <Trend />

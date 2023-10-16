@@ -191,11 +191,11 @@ export const Categorys = () => {
             lineHeight={"63px"}
             p={"0 40px"}
             transform={"skew(-15deg, 0)"}
-            bg={"linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%)"}
+            bg={"linear-gradient(135deg,#00525c 0%,#007180 100%)"}
             transition={"all ease .4s"}
             _hover={{
               background:
-                "linear-gradient(135deg,rgb(40,116,252) 0%,rgb(2,3,129) 100%)",
+                "linear-gradient(135deg,#007180 0%,#00525c100%)",
             }}
           >
             <Text transform={"skew( 15deg, 0)"}>Xem thêm</Text>

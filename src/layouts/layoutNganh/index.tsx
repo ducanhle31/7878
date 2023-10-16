@@ -40,7 +40,7 @@ export const LayoutNganh = ({
           brightness="40%"
           bgSize="cover"
           bgRepeat={"no-repeat"}
-          bgPosition={"0px"}
+          bgPosition={"0 15%"}
         ></Box>
         <Container maxW={"6xl"} py="62px">
           <Heading

@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { BannerFooter } from "@/components/BannerFooter";
 
 export const CardTeacher = ({
   title,
@@ -127,6 +128,7 @@ export const Banner = () => {
           ))}
           <SwiperNavButtons />
         </Swiper>
+        <BannerFooter/>
       </Container>
     </Box>
   );

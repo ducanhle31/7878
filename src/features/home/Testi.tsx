@@ -222,7 +222,7 @@ export const Testi = () => {
   ];
 
   return (
-    <Box bg={"#00165a"}>
+    <Box bg={"#007180"}>
       <Container
         maxW={"6xl"}
         backgroundImage={"/maptesti.png"}
@@ -294,20 +294,7 @@ export const Testi = () => {
           <SwiperNavButtons />
         </Swiper>
 
-        <Box
-          mt={"15px"}
-          pb={"80px"}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <Text color={"#b4c3f3"}>
-            Don’t think so more about success rate.
-            <Link color="#f7c42a" href="#" _hover={{ color: "#fe9800" }}>
-              Let’s get started
-            </Link>
-          </Text>
-        </Box>
+      
       </Container>
     </Box>
   );

@@ -31,6 +31,8 @@ interface IBranch {
   program: string[];
   person: string[];
   procedure: string[];
+  work: string[];
+  workjobs: string[];
 }
 
 export const Accs = ({
@@ -80,7 +82,8 @@ export const Accs = ({
 };
 
 export const Branch = (props: IBranch) => {
-  const { name, overview, jobs, program, person, procedure } = props;
+  const { name, overview, jobs, program, person, procedure, work, workjobs } =
+    props;
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box color={"blue.800"}>
@@ -156,6 +159,40 @@ export const Branch = (props: IBranch) => {
               {item}
             </Text>
           ))}
+        </Box>
+      </Box>
+      <Box pt={"32px"}>
+        <HStack pb={"16px"}>
+          <Divider
+            w={"50px"}
+            mr={"20px"}
+            borderColor={"#f5750d"}
+            style={{ borderBottomWidth: "4px" }}
+          />
+          <Heading as={"h2"} fontSize={"36px"} color="#00165a">
+            {`Học ngành ${name} ra trường làm gì?`}
+          </Heading>
+        </HStack>
+        <Box pt={"26px"}>
+          {work?.map((item, index) => (
+            <Text key={index} fontWeight={500} pb={"12px"}>
+              {item}
+            </Text>
+          ))}
+          <List>
+            {workjobs?.map((item, index) => (
+              <ListItem key={index} fontWeight={500} pb={"12px"}>
+                <ListIcon
+                  as={BsCheckLg}
+                  fontSize={"22px"}
+                  color="white"
+                  borderRadius={100}
+                  bgImage={"-webkit-linear-gradient(left,#f55301,#ff9f00)"}
+                />
+                {item}
+              </ListItem>
+            ))}
+          </List>
         </Box>
       </Box>
       <Box pt={"32px"}>

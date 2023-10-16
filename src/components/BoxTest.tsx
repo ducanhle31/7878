@@ -166,9 +166,9 @@ export const BoxTest = () => {
           >
             Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất
           </Text>
-          <Flex mt="0px" pb="100px" justifyContent="center" alignItems="center">
-            <FormContactFooter />
-            <Button
+          <Flex mt="40px" pb="100px" justifyContent="center" alignItems="center">
+          
+            <Button 
               color={"white"}
               size={"md"}
               rounded={"sm"}

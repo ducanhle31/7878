@@ -18,7 +18,7 @@ import { Logo } from "../components/Logo";
 export const Footer = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
-    <Box bg={"#00165a"} color={"White"}>
+    <Box bg={"#007180"} color={"White"}>
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={"flex-start"}>
@@ -33,8 +33,8 @@ export const Footer = () => {
             <Box as={Link} href={"tel:094.162.8017"}>
               Hotline/zalo: 094.162.8017
             </Box>
-            <Box as={Link} href={"dec.hvtc.edu.vn"}>
-              Website: dec.hvtc.edu.vn
+            <Box as={Link} href={"aof.com.vn"}>
+              Website: aof.com.vn
             </Box>
           </Stack>
 
