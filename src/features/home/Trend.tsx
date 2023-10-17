@@ -67,7 +67,7 @@ export const Trend = () => {
             }}
           >
             <Image
-              src={"/hoc-vien-tai-chinh.jpg"}
+              src={"/AOF-xh.png"}
               alt="Học Viện Tài Chính"
               width={600}
               height={460}
@@ -132,7 +132,7 @@ export const Trend = () => {
             }}
           >
             <Image
-              src={"/hoc-vien-tai-chinh.jpg"}
+              src={"/AOF-xh-a.png"}
               alt="Học Viện Tài Chính"
               width={600}
               height={460}

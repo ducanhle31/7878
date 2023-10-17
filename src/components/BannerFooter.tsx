@@ -13,8 +13,11 @@ import {
   SimpleGrid,
   Text,
   useDisclosure,
+  Button,
+  Grid,
 } from "@chakra-ui/react";
 import CountUp from "react-countup";
+import { AiFillCaretRight } from "react-icons/ai";
 interface ICounter {
   start: number;
   end: number;
@@ -171,14 +174,27 @@ export const BannerFooter = () => {
             khối ngành kinh tế sẽ là bệ phóng giúp các bạn sinh viên chinh phục
             nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
           </Text>
-          <Box display={"flex"} mt={"40px"}>
-            <Image
-              onClick={onOpen}
-              objectFit="cover"
-              src="/logo-aof.png"
-              alt="Dan "
-            />
-          </Box>
+
+          <Grid mt="30px" align-items="center" templateColumns="repeat(5, 1fr)" gap={4}>
+            <GridItem colSpan={1}>
+              <Button
+                w="60px"
+                h="60px"
+                borderRadius="50%"
+                onClick={onOpen}
+                bg="linear-gradient(to bottom, #f5750d, #f7c42a)"
+                color="white"
+                _hover={{
+                  bg: "linear-gradient(to bottom, #f7c42a, #f5750d)",
+                }}
+              >
+                <AiFillCaretRight fontSize="18px" />
+              </Button>
+            </GridItem>
+            <GridItem colSpan={4}>
+              <Image objectFit="cover" src="/logo-aof.png" alt="Dan " />
+            </GridItem>
+          </Grid>
         </GridItem>
         <GridItem
           w="100%"

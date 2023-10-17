@@ -242,14 +242,14 @@ export const Testi = () => {
                 w={"70px"}
                 pt={"40px"}
                 mr={"20px"}
-                borderColor={"#f5750d"}
+                borderColor={"#fe9800"}
                 style={{ borderBottomWidth: "4px" }}
               />
               <Text
                 fontWeight={"bold"}
                 textAlign={"left"}
                 fontSize={"36px"}
-                color={"#f5750d"}
+                color={"#fe9800"}
               >
                 Sinh viên nói gì về Hệ từ xa của Học viện Tài chính?
               </Text>

@@ -122,7 +122,7 @@ export const Power = () => {
                 fontWeight={"bold"}
                 textAlign={"left"}
                 fontSize={"24px"}
-                color={"#f0ac00"}
+                color={"#fe9800"}
               >
                 TUYỂN SINH 2023
               </Text>
@@ -137,7 +137,7 @@ export const Power = () => {
                 textAlign={"left"}
                 pt={"12px"}
                 fontSize={"24px"}
-                color={"#f0ac00"}
+                color={"#fe9800"}
               >
                 Đợt khai giảng: 10/2023
               </Text>

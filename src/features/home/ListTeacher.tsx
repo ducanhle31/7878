@@ -223,7 +223,7 @@ export const ListTeacher = () => {
                 w={"70px"}
                 pt={"40px"}
                 mr={"20px"}
-                borderColor={"#f5750d"}
+                borderColor={"#fe9800"}
                 style={{ borderBottomWidth: "4px" }}
               />
 
@@ -233,11 +233,11 @@ export const ListTeacher = () => {
                 pt={"12px"}
                 fontSize={"36px"}
                 color="#00165a"
-                fontFamily="Montserrat"
+                fontFamily="Lexend"
                 display="inline"
               >
                 TẠI SAO NÊN HỌC TỪ XA TẠI{" "}
-                <Text display="inline" color="#f5750d">
+                <Text display="inline" color="#fe9800">
                   AOF E-LEARNING?
                 </Text>
               </Box>
@@ -253,7 +253,7 @@ export const ListTeacher = () => {
               Bạn đang muốn tìm trường Đại Học chất lượng, phương pháp học hiện
               đại, tiết kiệm thời gian chi phí? 
             </Text>
-            <Text color="#f5750d" lineHeight={"30px"}>
+            <Text color="#fe9800" lineHeight={"30px"}>
               Chương trình đại học HỆ TỪ XA tại AOF sẽ giúp bạn điều đó!
             </Text>
           </GridItem>
