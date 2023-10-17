@@ -11,7 +11,6 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { FormContactFooter } from "./FormContact";
 
 export const BoxTest = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
@@ -54,7 +53,7 @@ export const BoxTest = () => {
             textAlign={"center"}
             color={"white"}
           >
-            Chất lượng – uy tín – hiệu quả- chuyên nghiệp – và hiện đại
+            Chất lượng – uy tín – hiệu quả - chuyên nghiệp – và hiện đại
           </Text>
           <Heading
             as="h1"
@@ -166,9 +165,13 @@ export const BoxTest = () => {
           >
             Đăng Ký nhận thông tin chi tiết lịch khai giảng mới nhất
           </Text>
-          <Flex mt="40px" pb="100px" justifyContent="center" alignItems="center">
-          
-            <Button 
+          <Flex
+            mt="40px"
+            pb="100px"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Button
               color={"white"}
               size={"md"}
               rounded={"sm"}

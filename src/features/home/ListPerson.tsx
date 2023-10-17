@@ -4,7 +4,7 @@ import {
   Container,
   Divider,
   GridItem,
-  Image,
+
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
@@ -17,6 +17,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSize } from "../../hooks/useSizeWindow";
+import Image from "next/image";
 
 export const CardTeacher = ({
   title,
@@ -114,7 +115,7 @@ export const CardTeacher = ({
         className="Image"
         src={image}
         alt={title}
-        width={"100%"}
+        width={500}
         height={500}
       />
       <Box pos={"absolute"} bottom={"50px"}>

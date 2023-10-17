@@ -6,7 +6,6 @@ import {
   Flex,
   GridItem,
   Heading,
-  Image,
   Modal,
   ModalContent,
   ModalOverlay,
@@ -18,6 +17,8 @@ import {
 } from "@chakra-ui/react";
 import CountUp from "react-countup";
 import { AiFillCaretRight } from "react-icons/ai";
+import Image from "next/image";
+
 interface ICounter {
   start: number;
   end: number;
@@ -90,7 +91,16 @@ export const Counter = (props: ICounter) => {
     >
       {({ countUpRef }) => (
         <Flex alignItems={"center"} pt={"20px"}>
-          <Image w={"48px"} h={"48px"} src={image} alt="Dan Abramov" />
+          {image ? (
+            <Image
+              width={48}
+              height={48}
+              objectFit="cover"
+              src={image}
+              alt="Dan "
+              style={{width:"48px",height:"48px"}}
+            />
+          ) : null}
           <Flex
             pl={"15px"}
             justifyContent={"center"}
@@ -175,7 +185,12 @@ export const BannerFooter = () => {
             nhiều cơ hội học tập và việc làm hấp dẫn trong tương lai
           </Text>
 
-          <Grid mt="30px" align-items="center" templateColumns="repeat(5, 1fr)" gap={4}>
+          <Grid
+            mt="30px"
+            align-items="center"
+            templateColumns="repeat(5, 1fr)"
+            gap={4}
+          >
             <GridItem colSpan={1}>
               <Button
                 w="60px"
@@ -192,7 +207,13 @@ export const BannerFooter = () => {
               </Button>
             </GridItem>
             <GridItem colSpan={4}>
-              <Image objectFit="cover" src="/logo-aof.png" alt="Dan " />
+              <Image
+                width={498}
+                height={101}
+                objectFit="cover"
+                src="/logo-aof.png"
+                alt="Dan "
+              />
             </GridItem>
           </Grid>
         </GridItem>

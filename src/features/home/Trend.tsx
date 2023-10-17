@@ -5,12 +5,13 @@ import {
   Container,
   Divider,
   GridItem,
-  Image,
   ListItem,
   SimpleGrid,
   Text,
   UnorderedList,
+  Grid,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export const Trend = () => {
   return (
@@ -59,131 +60,136 @@ export const Trend = () => {
           spacing={"8"}
           gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         >
-          <GridItem
+          <Grid
             h={"460px"}
             boxShadow={{
               base: "none",
               lg: "0px 0px 10px 0px rgba(138,138,138,1)",
             }}
+            gridTemplateColumns={{
+              base: "1fr",
+              md: " 1fr",
+              lg: "repeat(2, 1fr)",
+            }}
           >
-            <Image
-              src={"/AOF-xh.png"}
-              alt="Học Viện Tài Chính"
-              width={600}
-              height={460}
-            />
-            <Box
-              pos="relative"
-              bg={"white"}
-              w={{ base: "100%", lg: "300px" }}
-              h={"100%"}
-              top={{ base: "0", lg: "-460px" }}
-              right={{ base: "0", lg: "-244px" }}
-            >
-              <Box display={"flex"} pt="20px">
-                <Divider
-                  ml={{ base: "30px", lg: "-30px" }}
-                  w={"60px"}
-                  pt={"30px"}
-                  mr={"20px"}
-                  borderColor={"#f5750d"}
-                  style={{ borderBottomWidth: "4px" }}
-                />
-                <Text
-                  fontWeight={"bold"}
-                  textAlign={"left"}
-                  pt={"12px"}
-                  fontSize={"24px"}
-                  color={"#00165a"}
-                >
-                  Hệ từ xa
+            <GridItem>
+              <Image
+                src={"/AOF-xh.png"}
+                alt="Học Viện Tài Chính"
+                width={1080}
+                height={1080}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </GridItem>
+            <GridItem>
+              <Box bg={"white"} w={{ base: "100%", lg: "300px" }} h={"100%"}>
+                <Box display={"flex"} pt="20px">
+                  <Divider
+                    ml={{ base: "30px", lg: "-30px" }}
+                    w={"60px"}
+                    pt={"30px"}
+                    mr={"20px"}
+                    borderColor={"#f5750d"}
+                    style={{ borderBottomWidth: "4px" }}
+                  />
+                  <Text
+                    fontWeight={"bold"}
+                    textAlign={"left"}
+                    pt={"12px"}
+                    fontSize={"24px"}
+                    color={"#00165a"}
+                  >
+                    Hệ từ xa
+                  </Text>
+                </Box>
+                <Text px="30px" color="red">
+                  Lợi thế sinh viên nhận được
                 </Text>
+                <UnorderedList pt="10px" px="30px">
+                  <ListItem>
+                    Tiết kiệm thời gian học, học phí. Không phát sinh các chi
+                    phí khác
+                  </ListItem>
+                  <ListItem>
+                    Số lượng tín chỉ theo đầu vào của sinh viên. Có thể đăng ký
+                    nhiều tín chỉ trong 1 kỳ
+                  </ListItem>
+                  <ListItem>
+                    Đội ngũ giảng viên hàng đầu, giàu kinh nghiệm đang trực tiếp
+                    công tác tại trường{" "}
+                  </ListItem>
+                  <ListItem>
+                    Chủ nhiệm lớp đồng hành, hỗ trợ sinh viên trong suốt thời
+                    gian học tập{" "}
+                  </ListItem>
+                </UnorderedList>
               </Box>
-              <Text px="30px" color="red">
-                Lợi thế sinh viên nhận được
-              </Text>
-              <UnorderedList pt="10px" px="30px">
-                <ListItem>
-                  Tiết kiệm thời gian học, học phí. Không phát sinh các chi phí
-                  khác
-                </ListItem>
-                <ListItem>
-                  Số lượng tín chỉ theo đầu vào của sinh viên. Có thể đăng ký
-                  nhiều tín chỉ trong 1 kỳ
-                </ListItem>
-                <ListItem>
-                  Đội ngũ giảng viên hàng đầu, giàu kinh nghiệm đang trực tiếp
-                  công tác tại trường{" "}
-                </ListItem>
-                <ListItem>
-                  Chủ nhiệm lớp đồng hành, hỗ trợ sinh viên trong suốt thời gian
-                  học tập{" "}
-                </ListItem>
-              </UnorderedList>
-            </Box>
-          </GridItem>
-          <GridItem
+            </GridItem>
+          </Grid>
+          <Grid
+            my={{ base: "300px", md: "400px", lg: "0px" }}
             h={"460px"}
-            mb={{ base: "400px", lg: "0" }}
-            mt={{ base: "400px", lg: "0" }}
             boxShadow={{
               base: "none",
               lg: "0px 0px 10px 0px rgba(138,138,138,1)",
             }}
+            gridTemplateColumns={{
+              base: "1fr",
+              md: " 1fr",
+              lg: "repeat(2, 1fr)",
+            }}
           >
-            <Image
-              src={"/AOF-xh-a.png"}
-              alt="Học Viện Tài Chính"
-              width={600}
-              height={460}
-            />
-            <Box
-              pos="relative"
-              bg={"white"}
-              w={{ base: "100%", lg: "300px" }}
-              h={"100%"}
-              top={{ base: "0", lg: "-460px" }}
-              right={{ base: "0", lg: "-244px" }}
-            >
-              <Box display={"flex"} pt="20px">
-                <Divider
-                  ml={{ base: "30px", lg: "-30px" }}
-                  w={"60px"}
-                  pt={"30px"}
-                  mr={"20px"}
-                  borderColor={"#f5750d"}
-                  style={{ borderBottomWidth: "4px" }}
-                />
-                <Text
-                  fontWeight={"bold"}
-                  textAlign={"left"}
-                  pt={"12px"}
-                  fontSize={"24px"}
-                  color={"#00165a"}
-                >
-                  Hệ từ xa
+            <GridItem>
+              <Image
+                src={"/AOF-xh-a.png"}
+                alt="Học Viện Tài Chính"
+                width={1080}
+                height={1080}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </GridItem>
+            <GridItem>
+              <Box bg={"white"} w={{ base: "100%", lg: "300px" }} h={"100%"}>
+                <Box display={"flex"} pt="20px">
+                  <Divider
+                    ml={{ base: "30px", lg: "-30px" }}
+                    w={"60px"}
+                    pt={"30px"}
+                    mr={"20px"}
+                    borderColor={"#f5750d"}
+                    style={{ borderBottomWidth: "4px" }}
+                  />
+                  <Text
+                    fontWeight={"bold"}
+                    textAlign={"left"}
+                    pt={"12px"}
+                    fontSize={"24px"}
+                    color={"#00165a"}
+                  >
+                    Hệ từ xa
+                  </Text>
+                </Box>
+                <Text px="30px" color="red">
+                  Tiềm năng phát triển
                 </Text>
+                <UnorderedList pt="10px" px="30px">
+                  <ListItem>
+                    Phương pháp đào tạo e-Learning hiện đại, là xu hướng giáo
+                    dục thời 4.0
+                  </ListItem>
+                  <ListItem>
+                    Bằng tốt nghiệp không ghi hình thức đào tạo, được Bộ GD&ĐT
+                    công nhận, mở ra nhiều cơ hội cho người đi làm muốn sở hữu
+                    tấm bằng cử nhân giá trị
+                  </ListItem>
+                  <ListItem>
+                    Bằng có giá trị sử dụng trên toàn quốc, đủ điều kiện học lên
+                    cao học, thi công chức theo đúng quy định
+                  </ListItem>
+                </UnorderedList>
               </Box>
-              <Text px="30px" color="red">
-                Tiềm năng phát triển
-              </Text>
-              <UnorderedList pt="10px" px="30px">
-                <ListItem>
-                  Phương pháp đào tạo e-Learning hiện đại, là xu hướng giáo dục
-                  thời 4.0
-                </ListItem>
-                <ListItem>
-                  Bằng tốt nghiệp không ghi hình thức đào tạo, được Bộ GD&ĐT
-                  công nhận, mở ra nhiều cơ hội cho người đi làm muốn sở hữu tấm
-                  bằng cử nhân giá trị
-                </ListItem>
-                <ListItem>
-                  Bằng có giá trị sử dụng trên toàn quốc, đủ điều kiện học lên
-                  cao học, thi công chức theo đúng quy định
-                </ListItem>
-              </UnorderedList>
-            </Box>
-          </GridItem>
+            </GridItem>
+          </Grid>
         </SimpleGrid>
         <Box
           display="flex"

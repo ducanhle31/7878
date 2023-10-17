@@ -1,24 +1,49 @@
 "use client";
 
-import { FormPoup } from "@/components/FormContact";
-import { ModalBase } from "@/components/Modal";
 import {
   Box,
   Container,
   Heading,
-  Image,
   SimpleGrid,
   Stack,
   Text,
-  useDisclosure,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "../components/Logo";
 
 export const Footer = () => {
-  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
-    <Box bg={"#007180"} color={"White"}>
+    <Box
+      color={"White"}
+      w={"100%"}
+      bgSize="cover"
+      bgRepeat={"no-repeat"}
+      position="relative"
+    >
+      <Box
+        pos="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bgImage="/bg-footer.jpg"
+        zIndex={-1}
+        filter="auto"
+        brightness="40%"
+        bgSize="cover"
+        bgRepeat={"no-repeat"}
+        bgPosition={"0"}
+      ></Box>
+      <Box
+        pos="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bg="#002c32cb"
+        zIndex={-1}
+      ></Box>
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={"flex-start"}>
@@ -65,7 +90,12 @@ export const Footer = () => {
 
           <Stack align={"flex-start"}>
             <Box as={Link} href={"https://timdoitac.aum.edu.vn/ "}>
-              <Image src="/doi-tac.jpg" alt="Đối-tác" />
+              <Image
+                width={600}
+                height={400}
+                src="/doi-tac.jpg"
+                alt="Đối-tác"
+              />
             </Box>
           </Stack>
         </SimpleGrid>
@@ -84,9 +114,6 @@ export const Footer = () => {
           <Text textAlign="center">© 2023 Copyright by IT AUM</Text>
         </Container>
       </Box>
-      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormPoup title="Để lại thông tin" />
-      </ModalBase>
     </Box>
   );
 };

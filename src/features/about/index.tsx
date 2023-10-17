@@ -6,14 +6,14 @@ import {
   Grid,
   Heading,
   Text,
-  Image,
   Button,
   Link,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export const About = () => {
   return (
-    <Box color={"blue.800"} >
+    <Box color={"blue.800"}>
       <Box
         w={"100%"}
         bg="rgba(0, 0, 0, 0)"

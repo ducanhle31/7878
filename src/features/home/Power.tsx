@@ -4,7 +4,6 @@ import {
   Container,
   Flex,
   GridItem,
-  Image,
   List,
   SimpleGrid,
   Text,
@@ -14,6 +13,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "@/components/Loading";
 import { FormContact } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
+import Image from "next/image";
 
 export const Timer = () => {
   const [loading, setLoading] = useState(true);
@@ -36,7 +36,7 @@ export const Timer = () => {
         setHr(0);
         setMin(0);
         setSec(0);
-         setLoading(false);
+        setLoading(false);
       } else {
         const remainingSeconds: number = Math.floor(timeDifference / 1000);
         const remainingMinutes: number = Math.floor(remainingSeconds / 60);
@@ -97,8 +97,8 @@ export const Power = () => {
           <GridItem>
             <Image
               src={`/AOF-tuyen-sinh.png`}
-              width={"100%"}
-              height={"auto"}
+              width={1080}
+              height={1080}
               alt="image"
               style={{ maxHeight: "480px", objectFit: "contain" }}
             />

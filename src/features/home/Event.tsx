@@ -6,7 +6,6 @@ import {
   Container,
   Divider,
   GridItem,
-  Image,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
@@ -17,6 +16,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSize } from "../../hooks/useSizeWindow";
+import Image from "next/image";
 
 const SLiderPosts = dynamic(
   () => import("../posts/SliderPosts").then((mod) => mod.SLiderPosts),
@@ -104,7 +104,6 @@ export const Event = () => {
           <Announcement />
         </Suspense>
 
-    
         <Swiper
           slidesPerView={
             (size.width < 480 && 3) || (size.width < 992 && 4) || 4

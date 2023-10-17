@@ -1,4 +1,4 @@
-import { Box, Container, Image } from "@chakra-ui/react";
+import { Box, Container} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import "swiper/css";
@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { BannerFooter } from "@/components/BannerFooter";
+import Image from "next/image";
 
 export const CardTeacher = ({
   title,
@@ -21,8 +22,9 @@ export const CardTeacher = ({
       className="Image"
       src={image}
       alt={title}
-      width={"100%"}
-      height={"auto"}
+      width={8000}
+      height={3250}
+      style={{width: "100%", height: "auto"}}
     />
   );
 };

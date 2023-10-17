@@ -38,9 +38,9 @@ export const CardTeacher = ({
     border-radius: 16px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #18295c;
-    background-color: #18295c;
-    color: #18295c;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    color: #000000;
     &:hover {
       height: 360px;
       transition: all 0.6s ease;
@@ -78,7 +78,7 @@ export const CardTeacher = ({
     padding: 16px;
     font-size: 14px;
     line-height: 26px;
-    color: #bccbfb;
+    color: #454545;
   `;
   const StarsContainer = styled.div`
     display: flex;
@@ -100,7 +100,7 @@ export const CardTeacher = ({
         <ImgNameContainer>
           <Image src={image} alt="" width={85} height={85} className="t" />
           <Name>{desc}</Name>
-          <Heading size="md" color={"white"} textAlign={"center"}>
+          <Heading size="md" color={"black"} textAlign={"center"}>
             {title}
           </Heading>
           <StarsContainer className="stars">
@@ -293,8 +293,6 @@ export const Testi = () => {
 
           <SwiperNavButtons />
         </Swiper>
-
-      
       </Container>
     </Box>
   );

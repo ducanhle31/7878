@@ -3,7 +3,6 @@
 import {
   Grid,
   GridItem,
-  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -11,6 +10,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface IModalBase {
   isOpen: boolean;
@@ -28,16 +28,20 @@ export const ModalBase = (props: IModalBase) => {
         <ModalContent bg={"white"} rounded={"sm"}>
           <ModalCloseButton />
           <ModalBody rounded={"xl"} p={0}>
-            <Grid   gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
+            <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
               <GridItem>{children}</GridItem>
-              <GridItem display={{ base: "none", md: "block" }}>
+              <GridItem   rounded={"sm"} display={{ base: "none", md: "block" }}>
                 <Image
-                  style={{ objectFit: "contain" }}
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "auto",
+                  }}
                   src="/popup.png"
                   alt="popup"
-                  width={"100%"}
-                  height={"auto"}
-                  rounded={"sm"}
+                  width={2492}
+                  height={3751}
+                
                 />
               </GridItem>
             </Grid>
