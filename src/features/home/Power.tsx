@@ -190,11 +190,11 @@ export const Power = () => {
                 lineHeight={"63px"}
                 p={"0 40px"}
                 transform={"skew(-15deg, 0)"}
-                bg={"linear-gradient(135deg,#035762 0%,#007180 100%)"}
+                bg={"linear-gradient(135deg,#035762 0%,#009eb3 100%)"}
                 transition={"all ease .4s"}
                 _hover={{
                   background:
-                    "linear-gradient(135deg,#007180 0%, #035762 100%)",
+                    "linear-gradient(135deg,#009eb3 0%, #035762 100%)",
                 }}
                 onClick={onToggle}
               >
@@ -205,7 +205,7 @@ export const Power = () => {
         </SimpleGrid>
       </Container>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormGetFly1 title="Để lại thông tin"  />
+        <FormGetFly1 title="Để lại thông tin" />
       </ModalBase>
     </Box>
   );

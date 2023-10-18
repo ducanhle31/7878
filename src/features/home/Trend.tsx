@@ -37,8 +37,9 @@ export const Trend = () => {
                 pt={"12px"}
                 fontSize={"36px"}
                 color={"#00165a"}
+              
               >
-                Xu hướng học tập theo hệ từ xa
+              XU HƯỚNG HỌC TẬP THEO HỆ TỪ XA
               </Text>
             </Box>
           </GridItem>

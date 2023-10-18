@@ -106,6 +106,7 @@ export const About = () => {
         </Text>
         <Text>Cờ thi đua của Chính phủ và nhiều phần thưởng cao quý khác.</Text>
         <Box display="flex" alignItems="center" justifyContent="center">
+      
           <Button
             as={Link}
             href="/dang-ky"
@@ -118,7 +119,7 @@ export const About = () => {
             transition={"all ease .4s"}
             h={"50px"}
             _hover={{
-              background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
+              background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",  textDecoration: "none",
             }}
           >
             NHẬN TƯ VẤN MIỄN PHÍ

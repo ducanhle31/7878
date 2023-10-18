@@ -26,7 +26,6 @@ import { Button, ButtonProps, Text } from "@chakra-ui/react";
 export const BtnTheme = (props: ButtonProps) => {
   const { children, ...args } = props;
   return (
-    
     <Button
       color={"white"}
       size={"2xl"}
@@ -36,11 +35,10 @@ export const BtnTheme = (props: ButtonProps) => {
       p={"0 40px"}
       {...args}
       transform={"skew(-15deg, 0)"}
-      bg={"linear-gradient(135deg,#035762 0%,#007180 100%)"}
+      bg={"linear-gradient(135deg,#035762 0%,#009eb3 100%)"}
       transition={"all ease .4s"}
       _hover={{
-        background:
-          "linear-gradient(135deg,#007180 0%, #035762 100%)",
+        background: "linear-gradient(135deg,#009eb3 0%, #035762 100%)",
       }}
     >
       <Text transform={"skew( 15deg, 0)"}> {children}</Text>
@@ -51,7 +49,7 @@ export const BtnTheme = (props: ButtonProps) => {
 export const BtnThemeinput = (props: ButtonProps) => {
   const { children, ...args } = props;
   return (
-      <Button
+    <Button
       color={"white"}
       size={"md"}
       rounded={"sm"}
@@ -65,8 +63,7 @@ export const BtnThemeinput = (props: ButtonProps) => {
       }}
     >
       {children}
-    </Button> 
-  
+    </Button>
   );
 };
 export const BtnThemeContacts = (props: ButtonProps) => {
@@ -134,9 +131,12 @@ export const BtnThemeContact = (props: ButtonProps) => {
       size={"md"}
       rounded={"sm"}
       {...args}
-      bg={"#fe9800"}
+      bg={"linear-gradient(90deg,#f55301 0%,#ff9f00 50%,#f55301)"}
       transition={"all ease .4s"}
       h={"60px"}
+      _hover={{
+        background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
+      }}
     >
       {children}
     </Button>

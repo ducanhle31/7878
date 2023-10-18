@@ -10,7 +10,8 @@ import {
   Select,
   SelectProps,
   Text,
-  VStack,Flex 
+  VStack,
+  Flex,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import Image from "next/image";
@@ -816,7 +817,7 @@ export const FormMain = ({ title }: { title?: string }) => {
   );
 };
 
- export const FormPoup = ({ title }: { title?: string }) => {
+export const FormPoup = ({ title }: { title?: string }) => {
   const [id, setId] = useState("getfly-optin-form-iframe-1687745455014");
   const [href, setHref] = useState(
     "https://crm.aumerp.com/api/forms/viewform/?key=HJ8H4JKbFVKVrbr7wYvZX8n9KR4yzUsnI2trLbcTwsUdQMZBqg&referrer="
@@ -863,7 +864,7 @@ export const FormMain = ({ title }: { title?: string }) => {
       {!isLoading && <div id={id} />}
     </Box>
   );
-}; 
+};
 /* export const FormPoup = (props: IForm) => {
   const { title } = props;
 
@@ -1095,7 +1096,8 @@ export const FormGetFly1 = ({ title }: { title?: string }) => {
           size={{ base: "md", md: "lg" }}
           textAlign={"center"}
           color={"blue.700"}
-          pb={"16px"}   pt={"30px"}
+          pb={"16px"}
+          pt={"30px"}
         >
           Để lại thông tin
         </Heading>

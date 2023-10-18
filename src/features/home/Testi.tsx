@@ -251,7 +251,7 @@ export const Testi = () => {
                 fontSize={"36px"}
                 color={"#fe9800"}
               >
-                Sinh viên nói gì về Hệ từ xa của Học viện Tài chính?
+                SINH VIÊN NÓI GÌ VỀ HỆ TỪ XA CỦA HỌC VIỆN TÀI CHÍNH?
               </Text>
             </Box>
             <Text
