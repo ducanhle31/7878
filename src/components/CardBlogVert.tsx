@@ -23,12 +23,14 @@ export const CardBlogVert = ({
   tag,
   image,
   path,
+  bgTag,
 }: {
   title: string;
   desc: string;
   tag: string;
   image?: string;
   path?: string;
+  bgTag?: string;
 }) => {
   const [isMounted, setMount] = useState(false);
 
@@ -66,6 +68,7 @@ export const CardBlogVert = ({
               fontSize={"sm"}
               p="6px"
               whiteSpace={"nowrap"}
+              bg={bgTag || "green.500"}
             >
               {tag}
             </Tag>

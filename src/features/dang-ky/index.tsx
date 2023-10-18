@@ -9,29 +9,28 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export const Lienhe = () => {
   return (
     <>
       <Box
-        bg="rgba(0, 0, 0, 0)"
+        bg="#1d1d1d67"
         bgSize="cover"
         bgRepeat={"no-repeat"}
         position="relative"
       >
-        <Box
-          pos="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          bgImage={"/dang-ky-bg.png"}
-          zIndex={-1}
-          filter="auto"
-          brightness="50%"
-          bgSize="cover"
-          bgRepeat={"no-repeat"}
-        ></Box>
+        <Image
+          alt="Mountains"
+          src={"/dang-ky-bg.png"}
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            zIndex: "-1",
+          }}
+        />
         <Container maxW="6xl">
           <SimpleGrid
             gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}

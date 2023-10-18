@@ -1,4 +1,4 @@
-import { FormContact } from "@/components/FormContact";
+import { FormGetFly1 } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import {
   Box,
@@ -11,6 +11,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export const BoxTest = () => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
@@ -21,24 +22,21 @@ export const BoxTest = () => {
         bgRepeat={"no-repeat"}
         bgSize="cover"
         w={"100%"}
-        bg="rgba(0, 0, 0, 0)"
+        bg="#1d1d1dad"
         position="relative"
       >
-        <Box
-          w={"100%"}
-          pos="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          bgImage={"/AOF-bg-lkg.png"}
-          zIndex={-1}
-          filter="auto"
-          brightness="40%"
-          bgSize="cover"
-          bgRepeat={"no-repeat"}
-          bgPosition={"0px"}
-        ></Box>
+        <Image
+          alt="Mountains"
+          src={"/AOF-bg-lkg.png"}
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+            zIndex: "-1",
+          }}
+        />
+
         <Container maxW={"6xl"}>
           <Text
             mt={{ lg: "30px", md: "50px", base: "50px" }}
@@ -190,7 +188,7 @@ export const BoxTest = () => {
         </Container>
       </Box>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormContact title="Để lại thông tin" onClose={onClose} />
+        <FormGetFly1 title="Để lại thông tin"  />
       </ModalBase>
     </>
   );

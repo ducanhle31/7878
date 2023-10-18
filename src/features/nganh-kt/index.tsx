@@ -3,8 +3,9 @@ import { LayoutNganh } from "@/layouts/layoutNganh";
 
 export const Kt = () => {
   return (
-    <LayoutNganh title="Ngành kế toán">
-      <Branch
+    <LayoutNganh title="Ngành kế toán" image="/kt-a.png">
+      <Branch 
+        
         name="Kế toán"
         overview={[
           "Kế toán là một ngành gắp gắn với 60 năm phát triển của nhà trường. Hiện tại ngành Kế Toán là một trong những ngành đào tạo thế mạnh của trường được nhiều sinh viên tin tưởng và theo học ",

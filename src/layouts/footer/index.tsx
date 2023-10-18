@@ -20,30 +20,19 @@ export const Footer = () => {
       bgSize="cover"
       bgRepeat={"no-repeat"}
       position="relative"
+      bg="#002c32db"
     >
-      <Box
-        pos="absolute"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bgImage="/bg-footer.jpg"
-        zIndex={-1}
-        filter="auto"
-        brightness="40%"
-        bgSize="cover"
-        bgRepeat={"no-repeat"}
-        bgPosition={"0"}
-      ></Box>
-      <Box
-        pos="absolute"
-        top={0}
-        left={0}
-        right={0}
-        bottom={0}
-        bg="#002c32cb"
-        zIndex={-1}
-      ></Box>
+      <Image
+        alt="Mountains"
+        src={"/bg-footer.jpg"}
+        quality={100}
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover",
+          zIndex: "-1",
+        }}
+      />
       <Container as={Stack} maxW={"6xl"} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={"flex-start"}>

@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Loading } from "@/components/Loading";
-import { FormContact } from "@/components/FormContact";
+import { FormGetFly1 } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import Image from "next/image";
 
@@ -205,7 +205,7 @@ export const Power = () => {
         </SimpleGrid>
       </Container>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormContact title="Để lại thông tin" onClose={onClose} />
+        <FormGetFly1 title="Để lại thông tin"  />
       </ModalBase>
     </Box>
   );

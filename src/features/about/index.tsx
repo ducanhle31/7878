@@ -35,6 +35,7 @@ export const About = () => {
           bgRepeat={"no-repeat"}
           bgPosition={"0 15%"}
         ></Box>
+      
         <Container maxW={"6xl"} py="62px">
           <Box>
             <Heading

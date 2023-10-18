@@ -1,6 +1,6 @@
 "use client";
 import { BtnThemeContact } from "@/components/BtnTheme";
-import { FormContact } from "@/components/FormContact";
+import { FormGetFly1 } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import { Box, Container, Flex, HStack, useDisclosure } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
@@ -123,7 +123,7 @@ export const Navigation = () => {
       </NavbarBrand>
 
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormContact onClose={onClose} />
+        <FormGetFly1 title="Để lại thông tin" />
       </ModalBase>
     </NavContainer>
   );

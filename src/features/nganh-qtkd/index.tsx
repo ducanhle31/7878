@@ -3,8 +3,8 @@ import { LayoutNganh } from "@/layouts/layoutNganh";
 
 export const Qtkd = () => {
   return (
-    <LayoutNganh title="Ngành quản trị kinh doanh">
-      <Branch
+    <LayoutNganh title="Ngành quản trị kinh doanh" image="/qtkd-a.png">
+      <Branch 
         name="Quản trị kinh doanh"
         overview={[
           "Sau 20 năm thành lập khoa Quản Trị Kinh Doanh, với bề dày kinh nghiệm đào tạo, Sinh viên tốt nghiệp ra trường 98% có việc làm và đang nắm giữ vị trí cao trong doanh nghiệp.",

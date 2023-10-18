@@ -7,7 +7,7 @@ import {
   ModalContent,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { FormContact } from "../../components/FormContact";
+import { FormGetFly1 } from "../../components/FormContact";
 import Image from "next/image";
 
 interface IModalBase {
@@ -27,7 +27,7 @@ export const ModalBase = (props: IModalBase) => {
           <ModalBody rounded={"xl"} p={0}>
             <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
               <GridItem>
-                <FormContact title="Để lại thông tin" />
+                <FormGetFly1 title="Để lại thông tin" />
               </GridItem>
               <GridItem display={{ base: "none", md: "block" }}>
                 <Image

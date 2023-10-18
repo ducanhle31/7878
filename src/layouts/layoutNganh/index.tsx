@@ -14,34 +14,30 @@ import { ReactNode } from "react";
 export const LayoutNganh = ({
   children,
   title,
+  image,
 }: {
   children?: ReactNode;
   title?: string;
+  image?: string;
 }) => {
   return (
     <Box color={"blue.900"}>
-      <Box
-        w={"100%"}
-        bg="rgba(0, 0, 0, 0)"
-        bgSize="cover"
-        bgRepeat={"no-repeat"}
-        position="relative"
-      >
+      <Box w={"100%"} bgSize="cover" bgRepeat={"no-repeat"} position="relative">
         <Box
-          w={"100%"}
           pos="absolute"
           top={0}
           left={0}
           right={0}
           bottom={0}
-          bgImage="/bg-gt.jpg"
+          bgImage={image || ``}
           zIndex={-1}
           filter="auto"
-          brightness="40%"
+          brightness="60%"
           bgSize="cover"
           bgRepeat={"no-repeat"}
-          bgPosition={"0 15%"}
+          bgPosition={"0px -160px"}
         ></Box>
+
         <Container maxW={"6xl"} py="62px">
           <Heading
             as="h2"

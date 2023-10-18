@@ -62,7 +62,7 @@ export const ListPosts = ({
     const getPosts = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`/api/posts/?type=news&page=${page}`, {
+        const res = await fetch(`/api/data-announcement/?type=notifis&page=${page}`, {
           next: { revalidate: 3 },
         });
 
@@ -89,7 +89,7 @@ export const ListPosts = ({
           pb={"20px"}
           textAlign={{ base: "center", lg: "start" }}
         >
-          Tin tức
+          Thông báo
         </Heading>
         {!isLoading && (
           <VStack spacing={"16px"}>
@@ -98,7 +98,8 @@ export const ListPosts = ({
                 key={index}
                 title={post?.title?.rendered}
                 desc={clean(post?.excerpt?.rendered)}
-                tag="tin tức"
+                tag="Thông báo"
+                bgTag="green.500"
                 image={post?.featured_image || ""}
                 path={`/tin-tuc/${post?.slug}`}
               />
