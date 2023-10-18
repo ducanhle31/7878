@@ -1,3 +1,6 @@
+import { FormGetFly1 } from "@/components/FormContact";
+import { Loading } from "@/components/Loading";
+import { ModalBase } from "@/components/Modal";
 import {
   Box,
   Button,
@@ -9,11 +12,8 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { Loading } from "@/components/Loading";
-import { FormGetFly1 } from "@/components/FormContact";
-import { ModalBase } from "@/components/Modal";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export const Timer = () => {
   const [loading, setLoading] = useState(true);

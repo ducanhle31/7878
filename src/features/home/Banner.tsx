@@ -1,4 +1,4 @@
-import { Box, Container} from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import "swiper/css";
@@ -19,12 +19,12 @@ export const CardTeacher = ({
 }) => {
   return (
     <Image
-      className="Image"
+      priority
       src={image}
       alt={title}
       width={8000}
       height={3250}
-      style={{width: "100%", height: "auto"}}
+      style={{ width: "100%", height: "auto" }}
     />
   );
 };
@@ -130,7 +130,7 @@ export const Banner = () => {
           ))}
           <SwiperNavButtons />
         </Swiper>
-        <BannerFooter/>
+        <BannerFooter />
       </Container>
     </Box>
   );

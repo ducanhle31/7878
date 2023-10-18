@@ -19,7 +19,7 @@ export default async function handler(
     try {
       // Lấy danh sách các bài viết cùng thể loại
       const resRelatedPosts = await fetch(
-        `${api_url}/posts?categories=82&per_page=10&_embed`,
+        `${api_url}/posts?categories=${catId}&exclude=${id}&per_page=3&_embed`,
         { next: { revalidate: 1 } }
       );
       const relatedPosts: any[] = await resRelatedPosts.json();

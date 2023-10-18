@@ -7,8 +7,8 @@ import {
   ModalContent,
   ModalOverlay,
 } from "@chakra-ui/react";
-import { FormGetFly1 } from "../../components/FormContact";
 import Image from "next/image";
+import { FormGetFly1 } from "../../components/FormContact";
 
 interface IModalBase {
   isOpen: boolean;
@@ -31,12 +31,15 @@ export const ModalBase = (props: IModalBase) => {
               </GridItem>
               <GridItem display={{ base: "none", md: "block" }}>
                 <Image
-                  style={{ objectFit: "contain" ,width: "100%", height: "auto"}}
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "auto",
+                  }}
                   src="/popup.png"
                   alt="popup"
                   width={2492}
                   height={3751}
-                
                 />
               </GridItem>
             </Grid>

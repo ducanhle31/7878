@@ -3,10 +3,10 @@
 import { CardBlog } from "@/components/CardBlog";
 import { HeadSection } from "@/components/HeadSection";
 import { Loading } from "@/components/Loading";
+import { clean } from "@/lib/sanitizeHtml";
 import { formatDate } from "@/ultil/date";
 import { Box, Center, Container, GridItem, SimpleGrid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { clean } from "@/lib/sanitizeHtml";
 
 export const LatestPost = () => {
   const [posts, setPosts] = useState<any[]>([]);

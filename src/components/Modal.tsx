@@ -30,7 +30,7 @@ export const ModalBase = (props: IModalBase) => {
           <ModalBody rounded={"xl"} p={0}>
             <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
               <GridItem>{children}</GridItem>
-              <GridItem   rounded={"sm"} display={{ base: "none", md: "block" }}>
+              <GridItem rounded={"sm"} display={{ base: "none", md: "block" }}>
                 <Image
                   style={{
                     objectFit: "contain",
@@ -41,7 +41,6 @@ export const ModalBase = (props: IModalBase) => {
                   alt="popup"
                   width={2492}
                   height={3751}
-                
                 />
               </GridItem>
             </Grid>

@@ -141,8 +141,7 @@ export const Header = () => {
           content: "''",
           width: "52%",
           height: "100%",
-          backgroundImage:
-            "linear-gradient(135deg,#007180 0%,#007180 100%)",
+          backgroundImage: "linear-gradient(135deg,#007180 0%,#007180 100%)",
           position: "absolute",
           top: 0,
           right: 0,

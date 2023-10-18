@@ -62,9 +62,12 @@ export const ListPosts = ({
     const getPosts = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`/api/data-announcement/?type=notifis&page=${page}`, {
-          next: { revalidate: 3 },
-        });
+        const res = await fetch(
+          `/api/data-announcement/?type=notifis&page=${page}`,
+          {
+            next: { revalidate: 3 },
+          }
+        );
 
         const data: { posts: any[]; totalPosts: string } = await res.json();
         const { posts, totalPosts } = data;

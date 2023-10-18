@@ -4,7 +4,6 @@ import {
   Container,
   Divider,
   GridItem,
-
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
@@ -160,10 +159,10 @@ export const CardTeacher = ({
 };
 export const StyledSwiper = styled(Swiper)`
   margin-top: 40px;
-  padding: 45px; 
+  padding: 45px;
 
   @media (max-width: 768px) {
-    padding: 15px; 
+    padding: 15px;
   }
 `;
 export const ListPerson = () => {

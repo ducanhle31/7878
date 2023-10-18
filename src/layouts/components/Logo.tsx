@@ -16,14 +16,14 @@ export const Logo = () => {
         src={`/logo.png`}
         alt="logo aof"
       />
-    {/*   <VStack color={"#028dbf"} align={"start"}>
+      <VStack color={"#007180"} align={"start"}>
         <Heading as="h1" size={{ base: "sm", lg: "md" }}>
-        Học Viện Tài Chính
+          Học Viện Tài Chính
         </Heading>
         <Heading as="h2" fontSize={{ base: ".8rem" }}>
           Trung tâm đào tạo từ xa
         </Heading>
-      </VStack> */}
+      </VStack>
     </Link>
   );
 };

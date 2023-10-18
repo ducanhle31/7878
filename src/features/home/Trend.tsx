@@ -4,12 +4,12 @@ import {
   Box,
   Container,
   Divider,
+  Grid,
   GridItem,
   ListItem,
   SimpleGrid,
   Text,
   UnorderedList,
-  Grid,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -37,9 +37,8 @@ export const Trend = () => {
                 pt={"12px"}
                 fontSize={"36px"}
                 color={"#00165a"}
-              
               >
-              XU HƯỚNG HỌC TẬP THEO HỆ TỪ XA
+                XU HƯỚNG HỌC TẬP THEO HỆ TỪ XA
               </Text>
             </Box>
           </GridItem>

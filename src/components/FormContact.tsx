@@ -823,7 +823,7 @@ export const FormPoup = ({ title }: { title?: string }) => {
     "https://crm.aumerp.com/api/forms/viewform/?key=HJ8H4JKbFVKVrbr7wYvZX8n9KR4yzUsnI2trLbcTwsUdQMZBqg&referrer="
   );
   const [isLoading, setIsLoading] = useState(true);
-
+  const router = useRouter();
   useEffect(() => {
     const getForm = async () => {
       try {
@@ -845,7 +845,7 @@ export const FormPoup = ({ title }: { title?: string }) => {
     };
 
     getForm();
-  }, [id, href, isLoading]);
+  }, [id, href, isLoading, router]);
 
   return (
     <Box minH={"45vh"}>
@@ -865,194 +865,6 @@ export const FormPoup = ({ title }: { title?: string }) => {
     </Box>
   );
 };
-/* export const FormPoup = (props: IForm) => {
-  const { title } = props;
-
-  const [sucess, setSucess] = useState(false);
-
-  const validateName = (value: string) => {
-    let error;
-    if (!value) {
-      error = "Họ tên là bắt buộc";
-    } else if (value?.trim().length < 2) {
-      error = "Tên phải lớn hơn 2 ký tự😱";
-    }
-    return error;
-  };
-
-  const validatePhone = (value: string) => {
-    const regex = /^(0[3-9]{1}\d{8})|(02[0-9]{1}\d{7,8})$/;
-    let error;
-    if (!value) {
-      error = "Số điện thoại là bắt buộc";
-    } else if (!regex.test(value.trim())) {
-      error = "Số điện thoại không hợp lệ😱";
-    }
-    return error;
-  };
-
-  const handleSubmit = async (formData: any, actions: any) => {
-    const NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL =
-      process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL || "";
-    try {
-      const res = await fetch(NEXT_PUBLIC_GOOGLE_SCRIPT_WEB_APP_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams(formData).toString(),
-      });
-      actions.setSubmitting(false);
-      setSucess(true);
-    } catch (error) {
-      alert("Đăng ký không thành công, vui lòng thử lại!");
-      actions.setSubmitting(false);
-      setSucess(false);
-    }
-  };
-
-  return (
-    <Box rounded={"sm"} px={"20px"} py={"24px"} h={"max-content"}>
-      <Heading
-        fontSize={"36px"}
-        lineHeight={"48px"}
-        textAlign={"left"}
-        fontWeight={"700"}
-        mb={"24px"}
-        color={sucess ? "green.700" : "#021d6c"}
-      >
-        {!sucess && (title || "Đăng ký ")}
-        {sucess && "Thành công"}
-      </Heading>
-
-      {!sucess && (
-        <Formik
-          initialValues={{
-            name: "",
-            phone: "",
-            "name-child": "",
-            class: "",
-            course: "",
-            email: "",
-            place: "",
-          }}
-          onSubmit={(values, actions) => {
-            handleSubmit(values, actions);
-          }}
-        >
-          {(props) => (
-            <Form>
-              <VStack spacing={"34px"}>
-                <Field name="name" validate={validateName}>
-                  {({ field, form }: { field: InputProps; form: any }) => (
-                    <FormControl
-                      isRequired
-                      isInvalid={form.errors.name && form.touched.name}
-                    >
-                      <Input
-                        {...field}
-                        bg={"white"}
-                        type="text"
-                        name="name"
-                        placeholder="Nhập họ tên bạn..."
-                        _placeholder={{ color: "#6787c0" }}
-                        color="#6787c0"
-                      />
-                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-                <Field name="email">
-                  {({ field, form }: { field: InputProps; form: any }) => (
-                    <FormControl flex={1}>
-                      <Input
-                        {...field}
-                        bg={"white"}
-                        type="email"
-                        name="email"
-                        placeholder="Nhập email..."
-                        _placeholder={{ color: "#6787c0" }}
-                        color="#6787c0"
-                      />
-                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-                <Field name="phone" validate={validatePhone}>
-                  {({ field, form }: { field: InputProps; form: any }) => (
-                    <FormControl
-                      isRequired
-                      flex={1}
-                      isInvalid={form.errors.phone && form.touched.phone}
-                    >
-                      <Input
-                        {...field}
-                        bg={"white"}
-                        type="tel"
-                        name="phone"
-                        _placeholder={{ color: "#6787c0" }}
-                        color="#6787c0"
-                        placeholder="Nhập số điện thoại..."
-                      />
-                      <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-          
-
-                <Field name="course">
-                  {({ field, form }: { field: SelectProps; form: any }) => (
-                    <FormControl>
-                      <Select
-                        {...field}
-                        bg={"white"}
-                        placeholder="Chọn ngành học"
-                        name="course"
-                        _placeholder={{ color: "#6787c0" }}
-                        color="#6787c0"
-                      >
-                        <option>Ngành kế toán</option>
-                        <option>Ngành quản trị kinh doanh</option>
-                      </Select>
-                      <FormErrorMessage>{form.errors?.course}</FormErrorMessage>
-                    </FormControl>
-                  )}
-                </Field>
-
-                <BtnThemeContacts
-                  isLoading={props.isSubmitting}
-                  type="submit"
-                  colorScheme="red"
-                  w={"full"}
-                  mt={"24px"}
-                  mb="25px"
-                >
-                  Đăng ký tư vấn
-                </BtnThemeContacts>
-              </VStack>
-            </Form>
-          )}
-        </Formik>
-      )}
-
-      {sucess && (
-        <Center flexDir={"column"}>
-          <Image
-            priority
-            src={"/success-icon.png"}
-            width={100}
-            height={100}
-            alt="Thành công"
-          />
-          <Text fontWeight={600} color={"green.700"} pt={"16px"}>
-            Chúng tôi sẽ liên hệ lại với bạn!
-          </Text>
-        </Center>
-      )}
-    </Box>
-  );
-}; */
 export const FormGetFly2 = ({ title }: { title?: string }) => {
   useEffect(() => {
     comonForm({

@@ -3,9 +3,7 @@ import { ReactNode } from "react";
 import { Footer } from "./footer";
 import { Header } from "./header";
 
-
 import dynamic from "next/dynamic";
-
 
 const BackToTop = dynamic(
   () => import("./components/BackToTop").then((mod) => mod.BackToTop),
@@ -22,10 +20,8 @@ const Layout = ({ children }: ILayout) => {
     <>
       <Header />
       <main>{children}</main>
-       <BackToTop />
+      <BackToTop />
       <Footer />
-
-    
     </>
   );
 };

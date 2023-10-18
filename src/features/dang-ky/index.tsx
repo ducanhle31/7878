@@ -21,6 +21,7 @@ export const Lienhe = () => {
         position="relative"
       >
         <Image
+          priority
           alt="Mountains"
           src={"/dang-ky-bg.png"}
           quality={100}

@@ -5,7 +5,6 @@ import {
   Divider,
   GridItem,
   Heading,
-  Link,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";

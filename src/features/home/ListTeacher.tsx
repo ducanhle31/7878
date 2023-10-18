@@ -28,7 +28,6 @@ import "swiper/css/pagination";
 import { A11y, Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
-
 export const CardTeacher = ({
   title,
   desc,
@@ -251,7 +250,7 @@ export const ListTeacher = () => {
           >
             <Text pt={"20px"} lineHeight={"30px"}>
               Bạn đang muốn tìm trường Đại Học chất lượng, phương pháp học hiện
-              đại, tiết kiệm thời gian chi phí? 
+              đại, tiết kiệm thời gian chi phí?
             </Text>
             <Text color="#fe9800" lineHeight={"30px"}>
               Chương trình đại học HỆ TỪ XA tại AOF sẽ giúp bạn điều đó!

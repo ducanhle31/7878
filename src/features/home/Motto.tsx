@@ -11,11 +11,11 @@ import {
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { FaUniversity } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaUniversity } from "react-icons/fa";
 
 export const Item = ({
   name,

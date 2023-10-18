@@ -26,6 +26,7 @@ export const BoxTest = () => {
         position="relative"
       >
         <Image
+          priority
           alt="Mountains"
           src={"/AOF-bg-lkg.png"}
           quality={100}
@@ -188,7 +189,7 @@ export const BoxTest = () => {
         </Container>
       </Box>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormGetFly1 title="Để lại thông tin"  />
+        <FormGetFly1 title="Để lại thông tin" />
       </ModalBase>
     </>
   );

@@ -12,7 +12,12 @@ export const DangkyTc = () => {
         minH={"50vh"}
         mt={{ base: "140px", md: "150px", lg: "120px" }}
       >
-        <Heading fontSize="36px" color="blue.700" pb={"24px" } textAlign='center'>
+        <Heading
+          fontSize="36px"
+          color="blue.700"
+          pb={"24px"}
+          textAlign="center"
+        >
           Đăng ký thành công!
         </Heading>
 
@@ -27,7 +32,7 @@ export const DangkyTc = () => {
           pt={"25px"}
           px={{ base: "20px", md: "100px", lg: "400px" }}
           display="inline"
-          fontSize='18px'
+          fontSize="18px"
         >
           <Text display="inline" color="red">
             Học viện Tài Chính{" "}
@@ -45,22 +50,25 @@ export const DangkyTc = () => {
           Cảm ơn và hẹn gặp lại bạn tại buổi khai giảng gần nhất tại Học viện
           Tài Chính ^^
         </Text>
-        <Button as={Link} href={"/"}
-      color={"white"}
-      size={"md"}
-      rounded={"sm"}
-mt='30px' mb='60px'
-      bg={"#007bff"}
-      transition={"all ease .4s"}
-      borderRadius={"100px"}
-      h={"50px"}
-      _hover={{
-        background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
-        transform: "translateY(-4px)",
-      }}
-    >
-    Về Trang chủ
-    </Button>
+        <Button
+          as={Link}
+          href={"/"}
+          color={"white"}
+          size={"md"}
+          rounded={"sm"}
+          mt="30px"
+          mb="60px"
+          bg={"#007bff"}
+          transition={"all ease .4s"}
+          borderRadius={"100px"}
+          h={"50px"}
+          _hover={{
+            background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
+            transform: "translateY(-4px)",
+          }}
+        >
+          Về Trang chủ
+        </Button>
       </Center>
     </Box>
   );

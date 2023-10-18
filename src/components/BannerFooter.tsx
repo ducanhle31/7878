@@ -95,10 +95,9 @@ export const Counter = (props: ICounter) => {
             <Image
               width={48}
               height={48}
-              objectFit="cover"
               src={image}
               alt="Dan "
-              style={{width:"48px",height:"48px"}}
+              style={{ width: "48px", height: "48px", objectFit: "cover" }}
             />
           ) : null}
           <Flex
@@ -210,9 +209,9 @@ export const BannerFooter = () => {
               <Image
                 width={498}
                 height={101}
-                objectFit="cover"
                 src="/logo-aof.png"
                 alt="Dan "
+                style={{ objectFit: "cover" }}
               />
             </GridItem>
           </Grid>

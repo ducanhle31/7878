@@ -33,7 +33,6 @@ interface IBranch {
   procedure: string[];
   work: string[];
   workjobs: string[];
-
 }
 
 export const Accs = ({
@@ -83,7 +82,7 @@ export const Accs = ({
 };
 
 export const Branch = (props: IBranch) => {
-  const { name, overview, jobs, program, person, procedure, work, workjobs, } =
+  const { name, overview, jobs, program, person, procedure, work, workjobs } =
     props;
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
@@ -96,7 +95,7 @@ export const Branch = (props: IBranch) => {
           borderColor={"#f5750d"}
           style={{ borderBottomWidth: "4px" }}
         />
-        
+
         <Text
           fontWeight={"bold"}
           textAlign={"left"}
@@ -226,7 +225,7 @@ export const Branch = (props: IBranch) => {
         </Box>
       </Box>
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormGetFly1 title="Để lại thông tin"  />
+        <FormGetFly1 title="Để lại thông tin" />
       </ModalBase>
     </Box>
   );
