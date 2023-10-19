@@ -22,36 +22,60 @@ export const Timer = () => {
   const [min, setMin] = useState<number>(0);
   const [sec, setSec] = useState<number>(0);
 
-  const targetDate: Date = new Date("2023-10-19T00:00:00.000Z");
-
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      const currentDate: Date = new Date();
-      const timeDifference: number =
-        targetDate.getTime() - currentDate.getTime();
+    const getLichKg = async () => {
+      try {
+        const res = await fetch("/api/data-lichKg");
+        const data = await res.json();
+        const newList: string[] = data?.list || [];
+        const dateString = newList.find((item) => {
+          const datePattern = /(\d{2})\/(\d{2})\/(\d{4})/;
+          return datePattern.test(item);
+        });
 
-      if (timeDifference <= 0) {
-        clearInterval(intervalId);
-        setDays(0);
-        setHr(0);
-        setMin(0);
-        setSec(0);
-        setLoading(false);
-      } else {
-        const remainingSeconds: number = Math.floor(timeDifference / 1000);
-        const remainingMinutes: number = Math.floor(remainingSeconds / 60);
-        const remainingHours: number = Math.floor(remainingMinutes / 60);
+        if (dateString) {
+          const matchArray = dateString.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+          const [, day, month, year] = matchArray ? matchArray : [];
+          const formattedDate = `${year}-${month}-${day}T00:00:00.000Z`;
+          const newTargetDate: Date = new Date(formattedDate);
 
-        setDays(Math.floor(remainingHours / 24));
-        setHr(remainingHours % 24);
-        setMin(remainingMinutes % 60);
-        setSec(remainingSeconds % 60);
-        setLoading(false);
+          const intervalId = setInterval(() => {
+            const currentDate: Date = new Date();
+            const timeDifference: number =
+              newTargetDate.getTime() - currentDate.getTime();
+
+            if (timeDifference <= 0) {
+              clearInterval(intervalId);
+              setDays(0);
+              setHr(0);
+              setMin(0);
+              setSec(0);
+              setLoading(false);
+            } else {
+              const remainingSeconds: number = Math.floor(
+                timeDifference / 1000
+              );
+              const remainingMinutes: number = Math.floor(
+                remainingSeconds / 60
+              );
+              const remainingHours: number = Math.floor(remainingMinutes / 60);
+
+              setDays(Math.floor(remainingHours / 24));
+              setHr(remainingHours % 24);
+              setMin(remainingMinutes % 60);
+              setSec(remainingSeconds % 60);
+              setLoading(false);
+            }
+          }, 1000);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    }, 1000);
+    };
 
-    return () => clearInterval(intervalId);
+    getLichKg();
   }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -204,6 +228,7 @@ export const Power = () => {
           </GridItem>
         </SimpleGrid>
       </Container>
+
       <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
         <FormGetFly1 title="Để lại thông tin" />
       </ModalBase>

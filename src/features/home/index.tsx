@@ -2,6 +2,7 @@
 
 import { BtnMes, BtnPhone, BtnZalo } from "@/components/BtnCTA";
 import { Loading } from "@/components/Loading";
+import { useSize } from "@/hooks/useSizeWindow";
 import { Box, VStack, useDisclosure } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
@@ -9,7 +10,6 @@ import { useEffect } from "react";
 const Banner = dynamic(() => import("./Banner").then((mod) => mod.Banner), {
   loading: () => <Loading />,
 });
-
 
 const Categorys = dynamic(
   () => import("./Categorys").then((mod) => mod.Categorys),
@@ -65,12 +65,12 @@ export const Home = () => {
   return (
     <>
       <Banner />
-  
+
       <ListTeacher />
       <Power />
       <Trend />
       <Testi />
-  {/*   <ListPerson />
+      {/*   <ListPerson />
       <Contact />
       <Review />
       <Service />

@@ -1,4 +1,4 @@
-import { FormContactBanner } from "@/components/FormContact";
+import { FormGetFly2 } from "@/components/FormContact";
 import {
   AspectRatio,
   Box,
@@ -238,8 +238,14 @@ export const BannerFooter = () => {
             />
           ))}
         </GridItem>
-        <GridItem mt="-20px" w="100%" mb="0px" colSpan={7}>
-          <FormContactBanner />
+        <GridItem
+          px={{ base: "0", md: "30px" }}
+          mb={"50px"}
+          mt="-20px"
+          w="100%"
+          colSpan={7}
+        >
+          <FormGetFly2 />
         </GridItem>
       </SimpleGrid>
 

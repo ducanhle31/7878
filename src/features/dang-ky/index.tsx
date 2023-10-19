@@ -1,4 +1,4 @@
-import { FormContactLienhe } from "@/components/FormContact";
+import { FormGetFly2 } from "@/components/FormContact";
 import {
   Box,
   Container,
@@ -97,7 +97,8 @@ export const Lienhe = () => {
               flexDirection={"column"}
               pb={{ base: "50px", lg: "140px" }}
             >
-              <FormContactLienhe />
+              <FormGetFly2/>
+            {/*   <FormContactLienhe /> */}
             </GridItem>
           </SimpleGrid>
         </Container>

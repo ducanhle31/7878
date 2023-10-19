@@ -25,16 +25,16 @@ export default async function handler(
     // });
     // const cats: any[] = (await resCats.json()) || [];
     // const newCat = cats?.find((cat) => cat.name === "Tin Tức");
-    const idNew = 4;
+    const idNew = 1;
     // const notifiCat = cats?.find((cat) => cat.name === "Thông báo");
-    const idNotifi = 3;
+    const idNotifi = 4;
     const id = type === "news" ? idNew : type === "notifis" ? idNotifi : null;
-  /*   const endPoint = id
+   const endPoint = id
       ? `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}&categories=${id}`
-      : `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`; */
-      const endPoint = id
-      ? `${api_url}/posts?categories=82&per_page=10&_embed`
-      : `${api_url}/posts?categories=82&per_page=10&_embed`;
+      : `${api_url}/posts?_embed&per_page=10&status=publish&page=${page}`; 
+    /*   const endPoint = id
+      ? `${api_url}/posts?categories&per_page=10&_embed`
+      : `${api_url}/posts?categories&per_page=10&_embed`; */
     //get posts category==='tin-tuc'
     const res = await fetch(endPoint, {
       next: { revalidate: 1 },
