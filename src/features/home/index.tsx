@@ -70,14 +70,15 @@ export const Home = () => {
       <Power />
       <Trend />
       <Testi />
-      {/*   <ListPerson />
+    
+     <ListPerson />
       <Contact />
       <Review />
       <Service />
       <Map />
       <Pricing />
 
-      <Event />  */}
+      <Event />
 
       <ModalBase isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
       {/*   <Box

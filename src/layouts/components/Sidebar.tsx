@@ -76,7 +76,7 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
         >
           Các ngành đào tạo
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 3, lg: 1 }} gap={"20px"}>
+        <SimpleGrid columns={{ base: 1, md: 1, lg: 1 }} gap={"20px"}>
           {categotys.map((cat, index) => (
             <Item
               key={index}

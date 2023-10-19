@@ -35,8 +35,8 @@ const Page = () => {
   return (
     <>
       <NextSeo
-        title="Lịch khải Giảng - Đại học Thái Nguyên"
-        description="Lịch khải giảng hệ đào tạo từ xa Đại học Thái nguyên - hệ đại học từ xa"
+        title="Lịch khải Giảng - Học viên tài chính"
+        description="Lịch khải giảng hệ đào tạo từ xa Học viên tài chính - hệ đại học từ xa"
       />
       <LichKg list={list} isLoading={isLoading} />
     </>

@@ -35,7 +35,7 @@ export const LayoutNganh = ({
           brightness="60%"
           bgSize="cover"
           bgRepeat={"no-repeat"}
-          bgPosition={"0px -160px"}
+          bgPosition={{lg:"0px -160px", base:"0"}}
         ></Box>
 
         <Container maxW={"6xl"} py="62px">
