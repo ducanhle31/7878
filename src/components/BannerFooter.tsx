@@ -244,6 +244,7 @@ export const BannerFooter = () => {
           mt="-20px"
           w="100%"
           colSpan={7}
+          zIndex={10}
         >
           <FormGetFly2 />
         </GridItem>

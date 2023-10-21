@@ -10,7 +10,7 @@ import {
   List,
   SimpleGrid,
   Text,
-  useDisclosure,
+  useDisclosure,Grid 
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -77,7 +77,11 @@ export const Timer = () => {
   }, []);
 
   if (loading) {
-    return <Loading />;
+    return (
+      <Grid placeItems={"center"} height={"40vh"}>
+        Dữ liệu đang được chúng tôi cập nhập
+      </Grid>
+    );
   }
   return (
     <List
@@ -119,7 +123,7 @@ export const Power = () => {
           gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         >
           <GridItem>
-            <Image
+            <Image priority
               src={`/AOF-tuyen-sinh.png`}
               width={1080}
               height={1080}

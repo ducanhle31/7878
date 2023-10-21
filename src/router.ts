@@ -1,3 +1,12 @@
+export type TMenus = {
+  path: string;
+  title: string;
+  childs?: {
+    path: string;
+    title: string;
+  }[];
+}[];
+
 export const menus = [
   {
     path: "/", // the url

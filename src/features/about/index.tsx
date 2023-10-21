@@ -1,17 +1,20 @@
 "use client";
 
+import { FormGetFly1 } from "@/components/FormContact";
+import { ModalBase } from "@/components/Modal";
 import {
   Box,
   Button,
   Container,
   Grid,
   Heading,
-  Link,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
 export const About = () => {
+  const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
   return (
     <Box color={"blue.800"}>
       <Box
@@ -107,8 +110,6 @@ export const About = () => {
         <Text>Cờ thi đua của Chính phủ và nhiều phần thưởng cao quý khác.</Text>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Button
-            as={Link}
-            href="/dang-ky"
             color={"white"}
             size={"md"}
             rounded={"sm"}
@@ -121,11 +122,15 @@ export const About = () => {
               background: "linear-gradient(70deg, #f68920 0%, #fc5934 100%)",
               textDecoration: "none",
             }}
+            onClick={onToggle}
           >
             NHẬN TƯ VẤN MIỄN PHÍ
           </Button>
         </Box>
       </Container>
+      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
+        <FormGetFly1 title="Để lại thông tin" />
+      </ModalBase>
     </Box>
   );
 };

@@ -74,11 +74,11 @@ export const Trend = () => {
           >
             <GridItem>
               <Image
-                src={"/AOF-xh.png"}
+                src={"/TX2.jpg"}
                 alt="Học Viện Tài Chính"
-                width={1080}
-                height={1080}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                width={3768}
+                height={2529}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "  -50px 0px ",  }}
               />
             </GridItem>
             <GridItem>
@@ -141,7 +141,7 @@ export const Trend = () => {
           >
             <GridItem>
               <Image
-                src={"/AOF-xh-a.png"}
+                src={"/XT3.jpg"}
                 alt="Học Viện Tài Chính"
                 width={1080}
                 height={1080}

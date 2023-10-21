@@ -30,7 +30,7 @@ export const ModalBase = (props: IModalBase) => {
                 <FormGetFly1 title="Để lại thông tin" />
               </GridItem>
               <GridItem display={{ base: "none", md: "block" }}>
-                <Image
+                <Image priority
                   style={{
                     objectFit: "contain",
                     width: "100%",
