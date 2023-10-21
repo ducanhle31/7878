@@ -1,4 +1,3 @@
-import { BoxTest } from "@/components/BoxTest";
 import { Frame } from "@/components/Frame";
 import { Loading } from "@/components/Loading";
 

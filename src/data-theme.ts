@@ -33,10 +33,7 @@ export const data_themes = {
       path: "/dang-ky", // the url
       title: "Đăng ký",
     },
-    {
-      path: "/tin-tuc", // the url
-      title: "Tin tức", // view rendered
-    },
+  
   ],
 
   layouts: {
