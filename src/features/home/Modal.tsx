@@ -6,8 +6,9 @@ import {
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
+  Image,
 } from "@chakra-ui/react";
-import Image from "next/image";
+
 import { FormGetFly1 } from "../../components/FormContact";
 
 interface IModalBase {
@@ -30,7 +31,7 @@ export const ModalBase = (props: IModalBase) => {
                 <FormGetFly1 title="Để lại thông tin" />
               </GridItem>
               <GridItem display={{ base: "none", md: "block" }}>
-                <Image priority
+                <Image
                   style={{
                     objectFit: "contain",
                     width: "100%",
@@ -38,8 +39,6 @@ export const ModalBase = (props: IModalBase) => {
                   }}
                   src="/popup.png"
                   alt="popup"
-                  width={2492}
-                  height={3751}
                 />
               </GridItem>
             </Grid>

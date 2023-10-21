@@ -7,10 +7,10 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalOverlay,
+  ModalOverlay,Image 
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
-import Image from "next/image";
+
 
 interface IModalBase {
   isOpen: boolean;
@@ -39,8 +39,7 @@ export const ModalBase = (props: IModalBase) => {
                   }}
                   src="/popup.png"
                   alt="popup"
-                  width={2492}
-                  height={3751}
+                
                 />
               </GridItem>
             </Grid>
