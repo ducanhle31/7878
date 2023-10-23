@@ -10,7 +10,7 @@ import {
   List,
   SimpleGrid,
   Text,
-  useDisclosure,Grid 
+  useDisclosure,Grid
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -78,7 +78,7 @@ export const Timer = () => {
 
   if (loading) {
     return (
-      <Grid placeItems={"center"} height={"40vh"}>
+      <Grid placeItems={"center"} height={"10vh"}>
         Dữ liệu đang được chúng tôi cập nhập
       </Grid>
     );
@@ -123,7 +123,8 @@ export const Power = () => {
           gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
         >
           <GridItem>
-            <Image priority
+            <Image
+              priority
               src={`/AOF-tuyen-sinh.png`}
               width={1080}
               height={1080}
@@ -154,7 +155,7 @@ export const Power = () => {
               >
                 TUYỂN SINH 2023
               </Text>
-              <Text textAlign={"left"} pt={"12px"} fontSize={"16px"}>
+              <Text textAlign={"left"} pt={"12px"} fontSize={"18px"}>
                 Xét tuyển theo hồ sơ học bạ THPT, Văn bằng; Nhận hồ sơ liên tục
                 trong năm
               </Text>
@@ -178,14 +179,14 @@ export const Power = () => {
               >
                 1. Đối tượng tuyển sinh
               </Text>
-              <Text textAlign={"left"} pt={"10px"} fontSize={"16px"}>
+              <Text textAlign={"left"} pt={"10px"} fontSize={"18px"}>
                 Sinh viên đang theo tại các trường đại học, cao đẳng.
               </Text>
-              <Text textAlign={"left"} fontSize={"16px"}>
+              <Text textAlign={"left"} fontSize={"18px"}>
                 Cán bộ, công chức, người đang làm việc tại các cơ quan, tổ chức,
                 doanh nghiệp nhà nước, tư nhân, … đã có bằng tốt nghiệp THPT
               </Text>{" "}
-              <Text textAlign={"left"} fontSize={"16px"}>
+              <Text textAlign={"left"} fontSize={"18px"}>
                 Những người đã có bằng tốt nghiệp THPT hoặc tương đương trở lên.
               </Text>
               <Text

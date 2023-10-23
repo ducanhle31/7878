@@ -10,6 +10,7 @@ import {
   SimpleGrid,
   Text,
   useDisclosure,
+  Grid,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -175,7 +176,11 @@ export const Frame = ({ list1 }: { list1?: string[] }) => {
             }
             return null;
           })}
-
+          {list1?.length === 0 && (
+            <Grid color={"white"} placeItems={"center"} height={"10vh"}>
+              Dữ liệu đang được chúng tôi cập nhập
+            </Grid>
+          )}
           <Text
             fontSize={"16px"}
             lineHeight={"24px"}

@@ -76,9 +76,14 @@ export const Trend = () => {
               <Image
                 src={"/TX2.jpg"}
                 alt="Học Viện Tài Chính"
-                width={3768}
-                height={2529}
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "  -50px 0px ",  }}
+                width={1080}
+                height={1080}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "  -50px 0px ",
+                }}
               />
             </GridItem>
             <GridItem>
@@ -127,7 +132,8 @@ export const Trend = () => {
             </GridItem>
           </Grid>
           <Grid
-            my={{ base: "300px", md: "400px", lg: "0px" }}
+            mt={{ base: "150px", md: "400px", lg: "0px" }}
+            mb={{ base: "450px", md: "450px", lg: "0px" }}
             h={"460px"}
             boxShadow={{
               base: "none",
@@ -143,8 +149,8 @@ export const Trend = () => {
               <Image
                 src={"/XT3.jpg"}
                 alt="Học Viện Tài Chính"
-                width={1080}
-                height={1080}
+                width={500}
+                height={800}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </GridItem>

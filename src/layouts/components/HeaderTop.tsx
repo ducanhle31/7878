@@ -24,7 +24,7 @@ const International = () => {
           mr={"10px"}
         />
         <VStack color="white" fontSize={{ base: ".5rem", lg: "15px" }}>
-          <Text fontWeight={600}>Hot line: 094.162.8017</Text>
+          <Text fontWeight={600}>Hotline: 094.162.8017</Text>
           <Divider borderColor={"gray.400"} />
           <Text>Thứ 2 - Thứ 7</Text>
         </VStack>
