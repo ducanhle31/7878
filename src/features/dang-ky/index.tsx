@@ -1,4 +1,4 @@
-import { FormGetFly2 } from "@/components/FormContact";
+import { FormMain } from "@/components/FormContact";
 import {
   Box,
   Container,
@@ -10,8 +10,26 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
 export const Lienhe = () => {
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href]);
   return (
     <>
       <Box
@@ -97,8 +115,7 @@ export const Lienhe = () => {
               flexDirection={"column"}
               pb={{ base: "50px", lg: "140px" }}
             >
-              <FormGetFly2/>
-            {/*   <FormContactLienhe /> */}
+              <FormMain id={id} href={href} />
             </GridItem>
           </SimpleGrid>
         </Container>

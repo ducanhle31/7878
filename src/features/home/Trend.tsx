@@ -197,13 +197,7 @@ export const Trend = () => {
             </GridItem>
           </Grid>
         </SimpleGrid>
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          width="100%"
-          bgPosition="center"
-        ></Box>
+      
       </Container>
     </Box>
   );

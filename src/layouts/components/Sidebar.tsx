@@ -1,7 +1,8 @@
 "use client";
 
-import { FormGetFly2 } from "@/components/FormContact";
+import { FormMain } from "@/components/FormContact";
 import { categotys } from "@/features/home/Categorys";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -65,6 +66,23 @@ export const Item = ({
 };
 
 export const Sidebar = ({ sticky }: { sticky?: string }) => {
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href]);
   return (
     <Box pos={sticky ? "sticky" : "static"} top={sticky}>
       <Box>
@@ -76,7 +94,7 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
         >
           Các ngành đào tạo
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 3, lg: 1 }} gap={"20px"}>
+        <SimpleGrid columns={{ base: 1, md: 1, lg: 1 }} gap={"20px"}>
           {categotys.map((cat, index) => (
             <Item
               key={index}
@@ -162,7 +180,7 @@ export const Sidebar = ({ sticky }: { sticky?: string }) => {
         >
           Đăng ký tư vấn
         </Heading>
-        <FormGetFly2 />
+        <FormMain id={id} href={href} />
       </Box>
     </Box>
   );

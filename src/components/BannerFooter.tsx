@@ -1,9 +1,11 @@
-import { FormGetFly2 } from "@/components/FormContact";
+import { FormMain } from "@/components/FormContact";
 import {
   AspectRatio,
   Box,
+  Button,
   Divider,
   Flex,
+  Grid,
   GridItem,
   Heading,
   Modal,
@@ -12,12 +14,11 @@ import {
   SimpleGrid,
   Text,
   useDisclosure,
-  Button,
-  Grid,
 } from "@chakra-ui/react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { AiFillCaretRight } from "react-icons/ai";
-import Image from "next/image";
 
 interface ICounter {
   start: number;
@@ -140,6 +141,24 @@ export const Counter = (props: ICounter) => {
 
 export const BannerFooter = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-main`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href]);
+
   return (
     <Box
       bgColor="white"
@@ -246,7 +265,7 @@ export const BannerFooter = () => {
           colSpan={7}
           zIndex={10}
         >
-          <FormGetFly2 />
+          <FormMain id={id} href={href} title="Để lại thông tin" />
         </GridItem>
       </SimpleGrid>
 

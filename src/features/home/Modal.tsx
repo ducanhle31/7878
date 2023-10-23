@@ -1,24 +1,25 @@
+
+
 import {
   Grid,
   GridItem,
+  Image,
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,
-  Image,
 } from "@chakra-ui/react";
-
-import { FormGetFly1 } from "../../components/FormContact";
+import { ReactNode } from "react";
 
 interface IModalBase {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  form: ReactNode;
 }
-
 export const ModalBase = (props: IModalBase) => {
-  const { onClose, isOpen } = props;
+  const { onClose, isOpen, form } = props;
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={"2xl"} isCentered>
@@ -27,9 +28,7 @@ export const ModalBase = (props: IModalBase) => {
           <ModalCloseButton />
           <ModalBody rounded={"xl"} p={0}>
             <Grid gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}>
-              <GridItem>
-                <FormGetFly1 title="Để lại thông tin" />
-              </GridItem>
+              <GridItem>{form}</GridItem>
               <GridItem display={{ base: "none", md: "block" }}>
                 <Image
                   style={{

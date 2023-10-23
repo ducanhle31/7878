@@ -1,6 +1,6 @@
 "use client";
 
-import { FormGetFly1 } from "@/components/FormContact";
+import { FormPoup } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
 import {
   Accordion,
@@ -21,6 +21,7 @@ import {
   UnorderedList,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { BsCheckLg } from "react-icons/bs";
 
@@ -85,6 +86,23 @@ export const Branch = (props: IBranch) => {
   const { name, overview, jobs, program, person, procedure, work, workjobs } =
     props;
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-poup`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href]);
   return (
     <Box color={"blue.800"}>
       <Flex>
@@ -224,9 +242,13 @@ export const Branch = (props: IBranch) => {
           ))}
         </Box>
       </Box>
-      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormGetFly1 title="Để lại thông tin" />
-      </ModalBase>
+
+      <ModalBase
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+        form={<FormPoup id={id} href={href} title="Để lại thông tin" />}
+      />
     </Box>
   );
 };

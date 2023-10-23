@@ -1,5 +1,6 @@
-import { FormGetFly1 } from "@/components/FormContact";
+import { FormPoup } from "@/components/FormContact";
 import { ModalBase } from "@/components/Modal";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -8,14 +9,31 @@ import {
   Flex,
   Heading,
   SimpleGrid,
+  Grid,
   Text,
   useDisclosure,
-  Grid,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
 export const Frame = ({ list1 }: { list1?: string[] }) => {
   const { onToggle, onOpen, onClose, isOpen } = useDisclosure();
+  const [id, setId] = useState("");
+  const [href, setHref] = useState("");
+  useEffect(() => {
+    const getForm = async () => {
+      try {
+        const res = await fetch(`/api/data-form/?type=form-poup`);
+        const data = await res.json();
+        const id = data?.id || "";
+        id && setId(id);
+        const href = data?.href || "";
+        href && setHref(href);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getForm();
+  }, [id, href]);
   return (
     <>
       <Box
@@ -215,9 +233,13 @@ export const Frame = ({ list1 }: { list1?: string[] }) => {
           </Flex>
         </Container>
       </Box>
-      <ModalBase isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
-        <FormGetFly1 title="Để lại thông tin" />
-      </ModalBase>
+
+      <ModalBase
+        isOpen={isOpen}
+        onClose={onClose}
+        onOpen={onOpen}
+        form={<FormPoup id={id} href={href} title="Để lại thông tin" />}
+      />
     </>
   );
 };
